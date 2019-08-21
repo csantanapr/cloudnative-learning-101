@@ -210,11 +210,11 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre># Clone the sample app
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># Clone the sample app
 git clone https://github.com/ibm-cloud-architecture/cloudnative_sample_app.git
 
 # Go to the project's root folder
-cd cloudnative_sample_app/</pre>
+cd cloudnative_sample_app/</code></pre>
 </div>
 </div>
 </div>
@@ -330,7 +330,7 @@ cd cloudnative_sample_app/</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;
     &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
@@ -393,7 +393,7 @@ cd cloudnative_sample_app/</pre>
         &lt;/plugins&gt;
     &lt;/build&gt;
 
-&lt;/project&gt;</pre>
+&lt;/project&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -432,13 +432,13 @@ cd cloudnative_sample_app/</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>@SpringBootApplication
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@SpringBootApplication
 public class SBApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SBApplication.class, args);
     }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -465,7 +465,7 @@ public class SBApplication {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>package application.model;
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package application.model;
 
 public class Greeting {
 
@@ -485,7 +485,7 @@ public class Greeting {
     public String getContent() {
         return content;
     }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -499,7 +499,7 @@ public class Greeting {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>package application.rest;
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package application.rest;
 
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -532,7 +532,7 @@ public class GreetingController {
         		welcomeMsg+" "+String.format(template, name));
     }
 
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -551,7 +551,7 @@ public class GreetingController {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>greetings=Welcome to Cloudnative bootcamp !!!
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">greetings=Welcome to Cloudnative bootcamp !!!
 
 # info endpoint
 info.app.name=Greetings application
@@ -559,7 +559,7 @@ info.app.description=Demo application for bootcamp
 info.app.version=1.0.0
 
 # Enabling all management endpoints
-management.security.enabled=false</pre>
+management.security.enabled=false</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -567,8 +567,8 @@ management.security.enabled=false</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>@Value("${greetings}")
-private String welcomeMsg;</pre>
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Value("${greetings}")
+private String welcomeMsg;</code></pre>
 </div>
 </div>
 </div>
@@ -584,7 +584,7 @@ private String welcomeMsg;</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>package application.rest;
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package application.rest;
 
 import org.springframework.boot.actuate.health.Health;
 import org.springframework.boot.actuate.health.HealthIndicator;
@@ -597,7 +597,7 @@ public class HealthEndpoint implements HealthIndicator {
   public Health health() {
     return Health.up().build();
   }
-}</pre>
+}</code></pre>
 </div>
 </div>
 </div>
@@ -626,7 +626,7 @@ public class HealthEndpoint implements HealthIndicator {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>Logger logger = LoggerFactory.getLogger(GreetingController.class);</pre>
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">Logger logger = LoggerFactory.getLogger(GreetingController.class);</code></pre>
 </div>
 </div>
 </div>
@@ -645,7 +645,7 @@ public class HealthEndpoint implements HealthIndicator {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>package application;
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package application;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -678,7 +678,7 @@ public class SwaggerConfig {
 		return new ApiInfoBuilder().title("Greetings Microservice").version("1.0.0").build();
 	}
 
-}</pre>
+}</code></pre>
 </div>
 </div>
 </div>
@@ -698,7 +698,7 @@ public class SwaggerConfig {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>mvn install</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">mvn install</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -710,7 +710,7 @@ public class SwaggerConfig {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>java -jar ./target/cloudnativesampleapp-1.0-SNAPSHOT.jar</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">java -jar ./target/cloudnativesampleapp-1.0-SNAPSHOT.jar</code></pre>
 </div>
 </div>
 </div>
@@ -727,7 +727,7 @@ public class SwaggerConfig {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>curl http://localhost:8080/greeting?name=John</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl http://localhost:8080/greeting?name=John</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -735,7 +735,7 @@ public class SwaggerConfig {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{"id":2,"content":"Welcome to Cloudnative bootcamp !!! Hello, John :)"}</pre>
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{"id":2,"content":"Welcome to Cloudnative bootcamp !!! Hello, John :)"}</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -747,7 +747,7 @@ public class SwaggerConfig {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>curl http://localhost:8080/info</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl http://localhost:8080/info</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -755,7 +755,7 @@ public class SwaggerConfig {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{"app":{"description":"Demo application for bootcamp","name":"Greetings application","version":"1.0.0"}}</pre>
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{"app":{"description":"Demo application for bootcamp","name":"Greetings application","version":"1.0.0"}}</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -767,7 +767,7 @@ public class SwaggerConfig {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>curl http://localhost:8080/health</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl http://localhost:8080/health</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -775,7 +775,7 @@ public class SwaggerConfig {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{"status":"UP","diskSpace":{"status":"UP","total":499963170816,"free":195645665280,"threshold":10485760},"refreshScope":{"status":"UP"},"hystrix":{"status":"UP"}}</pre>
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{"status":"UP","diskSpace":{"status":"UP","total":499963170816,"free":195645665280,"threshold":10485760},"refreshScope":{"status":"UP"},"hystrix":{"status":"UP"}}</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -787,7 +787,7 @@ public class SwaggerConfig {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>curl http://localhost:8080/metrics</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl http://localhost:8080/metrics</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -795,7 +795,7 @@ public class SwaggerConfig {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{"mem":705452,"mem.free":412452,"processors":8,"instance.uptime":440835,"uptime":456203,"systemload.average":2.98046875,"heap.committed":646656,"heap.init":262144,"heap.used":234203,"heap":3728384,"nonheap.committed":60864,"nonheap.init":2496,"nonheap.used":58797,"nonheap":0,"threads.peak":24,"threads.daemon":20,"threads.totalStarted":29,"threads":22,"classes":7338,"classes.loaded":7338,"classes.unloaded":0,"gc.ps_scavenge.count":12,"gc.ps_scavenge.time":99,"gc.ps_marksweep.count":2,"gc.ps_marksweep.time":173,"httpsessions.max":-1,"httpsessions.active":0,"gauge.response.greeting":5.0,"gauge.response.health":8.0,"counter.status.200.health":2,"counter.status.200.greeting":5}</pre>
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{"mem":705452,"mem.free":412452,"processors":8,"instance.uptime":440835,"uptime":456203,"systemload.average":2.98046875,"heap.committed":646656,"heap.init":262144,"heap.used":234203,"heap":3728384,"nonheap.committed":60864,"nonheap.init":2496,"nonheap.used":58797,"nonheap":0,"threads.peak":24,"threads.daemon":20,"threads.totalStarted":29,"threads":22,"classes":7338,"classes.loaded":7338,"classes.unloaded":0,"gc.ps_scavenge.count":12,"gc.ps_scavenge.time":99,"gc.ps_marksweep.count":2,"gc.ps_marksweep.time":173,"httpsessions.max":-1,"httpsessions.active":0,"gauge.response.greeting":5.0,"gauge.response.health":8.0,"counter.status.200.health":2,"counter.status.200.greeting":5}</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -807,7 +807,7 @@ public class SwaggerConfig {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>curl http://localhost:8080/trace</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl http://localhost:8080/trace</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -815,7 +815,7 @@ public class SwaggerConfig {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>[{"timestamp":1561648878611,"info":{"method":"GET","path":"/metrics","headers":{"request":{"host":"localhost:8080","user-agent":"curl/7.54.0","accept":"*/*"},"response":{"X-Application-Context":"application","Content-Type":"application/vnd.spring-boot.actuator.v1+json;charset=UTF-8","Transfer-Encoding":"chunked","Date":"Thu, 27 Jun 2019 15:21:18 GMT","status":"200"}},"timeTaken":"14"}},{"timestamp":1561648770090,"info":{"method":"GET","path":"/health","headers":{"request":{"host":"localhost:8080","connection":"keep-alive","upgrade-insecure-requests":"1","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.9","cookie":"JSESSIONID=0000Exd74POv8ESNuDJ0RCdlxzz:b8fac4f4-4300-45f4-a92c-558cddc26cbf"},"response":{"X-Application-Context":"application","Content-Type":"application/vnd.spring-boot.actuator.v1+json;charset=UTF-8","Transfer-Encoding":"chunked","Date":"Thu, 27 Jun 2019 15:19:30 GMT","status":"200"}},"timeTaken":"4"}},{"timestamp":1561648748298,"info":{"method":"GET","path":"/health","headers":{"request":{"host":"localhost:8080","user-agent":"curl/7.54.0","accept":"*/*"},"response":{"X-Application-Context":"application","Content-Type":"application/vnd.spring-boot.actuator.v1+json;charset=UTF-8","Transfer-Encoding":"chunked","Date":"Thu, 27 Jun 2019 15:19:08 GMT","status":"200"}},"timeTaken":"24"}},{"timestamp":1561648642317,"info":{"method":"GET","path":"/greeting","headers":{"request":{"host":"localhost:8080","user-agent":"curl/7.54.0","accept":"*/*"},"response":{"X-Application-Context":"application","Content-Type":"application/json;charset=UTF-8","Transfer-Encoding":"chunked","Date":"Thu, 27 Jun 2019 15:17:22 GMT","status":"200"}},"timeTaken":"4"}},{"timestamp":1561648540673,"info":{"method":"GET","path":"/greeting","headers":{"request":{"host":"localhost:8080","user-agent":"curl/7.54.0","accept":"*/*"},"response":{"X-Application-Context":"application","Content-Type":"application/json;charset=UTF-8","Transfer-Encoding":"chunked","Date":"Thu, 27 Jun 2019 15:15:40 GMT","status":"200"}},"timeTaken":"2"}},{"timestamp":1561648537651,"info":{"method":"GET","path":"/greeting","headers":{"request":{"host":"localhost:8080","user-agent":"curl/7.54.0","accept":"*/*"},"response":{"X-Application-Context":"application","Content-Type":"application/json;charset=UTF-8","Transfer-Encoding":"chunked","Date":"Thu, 27 Jun 2019 15:15:37 GMT","status":"200"}},"timeTaken":"4"}},{"timestamp":1561648529838,"info":{"method":"GET","path":"/greeting","headers":{"request":{"host":"localhost:8080","user-agent":"curl/7.54.0","accept":"*/*"},"response":{"X-Application-Context":"application","Content-Type":"application/json;charset=UTF-8","Transfer-Encoding":"chunked","Date":"Thu, 27 Jun 2019 15:15:29 GMT","status":"200"}},"timeTaken":"5"}},{"timestamp":1561648515701,"info":{"method":"GET","path":"/greeting","headers":{"request":{"host":"localhost:8080","user-agent":"curl/7.54.0","accept":"*/*"},"response":{"X-Application-Context":"application","Content-Type":"application/json;charset=UTF-8","Transfer-Encoding":"chunked","Date":"Thu, 27 Jun 2019 15:15:15 GMT","status":"200"}},"timeTaken":"83"}}]</pre>
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">[{"timestamp":1561648878611,"info":{"method":"GET","path":"/metrics","headers":{"request":{"host":"localhost:8080","user-agent":"curl/7.54.0","accept":"*/*"},"response":{"X-Application-Context":"application","Content-Type":"application/vnd.spring-boot.actuator.v1+json;charset=UTF-8","Transfer-Encoding":"chunked","Date":"Thu, 27 Jun 2019 15:21:18 GMT","status":"200"}},"timeTaken":"14"}},{"timestamp":1561648770090,"info":{"method":"GET","path":"/health","headers":{"request":{"host":"localhost:8080","connection":"keep-alive","upgrade-insecure-requests":"1","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.9","cookie":"JSESSIONID=0000Exd74POv8ESNuDJ0RCdlxzz:b8fac4f4-4300-45f4-a92c-558cddc26cbf"},"response":{"X-Application-Context":"application","Content-Type":"application/vnd.spring-boot.actuator.v1+json;charset=UTF-8","Transfer-Encoding":"chunked","Date":"Thu, 27 Jun 2019 15:19:30 GMT","status":"200"}},"timeTaken":"4"}},{"timestamp":1561648748298,"info":{"method":"GET","path":"/health","headers":{"request":{"host":"localhost:8080","user-agent":"curl/7.54.0","accept":"*/*"},"response":{"X-Application-Context":"application","Content-Type":"application/vnd.spring-boot.actuator.v1+json;charset=UTF-8","Transfer-Encoding":"chunked","Date":"Thu, 27 Jun 2019 15:19:08 GMT","status":"200"}},"timeTaken":"24"}},{"timestamp":1561648642317,"info":{"method":"GET","path":"/greeting","headers":{"request":{"host":"localhost:8080","user-agent":"curl/7.54.0","accept":"*/*"},"response":{"X-Application-Context":"application","Content-Type":"application/json;charset=UTF-8","Transfer-Encoding":"chunked","Date":"Thu, 27 Jun 2019 15:17:22 GMT","status":"200"}},"timeTaken":"4"}},{"timestamp":1561648540673,"info":{"method":"GET","path":"/greeting","headers":{"request":{"host":"localhost:8080","user-agent":"curl/7.54.0","accept":"*/*"},"response":{"X-Application-Context":"application","Content-Type":"application/json;charset=UTF-8","Transfer-Encoding":"chunked","Date":"Thu, 27 Jun 2019 15:15:40 GMT","status":"200"}},"timeTaken":"2"}},{"timestamp":1561648537651,"info":{"method":"GET","path":"/greeting","headers":{"request":{"host":"localhost:8080","user-agent":"curl/7.54.0","accept":"*/*"},"response":{"X-Application-Context":"application","Content-Type":"application/json;charset=UTF-8","Transfer-Encoding":"chunked","Date":"Thu, 27 Jun 2019 15:15:37 GMT","status":"200"}},"timeTaken":"4"}},{"timestamp":1561648529838,"info":{"method":"GET","path":"/greeting","headers":{"request":{"host":"localhost:8080","user-agent":"curl/7.54.0","accept":"*/*"},"response":{"X-Application-Context":"application","Content-Type":"application/json;charset=UTF-8","Transfer-Encoding":"chunked","Date":"Thu, 27 Jun 2019 15:15:29 GMT","status":"200"}},"timeTaken":"5"}},{"timestamp":1561648515701,"info":{"method":"GET","path":"/greeting","headers":{"request":{"host":"localhost:8080","user-agent":"curl/7.54.0","accept":"*/*"},"response":{"X-Application-Context":"application","Content-Type":"application/json;charset=UTF-8","Transfer-Encoding":"chunked","Date":"Thu, 27 Jun 2019 15:15:15 GMT","status":"200"}},"timeTaken":"83"}}]</code></pre>
 </div>
 </div>
 <div class="ulist">
