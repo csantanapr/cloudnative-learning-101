@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Cloud Native Framework &amp; Programming Model :: Cloudnative Learning 101</title>
+    <link rel="canonical" href="https://ibm-cloud-architecture.github.io/cloudnative-learning-101/cloudnative-learning-101/1.0.0/Cloud_Native_Module/Cloudnative_framework_prog_model.html">
+    <meta name="generator" content="Antora 2.0.0">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <p>Cloudnative Learning 101</p>
+      </div>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="cloudnative-learning-101" data-version="1.0.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Cloudnative Learning 101</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Cloud Native Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Cloudnative_Overview.html">Cloudnative Overview</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="Cloudnative_framework_prog_model.html">Cloudnative Framework &amp; Programming Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Cloudnative_app_development.html">Cloud Native App Development</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Lab1.html">Lab 1: Cloudnative App Development</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Kubernetes Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Docker.html">Containerization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Lab2.html">Lab 2: Docker</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/kubernetesPatterns.html">Kubernetes Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Lab3.html">Lab 3: Kubernetes Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Lab4.html">Lab 4: Deploy the app on Kube</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/operators.html">Helm/Operator Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Lab5.html">Lab 5: Deploy the app on Kube using Helm (TODO)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Cloud Foundry Migration Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../CF_Migrate_Module/Kubernetes-for-CF.html">Kubernetes for Cloud Foundry users</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../CF_Migrate_Module/CF-migration.html">CF Migration Tool</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://github.com/ibm-cloud-architecture/cf-transformation/blob/master/exercise/openshift.md">Lab 7: Migrate your app from CF to Kube (Openshift) - Github Link</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://github.com/ibm-cloud-architecture/cf-transformation/blob/master/exercise/iks.md">Lab 7: Migrate your app from CF to Kube (IKS) - Github link</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">DevOps Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/Devops_Concepts.html">DevOps Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/cicd.html">CI/CD</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/devops_tooling.html">Devops Tooling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/Lab8_Openshift.html">Lab 8: CI - Openshift</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/Lab8_IKS.html">Lab 8: CI - IKS</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/Lab9_OpenShift.html">Lab 9: CD - Openshift</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/Lab9_IKS.html">Lab 9: CD - IKS</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Cloudnative Learning 101</span>
+    <span class="version">1.0.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Cloudnative Learning 101</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main role="main">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Cloudnative Learning 101</a></li>
+    <li>Cloud Native Module</li>
+    <li><a href="Cloudnative_framework_prog_model.html">Cloudnative Framework &amp; Programming Model</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="file:///root/project/modules/ROOT/pages/Cloud_Native_Module/Cloudnative_framework_prog_model.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1 class="page">Cloud Native Framework &amp; Programming Model</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_cloud_native_application_framework">Cloud Native Application Framework</a>
+<ul class="sectlevel2">
+<li><a href="#_microservices">Microservices</a></li>
+<li><a href="#_devops">DevOps</a></li>
+<li><a href="#_continuous_delivery">Continuous Delivery</a></li>
+<li><a href="#_containers">Containers</a></li>
+</ul>
+</li>
+<li><a href="#_framework_programming_model">Framework &amp; Programming Model</a>
+<ul class="sectlevel2">
+<li><a href="#_best_of_breed_languages_and_frameworks">Best of breed languages and frameworks</a></li>
+<li><a href="#_container_orchestration">Container Orchestration</a></li>
+<li><a href="#_service_mesh">Service Mesh</a></li>
+<li><a href="#_programming_model">Programming Model</a></li>
+</ul>
+</li>
+<li><a href="#_references">References</a></li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this section, let us explore the concepts of cloud native framework and programming models that are used for building cloud applications.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_cloud_native_application_framework"><a class="anchor" href="#_cloud_native_application_framework"></a>Cloud Native Application Framework</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://github.com/cncf/toc/blob/master/DEFINITION.md#cncf-cloud-native-definition-v10">CNCF Cloud Native Definition v1.0</a></p>
+</div>
+<div class="paragraph">
+<p>Cloud native technologies empower organizations to build and run scalable applications in modern, dynamic environments such as public, private, and hybrid clouds. Containers, service meshes, microservices, immutable infrastructure, and declarative APIs exemplify this approach.</p>
+</div>
+<div class="paragraph">
+<p>These techniques enable loosely coupled systems that are resilient, manageable, and observable. Combined with robust automation, they allow engineers to make high-impact changes frequently and predictably with minimal toil.</p>
+</div>
+<div class="paragraph">
+<p>The Cloud Native Computing Foundation seeks to drive adoption of this paradigm by fostering and sustaining an ecosystem of open source, vendor-neutral projects. We democratize state-of-the-art patterns to make these innovations accessible for everyone.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/CloudNativeApp.png" alt="CloudNativeApp" width="640" height="480">
+</div>
+</div>
+<div class="paragraph">
+<p>The basic components of any cloud native architecture are</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Microservices</p>
+</li>
+<li>
+<p>DevOps</p>
+</li>
+<li>
+<p>Continuous Delivery</p>
+</li>
+<li>
+<p>Containers</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_microservices"><a class="anchor" href="#_microservices"></a>Microservices</h3>
+<div class="paragraph">
+<p>Microservices are small applications which are lightweight. This is an architectural style in which the application is a group of services.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>They are loosely coupled.</p>
+</li>
+<li>
+<p>They communicate with each other via application programming interfaces (APIs).</p>
+</li>
+</ul>
+</div>
+<div class="videoblock text-center">
+<div class="content">
+<iframe width="640" height="480" src="https://www.youtube.com/embed/CdBtNQZH8a4?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+<div class="paragraph">
+<p>To know more about Microservices, we have couple of resources. Feel free to check them out.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.ibm.com/cloud/learn/microservices">Microservices: A Complete Guide</a>.</p>
+</li>
+<li>
+<p><a href="https://developer.ibm.com/tv/microservices/">Microservices TV</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_devops"><a class="anchor" href="#_devops"></a>DevOps</h3>
+<div class="paragraph">
+<p>Devops is a practice of bringing development and operations engineers closer to work in a more collaborative manner. The goal is to make them work together along the entire software development lifecycle beginning from design to development till production.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>It is more a culture.</p>
+</li>
+<li>
+<p>Utilizes the technology particularly automation tools.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This helps to</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Move faster leading to shorter development cycles.</p>
+</li>
+<li>
+<p>Build high quality software.</p>
+</li>
+<li>
+<p>Reduce bugs.</p>
+</li>
+<li>
+<p>Reduce the delivery cost.</p>
+</li>
+</ul>
+</div>
+<div class="videoblock text-center">
+<div class="content">
+<iframe width="640" height="480" src="https://www.youtube.com/embed/2MwOjn4x638?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+<div class="paragraph">
+<p>For more details, refer <code>DevOps Concepts</code> concept in the further modules.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_continuous_delivery"><a class="anchor" href="#_continuous_delivery"></a>Continuous Delivery</h3>
+<div class="paragraph">
+<p>Continuous Delivery is one of the most important practices in DevOps. If you are adopting DevOps, then Continuous Delivery is a must.</p>
+</div>
+<div class="paragraph">
+<p>In this process, any changes you made to the code will be automatically built, tested and prepared for a release to production. This is done with the help of an automated software production line called Continuous Delivery pipeline.</p>
+</div>
+<div class="paragraph">
+<p>Typically, a delivery pipeline will have the below stages. The stages may vary based on your requirements.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Build Automation</p>
+</li>
+<li>
+<p>Test Automation</p>
+</li>
+<li>
+<p>Deployment Automation</p>
+</li>
+</ul>
+</div>
+<div class="videoblock text-center">
+<div class="content">
+<iframe width="640" height="480" src="https://www.youtube.com/embed/hQ0recUXk9o?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+<div class="paragraph">
+<p>For more details, refer <code>CI/CD</code> concept in the further modules.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_containers"><a class="anchor" href="#_containers"></a>Containers</h3>
+<div class="videoblock text-center">
+<div class="content">
+<iframe width="640" height="480" src="https://www.youtube.com/embed/5d-iiA88vrY?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+<div class="paragraph">
+<p>Containers are a standard way to package an application and all its dependencies so that it can be moved between environments and run without change.</p>
+</div>
+<div class="paragraph">
+<p>They allow us to</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Increase portability and efficiency.</p>
+</li>
+<li>
+<p>Reduces overhead.</p>
+</li>
+<li>
+<p>Increases speed.</p>
+</li>
+<li>
+<p>Easy deployments.</p>
+</li>
+</ul>
+</div>
+<div class="videoblock text-center">
+<div class="content">
+<iframe width="640" height="480" src="https://www.youtube.com/embed/FWpnbGnzk08?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+<div class="paragraph">
+<p>For more details, go through the <code>Containerization</code> concept in the further module.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_framework_programming_model"><a class="anchor" href="#_framework_programming_model"></a>Framework &amp; Programming Model</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For building a cloud native application, it is good to have a programming model. You can build a programming model from scratch or you can use the experience from existing models. Using the current technologies and new concepts, below is one of the models.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/CFPM.png" alt="CFPM">
+</div>
+</div>
+<div class="sect2">
+<h3 id="_best_of_breed_languages_and_frameworks"><a class="anchor" href="#_best_of_breed_languages_and_frameworks"></a>Best of breed languages and frameworks</h3>
+<div class="paragraph">
+<p>Cloud-native application is a combination of many microservices. These microservices are written in different languages. Developers pick different frameworks based on the programming language.</p>
+</div>
+<div class="paragraph">
+<p>Cloud-native applications are polyglot. Based on the functionality of the individual services, you can pick different runtimes and different language frameworks.</p>
+</div>
+<div class="paragraph">
+<p>For instance, you can write the user interface of your application using Node.js and choose to write the APIs in Java using MicroProfile.</p>
+</div>
+<div class="paragraph">
+<p>There are many languages and their relative frameworks available. Some of them are as follows.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If you are an Enterprise Java developer and planning to use Java, you can opt <a href="https://microprofile.io/">MicroProfile framework</a>.</p>
+</li>
+<li>
+<p>If you prefer Spring, you can opt <a href="https://spring.io/projects/spring-boot">SpringBoot</a>.</p>
+</li>
+<li>
+<p>If you prefer Node.js, you can opt <a href="https://expressjs.com/">Express.js</a> or <a href="https://loopback.io/">LoopBack</a>.</p>
+</li>
+<li>
+<p>If you are Swift developer, you can opt <a href="https://www.kitura.io/">Kitura</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_container_orchestration"><a class="anchor" href="#_container_orchestration"></a>Container Orchestration</h3>
+<div class="paragraph">
+<p>Container Orchestration is nothing but managing the lifecycles of the containers. This automates several aspects like the following to manage containers.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Provisioning</p>
+</li>
+<li>
+<p>Deployment</p>
+</li>
+<li>
+<p>Availability</p>
+</li>
+<li>
+<p>Resource Allocation</p>
+</li>
+<li>
+<p>Load balancing</p>
+</li>
+<li>
+<p>Monitoring health</p>
+</li>
+<li>
+<p>Config Management</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Among the different container orchestration tools, Kubernetes is one of the most popular ones.</p>
+</div>
+<div class="videoblock text-center">
+<div class="content">
+<iframe width="640" height="480" src="https://www.youtube.com/embed/kBF6Bvth0zw?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_service_mesh"><a class="anchor" href="#_service_mesh"></a>Service Mesh</h3>
+<div class="paragraph">
+<p>Service Mesh mediates all the communication between services. It offers things like service discovery, monitoring, security, scalability, and high availability. It also deals with other things like A/B testing, canary rollouts, load balancing, rate limiting etc.</p>
+</div>
+<div class="paragraph">
+<p>Istio provides behavioral insights and operational control over the service mesh as a whole, offering a complete solution to satisfy the diverse requirements of microservice applications.</p>
+</div>
+<div class="videoblock text-center">
+<div class="content">
+<iframe width="640" height="480" src="https://www.youtube.com/embed/1iyFq2VaL5Y?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_programming_model"><a class="anchor" href="#_programming_model"></a>Programming Model</h3>
+<div class="paragraph">
+<p>All these great new technologies and concepts can be used to design a well grooved path for doing software engineering. The programming model above helps the developers to get started with their cloudnative journey without constructing everything from scratch.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The latest frameworks and languages offer many of these capabilities. They cover features like configurations, JSON handling, tracing, metrics, REST APIs, API documentation, security, health checks, fault tolerance, etc.</p>
+</li>
+<li>
+<p>Also container orchestration helps to achieve some of these by offering Config Management, health monitoring etc.</p>
+</li>
+<li>
+<p>Service Mesh like Istio provides capabilities which covers tracing, fault tolerance, security and traffic management.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_references"><a class="anchor" href="#_references"></a>References</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://learning.oreilly.com/library/view/cloud-native-containers/9781492053811/">Peter Jausovec, Trent Swanson, Boris Scholl (2019). Cloud Native: Containers, Functions, Data, and Kubernetes. Publisher: O&#8217;Reilly Media, Inc.</a></p>
+</li>
+<li>
+<p><a href="https://dzone.com/articles/implementing-cloud-native-enterprise-applications">Implementing Cloud-native Enterprise Applications</a></p>
+</li>
+<li>
+<p><a href="https://istio.io/docs/concepts/what-is-istio/">Istio</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

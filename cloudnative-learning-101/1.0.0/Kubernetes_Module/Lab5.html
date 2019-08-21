@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Lab 5 - Deploy App on Kubernetes using Helm :: Cloudnative Learning 101</title>
+    <link rel="canonical" href="https://ibm-cloud-architecture.github.io/cloudnative-learning-101/cloudnative-learning-101/1.0.0/Kubernetes_Module/Lab5.html">
+    <meta name="generator" content="Antora 2.0.0">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <p>Cloudnative Learning 101</p>
+      </div>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="cloudnative-learning-101" data-version="1.0.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Cloudnative Learning 101</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Cloud Native Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Cloudnative_Overview.html">Cloudnative Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Cloudnative_framework_prog_model.html">Cloudnative Framework &amp; Programming Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Cloudnative_app_development.html">Cloud Native App Development</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Lab1.html">Lab 1: Cloudnative App Development</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Kubernetes Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Docker.html">Containerization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Lab2.html">Lab 2: Docker</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="kubernetesPatterns.html">Kubernetes Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Lab3.html">Lab 3: Kubernetes Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Lab4.html">Lab 4: Deploy the app on Kube</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="operators.html">Helm/Operator Patterns</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="Lab5.html">Lab 5: Deploy the app on Kube using Helm (TODO)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Cloud Foundry Migration Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../CF_Migrate_Module/Kubernetes-for-CF.html">Kubernetes for Cloud Foundry users</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../CF_Migrate_Module/CF-migration.html">CF Migration Tool</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://github.com/ibm-cloud-architecture/cf-transformation/blob/master/exercise/openshift.md">Lab 7: Migrate your app from CF to Kube (Openshift) - Github Link</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://github.com/ibm-cloud-architecture/cf-transformation/blob/master/exercise/iks.md">Lab 7: Migrate your app from CF to Kube (IKS) - Github link</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">DevOps Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/Devops_Concepts.html">DevOps Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/cicd.html">CI/CD</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/devops_tooling.html">Devops Tooling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/Lab8_Openshift.html">Lab 8: CI - Openshift</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/Lab8_IKS.html">Lab 8: CI - IKS</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/Lab9_OpenShift.html">Lab 9: CD - Openshift</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/Lab9_IKS.html">Lab 9: CD - IKS</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Cloudnative Learning 101</span>
+    <span class="version">1.0.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Cloudnative Learning 101</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main role="main">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Cloudnative Learning 101</a></li>
+    <li>Kubernetes Module</li>
+    <li><a href="Lab5.html">Lab 5: Deploy the app on Kube using Helm (TODO)</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="file:///root/project/modules/ROOT/pages/Kubernetes_Module/Lab5.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1 class="page">Lab 5 - Deploy App on Kubernetes using Helm</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">Introduction</a></li>
+<li><a href="#_prerequisites">Prerequisites</a></li>
+<li><a href="#_ibm_cloud_login">IBM Cloud Login</a></li>
+<li><a href="#_accessing_the_open_shift_cluster">Accessing the Open Shift Cluster</a></li>
+<li><a href="#_getting_the_sample_application">Getting the Sample Application</a></li>
+<li><a href="#_deploying_the_sample_application">Deploying the Sample Application</a>
+<ul class="sectlevel2">
+<li><a href="#_via_console">Via Console</a></li>
+<li><a href="#_via_cli">Via CLI</a></li>
+</ul>
+</li>
+<li><a href="#_conclusion">Conclusion</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this lab, you will learn about how to use docker and how to run applications using docker.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a>Prerequisites</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>You need <a href="https://www.java.com/en/">Java</a> installed on your environment. You can download it <a href="https://www.java.com/download/">here</a>. Please install the latest version which is Java Version 8. Make sure you set <code>JAVA_HOME</code> environment variable. You can verify the version after installation using <code>java -version</code>.</p>
+</li>
+<li>
+<p>Create a <a href="https://hub.docker.com/">DockerHub account</a>. This account is needed to push images to docker registry. Also create a repository following the instructions <a href="https://docs.docker.com/docker-hub/repos/">here</a>.</p>
+</li>
+<li>
+<p>You need to install <a href="https://www.docker.com/">Docker</a> in your environment. Follow the instructions <a href="https://docs.docker.com/docker-for-mac/install/">here</a> to install it on Mac and <a href="https://docs.docker.com/docker-for-windows/install/">here</a> to install it on Windows.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ibm_cloud_login"><a class="anchor" href="#_ibm_cloud_login"></a>IBM Cloud Login</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Start by opening a web browser and navigating to <a href="https://cloud.ibm.com/">IBM Cloud</a>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/Cloud-Login.png" alt="Cloud Login">
+</div>
+</div>
+<div class="paragraph">
+<p>Next <strong><em>login</em></strong> with your IBM Cloud login you created.  After login you will be navigated to your <strong>Cloud Dashboard</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/IBM_Cloud_Dashboard.png" alt="IBM Cloud Dashboard">
+</div>
+</div>
+<div class="paragraph">
+<p>On the <strong>Cloud Dashboard</strong> in the resource summary section, select <strong>Open Shift Clusters</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/CL_Dash_Kube.png" alt="CL Dash Kube">
+</div>
+</div>
+<div class="paragraph">
+<p>In cluster list, select the cluster you would like to access. Make sure the cluster you select has a red circle openshift icon next to it.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_accessing_the_open_shift_cluster"><a class="anchor" href="#_accessing_the_open_shift_cluster"></a>Accessing the Open Shift Cluster</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Once on the <strong>Overview</strong> screen of your Open Shift cluster, select the <strong>Connect via CLI</strong> in the upper right hand corner.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/OS-Connect.png" alt="OS Connect">
+</div>
+</div>
+<div class="paragraph">
+<p>From this screen there are two options. One is using the <strong>OpenShift Console</strong> and the other is to use the <strong>CLI via the oauth token request page</strong>
+Once logged in to either the <strong>OpenShift Console</strong> or <strong>CLI</strong> we need to get the sample application.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_getting_the_sample_application"><a class="anchor" href="#_getting_the_sample_application"></a>Getting the Sample Application</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Download the sample application from Github: <a href="https://github.com/ibm-cloud-architecture/cloudnative_sample_app/tree/Basic-Tutorial">Sample App</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_deploying_the_sample_application"><a class="anchor" href="#_deploying_the_sample_application"></a>Deploying the Sample Application</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this section we will deploy the sample application that you downloaded. You can follow the <strong>Console</strong> section to deploy it via the <strong>OpenShift Console</strong> and the <strong>CLI</strong> section for the command line.</p>
+</div>
+<div class="sect2">
+<h3 id="_via_console"><a class="anchor" href="#_via_console"></a>Via Console</h3>
+<div class="paragraph">
+<p>With the OpenShift Console open, let&#8217;s <strong>Create a Project</strong> named <strong>deploy-sample</strong></p>
+</div>
+<div class="sect3">
+<h4 id="_create_project"><a class="anchor" href="#_create_project"></a>Create Project</h4>
+<div class="paragraph">
+<p>In the upper-right corner <em>click</em> on <strong>Create Project</strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/os-console-create.png" alt="os console create">
+</div>
+</div>
+<div class="paragraph">
+<p>Next, fill in the name section with <strong>deploy-sample</strong> and <em>click</em> <strong>Create</strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/project-details.png" alt="project details">
+</div>
+</div>
+<div class="paragraph">
+<p>You will see that a new project was created in the list. <em>Click</em> on the <strong>Project Name</strong>(deploy-sample).</p>
+</div>
+<div class="paragraph">
+<p>Now you will see the project screen and it&#8217;s time to add the <strong>deployment</strong> and <strong>service</strong>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_create_deployment_service"><a class="anchor" href="#_create_deployment_service"></a>Create Deployment &amp; Service</h4>
+<div class="paragraph">
+<p>In <strong>Finder</strong> or <strong>File Explorer</strong> navigate to the <strong>chart/cloudnativesampleapp</strong> directory of the sample application.</p>
+</div>
+<div class="paragraph">
+<p>Once there you will see two files: <strong>deployment.yaml</strong> and <strong>service.yaml</strong></p>
+</div>
+<div class="paragraph">
+<p>Move back to the Openshift console and find <strong>Add to Project</strong> in the upper-right corner.  <em>Click</em> it and select <strong>Import YAML/JSON</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/importYAML.png" alt="importYAML">
+</div>
+</div>
+<div class="paragraph">
+<p>Next an import screen will open and we need to pull up the <strong>Finder</strong> or <strong>File Explorer</strong> window with the <strong>deployment.yaml</strong> and <strong>service.yaml</strong> files.</p>
+</div>
+<div class="paragraph">
+<p><em>Drag and Drop</em> the <strong>deployment.yaml</strong> file first.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/deployment.png" alt="deployment">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Click</em> <strong>Create</strong> and <strong>Close</strong> and you will see a new <strong>greetings</strong> deployment in the console.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/newDeployment.png" alt="newDeployment">
+</div>
+</div>
+<div class="paragraph">
+<p>For <strong>Creating a Service</strong> we are going to repeat the steps of <strong>importing a YAML</strong> just like a deployment, but instead of the <strong>deployment.yaml</strong> we will <em>Drag and Drop</em> the <strong>service.yaml</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/service.png" alt="service">
+</div>
+</div>
+<div class="paragraph">
+<p>After Creating the Service let&#8217;s navigate to the <strong>Services</strong> page to view it.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/services-page.png" alt="services page">
+</div>
+</div>
+<div class="paragraph">
+<p>On this page you can see your new service named <strong>greeting-service</strong>. You can click on the service to view details about it.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/newService.png" alt="newService">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_create_a_route"><a class="anchor" href="#_create_a_route"></a>Create a Route</h4>
+<div class="paragraph">
+<p>Now we need to <strong>Create a Route</strong> for our new service to be reach by users outside of the cluster.</p>
+</div>
+<div class="paragraph">
+<p>On the service details page, find the <strong>Create Route</strong> button and <em>Click it</em>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/createRoute.png" alt="createRoute">
+</div>
+</div>
+<div class="paragraph">
+<p>This will open a form with values prepopulated for <strong>Creating a Route</strong>. No need to change any values so go ahead and <em>Click</em> <strong>Create</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/serviceRoute.png" alt="serviceRoute">
+</div>
+</div>
+<div class="paragraph">
+<p>A new route has now been created allowing us to access it from the internet. You can see the <strong>Route&#8217;s Hostname</strong>. That&#8217;s the new address for your service and we want to <em>Copy</em> it.</p>
+</div>
+<div class="paragraph">
+<p>Next, <em>Open a New Tab</em> in your web browser and <em>paste</em> the copied address in the search bar.  <strong>BEFORE pressing enter</strong> append <strong>/greeting?name=John</strong> to the end of the address.  Then <em>Press Enter</em></p>
+</div>
+<div class="paragraph">
+<p>You should see the following:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/applicationAccess.png" alt="applicationAccess">
+</div>
+</div>
+<div class="paragraph">
+<p>Congrats! That&#8217;s you have successfully deployed an application on OpenShift.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_via_cli"><a class="anchor" href="#_via_cli"></a>Via CLI</h3>
+<div class="paragraph">
+<p>Next open up a <strong>Terminal</strong> window and follow the steps from the <strong>Accessing the OpenShift Cluster</strong> for the CLI access. (Make sure to append "--sso" after "login" if needed).</p>
+</div>
+<div class="paragraph">
+<p>Once logged in, we want to create a new project called deploy-sample in your OpenShift Cluster:</p>
+</div>
+<div class="listingblock">
+<div class="title">Create A Project</div>
+<div class="content">
+<pre>oc new-project deploy-sample</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>After we have created the project we need to create a deployment of our application.  Navigate to the <strong>chart/cloudnativesampleapp</strong> directory of the sample application.</p>
+</div>
+<div class="paragraph">
+<p>Once there you will see two files: <strong>deployment.yaml</strong> and <strong>service.yaml</strong></p>
+</div>
+<div class="paragraph">
+<p>In next few steps we will deploy each of them. We will start with creating the deployment:</p>
+</div>
+<div class="listingblock">
+<div class="title">Create A Deployment</div>
+<div class="content">
+<pre>oc create -f deployment.yaml</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To verify your deployment is created:</p>
+</div>
+<div class="listingblock">
+<div class="title">Verify Deployment</div>
+<div class="content">
+<pre>oc get deployment</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Next, we will create the service:</p>
+</div>
+<div class="listingblock">
+<div class="title">Create A Service</div>
+<div class="content">
+<pre>oc create -f service.yaml</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To verify your service is created:</p>
+</div>
+<div class="listingblock">
+<div class="title">Verify Service</div>
+<div class="content">
+<pre>oc get svc</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With everything deployed, we next need to expose the service outside the cluster. To do this we need to <strong>create a route</strong></p>
+</div>
+<div class="listingblock">
+<div class="title">Create a Route</div>
+<div class="content">
+<pre>oc expose svc greeting-service</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This creates a route connecting the application to users outside of the cluster.  Now that we have a route created we can access the application from a web browser.</p>
+</div>
+<div class="paragraph">
+<p>To get the created route run:</p>
+</div>
+<div class="listingblock">
+<div class="title">Retrieve the Route</div>
+<div class="content">
+<pre>oc get route</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Find the route named <strong>greeting-service</strong> and copy the HOST/PORT. Should start with <strong>greeting-service-deploy-sample</strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/get-route.png" alt="get route">
+</div>
+</div>
+<div class="paragraph">
+<p>Next Open a web browser and paste address in the search bar and append <strong>/greeting?name=John</strong> to the end of it and hit Enter. You should see the following:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/applicationAccess.png" alt="applicationAccess">
+</div>
+</div>
+<div class="paragraph">
+<p>Congrats! That&#8217;s you have successfully deployed an application on OpenShift.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conclusion"><a class="anchor" href="#_conclusion"></a>Conclusion</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You have successfully completed this lab! Let&#8217;s take a look at what you learned and did today:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Logged into IBM Cloud</p>
+</li>
+<li>
+<p>Downloaded a Java Application from Github.</p>
+</li>
+<li>
+<p>Created a Deployment on Openshift.</p>
+</li>
+<li>
+<p>Created a Service on Openshift.</p>
+</li>
+<li>
+<p>Created a Route on Openshift.</p>
+</li>
+<li>
+<p>Accessed an application through a web browser.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

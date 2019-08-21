@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CI/CD :: Cloudnative Learning 101</title>
+    <link rel="canonical" href="https://ibm-cloud-architecture.github.io/cloudnative-learning-101/cloudnative-learning-101/1.0.0/DevOps_Module/cicd.html">
+    <meta name="generator" content="Antora 2.0.0">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <p>Cloudnative Learning 101</p>
+      </div>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="cloudnative-learning-101" data-version="1.0.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Cloudnative Learning 101</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Cloud Native Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Cloudnative_Overview.html">Cloudnative Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Cloudnative_framework_prog_model.html">Cloudnative Framework &amp; Programming Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Cloudnative_app_development.html">Cloud Native App Development</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Lab1.html">Lab 1: Cloudnative App Development</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Kubernetes Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Docker.html">Containerization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Lab2.html">Lab 2: Docker</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/kubernetesPatterns.html">Kubernetes Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Lab3.html">Lab 3: Kubernetes Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Lab4.html">Lab 4: Deploy the app on Kube</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/operators.html">Helm/Operator Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Lab5.html">Lab 5: Deploy the app on Kube using Helm (TODO)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Cloud Foundry Migration Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../CF_Migrate_Module/Kubernetes-for-CF.html">Kubernetes for Cloud Foundry users</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../CF_Migrate_Module/CF-migration.html">CF Migration Tool</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://github.com/ibm-cloud-architecture/cf-transformation/blob/master/exercise/openshift.md">Lab 7: Migrate your app from CF to Kube (Openshift) - Github Link</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://github.com/ibm-cloud-architecture/cf-transformation/blob/master/exercise/iks.md">Lab 7: Migrate your app from CF to Kube (IKS) - Github link</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">DevOps Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Devops_Concepts.html">DevOps Concepts</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="cicd.html">CI/CD</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="devops_tooling.html">Devops Tooling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Lab8_Openshift.html">Lab 8: CI - Openshift</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Lab8_IKS.html">Lab 8: CI - IKS</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Lab9_OpenShift.html">Lab 9: CD - Openshift</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Lab9_IKS.html">Lab 9: CD - IKS</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Cloudnative Learning 101</span>
+    <span class="version">1.0.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Cloudnative Learning 101</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main role="main">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Cloudnative Learning 101</a></li>
+    <li>DevOps Module</li>
+    <li><a href="cicd.html">CI/CD</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="file:///root/project/modules/ROOT/pages/DevOps_Module/cicd.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1 class="page">CI/CD</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">Introduction</a></li>
+<li><a href="#_continuous_integration">Continuous Integration</a></li>
+<li><a href="#_continuous_delivery">Continuous Delivery</a></li>
+<li><a href="#_continuous_deployment">Continuous Deployment</a></li>
+<li><a href="#_references">References</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Continuous Integration, Delivery, and Deployment are important devOps practices and we often hear a lot about them. These processes are valuable and ensures that the software is up to date timely.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Continuous Integration</strong> is an automation process which allows developers to integrate their work into a repository. When a developer pushes his work into the source code repository, it ensures that the software continues to work properly. It helps to enable collaborative development across the teams and also helps to identify the integration bugs sooner.</p>
+</li>
+<li>
+<p><strong>Continuous Delivery</strong> comes after Continuous Integration. It prepares the code for release. It automates the steps that are needed to deploy a build.</p>
+</li>
+<li>
+<p><strong>Continuoud Deployment</strong> is the final step which succeeds Continuous Delivery. It automatically deploys the code whenever a code change is done. Entire process of deployment is automated.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/cicd.jpg" alt="cicd">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_continuous_integration"><a class="anchor" href="#_continuous_integration"></a>Continuous Integration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Continuous Integration is the first step to deliver high quality and efficient software. It is all about making sure that the software is working all the time and it is deployable at all times.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/ci.png" alt="ci">
+</div>
+</div>
+<div class="paragraph">
+<p>It initially begins with the <strong>development</strong>. Developers implement the new features or changes to the existing ones in small, tested batches and commit this code to a <strong>Source Code Management (SCM)</strong> system such as Github, SVN, bitbucket etc. The next step will be the <strong>build</strong>. This is done by the CI server like Jenkins, Travis CI, Circle CI etc. The CI server is linked up with the GitHub repository to trigger the build either using web hook or by polling the repository for changes. When it gets the access to the latest code changes in the SCM system, it executes the build script generating new deployment artifacts. In case of build failures, it generates feedback and send the information to the corresponding members. Once this is completed, developers <strong>package</strong> the build using Docker, Cloud Foundry etc. The builds along with their runtimes are packaged as immutable images. These images are later used for deployment in the further stages.</p>
+</div>
+<div class="paragraph">
+<p>Let us go through these steps in detail.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/ci_process.png" alt="ci process">
+</div>
+</div>
+<div class="paragraph">
+<p><strong class="big maroon">Development</strong></p>
+</div>
+<div class="paragraph">
+<p>During the development, developers initially work in their local environments. They define code for new features or make changes to the existing feature. They make all this changes or additions in their local workspaces which are integrated with an Integrated Development Environment runtime. They may use build tools installed physically in their own workstation or they may use the ones existing on cloud (Web IDEs) based on their convenience. Once the code is defined, they do unit testing. Along with it they also do performance checks, data validations etc. They also test the software locally and validate the code changes using tests. If everything is fine, they push the changes to the source code management. Then a code review will be performed and if everything seems correct, then these changes will be merged into the main stream of the SCM system.</p>
+</div>
+<div class="paragraph">
+<p><strong class="big maroon">Source Control</strong></p>
+</div>
+<div class="paragraph">
+<p>Continuous Integration starts with source control system. Source Control systems helps us to store all the code in a single place. This source code can be accessed by multiple developers. It is easy to pull the changes, change them and push them back into the source control system. These can be viewed by other developers too.</p>
+</div>
+<div class="paragraph">
+<p>If you consider Git, in this source control system, you can have multiple branches of the same software and you can work on different things without conflicting with other parts of the software. For instance, let us say you have three different branches for dev, test and prod. Initially when the code is defined, it goes into dev branch. When the testing is completed, it is moved to test branch. And finally when we get the approval, it goes into prod branch. Or you may have a single main branch and create new branches for every release. These are few examples just for your understanding.</p>
+</div>
+<div class="paragraph">
+<p>This gives developers the capability to work on same project. They can work on different things. Even though if they work on the same thing, they need not worry about the overwriting.</p>
+</div>
+<div class="paragraph">
+<p>Source Control system is the place where you can store pretty much everything related to the software. Not only code, it is good to store all other things that are required to run your software like build scripts, test scripts, configurations etc in it.</p>
+</div>
+<div class="paragraph">
+<p>Whenever a code push is made by the developer to the source control system, it should be validated by the automated build server. It is always a good practice to keep the check-ins small. If you do large check-ins, it is hard to identify any error or bugs if they occur.</p>
+</div>
+<div class="paragraph">
+<p><strong class="big maroon">CI Server</strong></p>
+</div>
+<div class="paragraph">
+<p>CI Server is used to automate the builds. There are many CI server software available today like Jenkins, Tavis CI, Bamboo etc.</p>
+</div>
+<div class="paragraph">
+<p>The source control repository is monitored by the CI server. The CI server is integrated to the repository and it starts the build whenever a change is pushed into the repository. The build has several steps like compiling the code, running unit tests, checking the code coverage, code linting, validating style guidelines, code minification etc. If the build is passed, it creates the build artifact. Otherwise, it will notify the failure. For instance, if the developer made a syntactical error like may be missing a semi colon and pushed in the code, then the unit tests fail. CI server will report this failure to the team by sending an email or however you configured it to send the information. Also, defining the failure conditions is up to the developer. If it is a compilation error, it obviously fails. You can also add conditions like there must be a code coverage of 80 % for your code etc.</p>
+</div>
+<div class="paragraph">
+<p>CI server builds the software. They also inform about the failures and successes. They build artifacts which will be later used to deploy the application.</p>
+</div>
+<div class="paragraph">
+<p><strong class="big maroon">Testing</strong></p>
+</div>
+<div class="paragraph">
+<p>Whenever a build is done on the CI server, it undergoes many tests to make sure the quality of the software is high. Various tests are performed as part of this process. Some of the important ones are as follows.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Unit tests - Unit tests are defined to test small isolated parts of code. It is simple piece of code which calls a method to be tested. It passes the required input and verifies if the output obtained is correct.</p>
+</li>
+<li>
+<p>Integration tests - Integration tests tests the system as a whole. It validates if the entire system is working as expected. For example, if you want to know if your application properly interacts with the backend or to validate if the frontend properly interacts with the backend these tests will help to resolve them.</p>
+</li>
+<li>
+<p>Acceptance tests - An acceptance test tests whether a specific functionality works as described in the specification. These tests are written in the perspective of the user and it validates if the created feature is same as the requested one.</p>
+</li>
+<li>
+<p>Smoke tests - Smoke tests test if your software is working in a production environment. It tests the basic functionality and makes sure the most important parts of your software work properly.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong class="big maroon">Automation</strong></p>
+</div>
+<div class="paragraph">
+<p>Automation is a very important. When doing CI, the build process is all automated. It also uses automated tests to make sure that software is properly working after new code changes.</p>
+</div>
+<div class="paragraph">
+<p><strong class="big maroon">Teamwork</strong></p>
+</div>
+<div class="paragraph">
+<p>All the code changes are compiled. To reduce the bugs, we use automation testing as part of CI. Also, if the executable is tested on an environment which resembles your production environment, it makes your life easier.</p>
+</div>
+<div class="paragraph">
+<p>All this process cannot be just done by a single person. For suppose, if you develop a code and define unit tests to make sure everything works and other person from your team pushes large pieces of code without any unit tests, then it will be of no use. So, every member of the team should make efforts to successfully define the Continuous Integration for your software.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_continuous_delivery"><a class="anchor" href="#_continuous_delivery"></a>Continuous Delivery</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Continuous Delivery is the next step for Continuous Integration. The artifacts produced in the Continous Integration stage will be deployed on a production like environment. It is more about making sure that the software is ready to be released and it can be deployed to production like environment at any time.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/cd_process.png" alt="cd process">
+</div>
+</div>
+<div class="paragraph">
+<p>Developer initially write code to implement a feature or make a change, compile it, and runs all the required tests. If it is running fine and working well, the next thing is to decide the release to the customer. Before doing the release, there are so many things one should take care of. We need to make sure all the configurations are done properly. Respective configuration files should be replaced correctly in the corresponding environments. Also, backups of the previous version of the software should be taken just in case to use them if the system breaks. There may be need to stop some of the services. For example, if your release involves updating the database, you need to stop some of the services which use that database. Also, when this process is done, we need to turn on the maintenance page because we don&#8217;t want our users to panic seeing this site can&#8217;t be reached. After doing all this, we test the software and if the tests are all working, we can restart the service we stopped previously.</p>
+</div>
+<div class="paragraph">
+<p>Initially, we deploy it to staging environment. If everything looks good, we will receive the approval and then we need to deploy it to production like environment. Once you get the approval, we need to do all the steps we did previously again. This process involves so many steps and it is hard to do all of them correctly every time.</p>
+</div>
+<div class="paragraph">
+<p>To make lives easier and not to miss any of the steps, automated deployment is necessary. This allows us to deploy more often. Just imagine, if you want to follow all the steps mentioned earlier for every small change, you tend to wait. If we do so and the changes are a lot, then there are more chances of failure and the system may break. So, making the release process automated is very important. By automation, it is easier to deploy smaller changes more frequently. It is also easier to rollback if there is a failure. Moreover, it reduces the overall risk of failure. This allows you to deploy to production like environment at any point of time. To make it possible, the software must all always be in a deliverable state. All your code should be compiled, tested, and the build should succeed.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_continuous_deployment"><a class="anchor" href="#_continuous_deployment"></a>Continuous Deployment</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Continuous Deployment is the final step. In this stage, every change goes through the pipeline and if it passes all the tests, the code will be deployed into the production automatically. Every step should be automated in this process and the release quality depends mostly on the test suite as everything is automated.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/cdply_process.png" alt="cdply process">
+</div>
+</div>
+<div class="paragraph">
+<p>All the steps that apply in Continuous Delivery also applies here. You may do some things manually in case of Continuous Delivery but in Continuous Deployment, everything is automated. So, basically every piece of code that is pushed in to the SCM system gets automatically deployed in production like environment if the build is successful. The rationale behind the process is that you are going to deploy the code to production sooner or later anyway.</p>
+</div>
+<div class="paragraph">
+<p>But it is always recommended not to use it. Because there may be many factors that need to be considered before the release like marketing etc. It is hard to achieve this using Continuous Deployment. But, Continuous Delivery is a must as we are enabling the capability to deliver the software to any given environment at any given time.</p>
+</div>
+<div class="videoblock text-center">
+<div class="content">
+<iframe width="640" height="480" src="https://www.youtube.com/embed/hQ0recUXk9o?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_references"><a class="anchor" href="#_references"></a>References</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://learning.oreilly.com/library/view/devops-continuous-delivery/9781789132991/">Sricharan Vadapalli (2018). DevOps: Continuous Delivery, Integration, and Deployment with DevOps. Publisher: Packt Publishing</a></p>
+</li>
+<li>
+<p><a href="https://learning.oreilly.com/library/view/continuous-integration-delivery/9781787286610/">Sander Rossel (2017). Continuous Integration, Delivery, and Deployment. Publisher: Packt Publishing</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

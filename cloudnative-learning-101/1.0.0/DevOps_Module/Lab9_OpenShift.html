@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Lab 9: CD Openshift :: Cloudnative Learning 101</title>
+    <link rel="canonical" href="https://ibm-cloud-architecture.github.io/cloudnative-learning-101/cloudnative-learning-101/1.0.0/DevOps_Module/Lab9_OpenShift.html">
+    <meta name="generator" content="Antora 2.0.0">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <p>Cloudnative Learning 101</p>
+      </div>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="cloudnative-learning-101" data-version="1.0.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Cloudnative Learning 101</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Cloud Native Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Cloudnative_Overview.html">Cloudnative Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Cloudnative_framework_prog_model.html">Cloudnative Framework &amp; Programming Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Cloudnative_app_development.html">Cloud Native App Development</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Lab1.html">Lab 1: Cloudnative App Development</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Kubernetes Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Docker.html">Containerization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Lab2.html">Lab 2: Docker</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/kubernetesPatterns.html">Kubernetes Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Lab3.html">Lab 3: Kubernetes Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Lab4.html">Lab 4: Deploy the app on Kube</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/operators.html">Helm/Operator Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Lab5.html">Lab 5: Deploy the app on Kube using Helm (TODO)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Cloud Foundry Migration Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../CF_Migrate_Module/Kubernetes-for-CF.html">Kubernetes for Cloud Foundry users</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../CF_Migrate_Module/CF-migration.html">CF Migration Tool</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://github.com/ibm-cloud-architecture/cf-transformation/blob/master/exercise/openshift.md">Lab 7: Migrate your app from CF to Kube (Openshift) - Github Link</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://github.com/ibm-cloud-architecture/cf-transformation/blob/master/exercise/iks.md">Lab 7: Migrate your app from CF to Kube (IKS) - Github link</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">DevOps Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Devops_Concepts.html">DevOps Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cicd.html">CI/CD</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="devops_tooling.html">Devops Tooling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Lab8_Openshift.html">Lab 8: CI - Openshift</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Lab8_IKS.html">Lab 8: CI - IKS</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="Lab9_OpenShift.html">Lab 9: CD - Openshift</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Lab9_IKS.html">Lab 9: CD - IKS</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Cloudnative Learning 101</span>
+    <span class="version">1.0.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Cloudnative Learning 101</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main role="main">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Cloudnative Learning 101</a></li>
+    <li>DevOps Module</li>
+    <li><a href="Lab9_OpenShift.html">Lab 9: CD - Openshift</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="file:///root/project/modules/ROOT/pages/DevOps_Module/Lab9_OpenShift.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1 class="page">Lab 9: CD Openshift</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">Introduction</a></li>
+<li><a href="#_prerequisites">Prerequisites</a></li>
+<li><a href="#_continuous_deployment">Continuous deployment</a>
+<ul class="sectlevel2">
+<li><a href="#_installation">Installation</a></li>
+<li><a href="#_deploying_the_app">Deploying the app</a></li>
+<li><a href="#_verifying_the_deployment">Verifying the deployment</a></li>
+</ul>
+</li>
+<li><a href="#_references">References</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this lab, you will learn about how to define Continuous Delivery for your application. We are using <a href="https://argoproj.github.io/argo-cd/">Argo</a> to define it.</p>
+</div>
+<div class="paragraph">
+<p><strong class="maroon">Argo CD</strong></p>
+</div>
+<div class="paragraph">
+<p>Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. In your applications, application definitions, configurations, and environments should be declarative and version controlled. Also application deployment and lifecycle management should be automated, auditable, and easy to understand. All this can be done using Argo.</p>
+</div>
+<div class="videoblock text-center">
+<div class="content">
+<iframe width="640" height="480" src="https://www.youtube.com/embed/KJzgwJrY-mE?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+<div class="paragraph">
+<p>Check these guides out if you want to know more about Argo - <a href="https://argoproj.github.io/argo-cd/">Argo CD - Declarative GitOps CD for Kubernetes</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a>Prerequisites</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>You need an <a href="https://cloud.ibm.com/login">IBM cloud account</a>.</p>
+</li>
+<li>
+<p>Create kubernetes cluster using <a href="https://cloud.ibm.com/docs/containers?topic=containers-getting-started">IBM Cloud Kubernetes Service</a>. Here, you can choose an openshift cluster.</p>
+</li>
+<li>
+<p>Install <a href="https://www.okd.io/download.html">oc</a> command line tool.</p>
+</li>
+<li>
+<p>You should be familiar with basics like Containers, Docker, Kubernetes.</p>
+</li>
+<li>
+<p>In this lab, we are using the deploy repo which we used in the previous lab. If you have your own deploy repository, use it. If you did not get a chance to do the previous lab, you can use <a href="https://github.com/ibm-cloud-architecture/cloudnative_sample_app_deploy" class="bare">https://github.com/ibm-cloud-architecture/cloudnative_sample_app_deploy</a>. This repo will be updated by CI whenever there are changes.</p>
+</li>
+<li>
+<p>The image used in the deployment is stored in IBM Container Registry <code>us.icr.io</code>. We need an image pull secret in order to pull this image.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Verify if it is already present.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ oc get secrets
+NAME                  TYPE                                  DATA      AGE
+test-us-icr-io        kubernetes.io/dockerconfigjson        1         16m</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If not create one as below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ oc -n default create secret docker-registry test-us-icr-io --docker-server=us.icr.io --docker-username=iamapikey --docker-password=&lt;Your api key&gt; --docker-email=&lt;Your docker email&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If it is successfully created, you will see something like <code>secret/test-us-icr-io created</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_continuous_deployment"><a class="anchor" href="#_continuous_deployment"></a>Continuous deployment</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_installation"><a class="anchor" href="#_installation"></a>Installation</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Create a namespace to install argocd.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This command allows you to create namespace. Namespaces helps you divide the kubernetes cluster resources among multiple users. If you wanted to learn more about namespaces, check out <a href="https://docs.openshift.com/enterprise/3.0/architecture/core_concepts/projects_and_users.html#namespaces">namespace</a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ oc create namespace argocd</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If successful, you will see something like below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>namespace/argocd created</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Install ArgoCD as follows.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This command allows you to apply a configuration to a resource by filename or stdin. To know more about this, check out <a href="https://www.mankier.com/1/oc-apply">oc apply</a> command.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ oc apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here, <code>-n</code> is used to pass the namespace and <code>-f</code> is used to input the filename.</p>
+</div>
+<div class="paragraph">
+<p>You will see something like below at the end.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>deployment.apps/argocd-redis created
+deployment.apps/argocd-repo-server created
+deployment.apps/argocd-server created</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Download the latest version from <a href="https://github.com/argoproj/argo-cd/releases/latest">here</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For mac, it is also available in homebrew.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ brew tap argoproj/tap
+$ brew install argoproj/tap/argocd</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Access the argoCD api server as follows.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Change the argocd-server service type to LoadBalancer:</p>
+</div>
+<div class="paragraph">
+<p>This command allows you to update the service. For more details, refer <a href="https://docs.openshift.com/container-platform/3.3/cli_reference/basic_cli_operations.html#patch">oc patch</a> command.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ oc patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here, <code>-n</code> is used to pass the namespace and <code>-p</code> is used to specify the patch to be applied to the resource JSON file.</p>
+</div>
+<div class="paragraph">
+<p>Once done, you will see something like below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ oc patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
+service/argocd-server patched</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Access the service as follows.</p>
+</div>
+<div class="paragraph">
+<p>This command lists all services. To know more, check out <a href="https://docs.openshift.com/enterprise/3.0/cli_reference/basic_cli_operations.html">oc get svc</a> command.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ oc get svc -n argocd
+NAME                    TYPE           CLUSTER-IP       EXTERNAL-IP      PORT(S)                      AGE
+argocd-dex-server       ClusterIP      172.21.35.48     &lt;none&gt;           5556/TCP,5557/TCP            1m
+argocd-metrics          ClusterIP      172.21.255.154   &lt;none&gt;           8082/TCP                     1m
+argocd-redis            ClusterIP      172.21.47.249    &lt;none&gt;           6379/TCP                     1m
+argocd-repo-server      ClusterIP      172.21.218.78    &lt;none&gt;           8081/TCP,8084/TCP            1m
+argocd-server           LoadBalancer   172.21.221.101   169.47.181.194   80:32699/TCP,443:31116/TCP   1m
+argocd-server-metrics   ClusterIP      172.21.4.67      &lt;none&gt;           8083/TCP                     1m</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here, we are passing <code>svc</code> as the type to access and <code>-n</code> is used to pass the namespace.</p>
+</div>
+<div class="paragraph">
+<p>Now, you can access it at <code>External-ip:Node-port</code> which in this case will be <code>169.47.181.194:32699</code>.</p>
+</div>
+<div class="paragraph">
+<p>Alternatively, with out exposing the service, you can also use port forwarding as follows.</p>
+</div>
+<div class="paragraph">
+<p>This command allows you to forward one or more local ports to a pod. This command requires the node to have 'socat' installed. To learn more about this, check out <a href="https://docs.openshift.com/enterprise/3.0/dev_guide/port_forwarding.html">oc port-forward</a> command.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ oc port-forward svc/argocd-server -n argocd 8080:443</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Open a new terminal.</p>
+</li>
+<li>
+<p>Login using the cli.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Login as the <code>admin</code> user.
+The initial password is autogenerated to be the pod name of the Argo CD API server. This can be retrieved with the following command.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ oc get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | cut -d'/' -f 2</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now login as follows.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ argocd login &lt;ARGOCD_SERVER&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you are using a load balancer, it will be</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ argocd login 169.47.181.194:32699
+WARNING: server certificate had error: x509: cannot validate certificate for 169.47.181.194 because it doesn't contain any IP SANs. Proceed insecurely (y/n)? y
+Username: admin
+Password:
+'admin' logged in successfully
+Context '169.47.181.194:32699' updated</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you want to change the password, it is as below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ argocd account update-password
+*** Enter current password:
+*** Enter new password:
+*** Confirm new password:
+Password updated
+Context '169.47.181.194:32699' updated</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you are using port forwarding, it will be</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ argocd login localhost:8080
+WARNING: server certificate had error: x509: certificate signed by unknown authority. Proceed insecurely (y/n)? y
+Username: admin
+Password:
+'admin' logged in successfully
+Context 'localhost:8080' updated</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you want to change the password, it is as below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ argocd account update-password
+*** Enter current password:
+*** Enter new password:
+*** Confirm new password:
+Password updated
+Context 'localhost:8080' updated</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_deploying_the_app"><a class="anchor" href="#_deploying_the_app"></a>Deploying the app</h3>
+<div class="paragraph">
+<p>Note: Replace <code><a href="https://github.com/ibm-cloud-architecture/cloudnative_sample_app_deploy" class="bare">https://github.com/ibm-cloud-architecture/cloudnative_sample_app_deploy</a></code> with your forked repo in all the below steps if you want to use the one you built.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Add the repository using Argo CLI.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For username and password, pass your github credentials.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ argocd repo add https://github.com/ibm-cloud-architecture/cloudnative_sample_app_deploy --username &lt;username&gt; --password &lt;password&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You will see something like below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>repository 'https://github.com/ibm-cloud-architecture/cloudnative_sample_app_deploy' added</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Create the app.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ argocd app create sampleapp \
+   --repo https://github.com/ibm-cloud-architecture/cloudnative_sample_app_deploy.git \
+   --path chart/cloudnativesampleapp \
+   --dest-server https://kubernetes.default.svc \
+   --dest-namespace default</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If it is successful, your output will be something like below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ argocd app create sampleapp \
+&gt;    --repo https://github.com/Hemankita/cloudnative_sample_app_deploy.git \
+&gt;    --path chart/cloudnativesampleapp \
+&gt;    --dest-server https://kubernetes.default.svc \
+&gt;    --dest-namespace default
+application 'sampleapp' created</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Also, there is an UI available. Let us now login and see our deployment in UI.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/argocd_login.png" alt="argocd login">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You will now see the available apps.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/sampleapp_create.png" alt="sampleapp create">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Initially, the app will be out of sync. It is yet to be deployed. You need to sync it for deploying.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/out_of_sync.png" alt="out of sync">
+</div>
+</div>
+<div class="paragraph">
+<p>To sync the application, click <code>SYNC</code> and then <code>SYNCHRONIZE</code>.</p>
+</div>
+<div class="paragraph">
+<p>You can also do it in command line using the below command.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ argocd app sync sampleapp</pre>
+</div>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/sync_the_app.png" alt="sync the app">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Wait till the app is deployed.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/synched_app.png" alt="synched app">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Once the app is deployed, click on it to see the details.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/sample_app_deployed.png" alt="sample app deployed">
+</div>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/sample_app_full_deployment.png" alt="sample app full deployment">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_verifying_the_deployment"><a class="anchor" href="#_verifying_the_deployment"></a>Verifying the deployment</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Access the app to verify if it is correctly deployed.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Go to terminal and run the below command.</p>
+</div>
+<div class="paragraph">
+<p>This command lists all services. We are passing <code>svc</code> as the type to access. To know more, check out <a href="https://docs.openshift.com/enterprise/3.0/cli_reference/basic_cli_operations.html">oc get</a> command.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ oc get svc</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If your app is deployed properly, you will see something like below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ oc get svc
+NAME                           TYPE           CLUSTER-IP       EXTERNAL-IP      PORT(S)                      AGE
+cloudnativesampleapp-service   NodePort       172.21.163.81    &lt;none&gt;           8080:32158/TCP               1m
+docker-registry                ClusterIP      172.21.91.69     &lt;none&gt;           5000/TCP                     20h
+kubernetes                     ClusterIP      172.21.0.1       &lt;none&gt;           443/TCP,53/UDP,53/TCP        20h
+registry-console               ClusterIP      172.21.161.213   &lt;none&gt;           9000/TCP                     20h
+router                         LoadBalancer   172.21.75.74     169.47.181.197   80:32378/TCP,443:32743/TCP   20h</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can access the app at <a href="http://&lt;host&gt;:&lt;port&gt;/greeting?name=John" class="bare">http://&lt;host&gt;:&lt;port&gt;/greeting?name=John</a>.</p>
+</div>
+<div class="paragraph">
+<p>For instance in our case, it will be <code><a href="http://169.47.181.194:32158/greeting?name=John" class="bare">http://169.47.181.194:32158/greeting?name=John</a></code></p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/sampl_app_output.png" alt="sampl app output">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_references"><a class="anchor" href="#_references"></a>References</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://argoproj.github.io/argo-cd/">ArgoCD</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Kubernetes for CloudFoundry users :: Cloudnative Learning 101</title>
+    <link rel="canonical" href="https://ibm-cloud-architecture.github.io/cloudnative-learning-101/cloudnative-learning-101/1.0.0/CF_Migrate_Module/Kubernetes-for-CF.html">
+    <meta name="generator" content="Antora 2.0.0">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <p>Cloudnative Learning 101</p>
+      </div>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="cloudnative-learning-101" data-version="1.0.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Cloudnative Learning 101</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Cloud Native Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Cloudnative_Overview.html">Cloudnative Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Cloudnative_framework_prog_model.html">Cloudnative Framework &amp; Programming Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Cloudnative_app_development.html">Cloud Native App Development</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Lab1.html">Lab 1: Cloudnative App Development</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Kubernetes Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Docker.html">Containerization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Lab2.html">Lab 2: Docker</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/kubernetesPatterns.html">Kubernetes Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Lab3.html">Lab 3: Kubernetes Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Lab4.html">Lab 4: Deploy the app on Kube</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/operators.html">Helm/Operator Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Lab5.html">Lab 5: Deploy the app on Kube using Helm (TODO)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Cloud Foundry Migration Module</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="Kubernetes-for-CF.html">Kubernetes for Cloud Foundry users</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="CF-migration.html">CF Migration Tool</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://github.com/ibm-cloud-architecture/cf-transformation/blob/master/exercise/openshift.md">Lab 7: Migrate your app from CF to Kube (Openshift) - Github Link</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://github.com/ibm-cloud-architecture/cf-transformation/blob/master/exercise/iks.md">Lab 7: Migrate your app from CF to Kube (IKS) - Github link</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">DevOps Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/Devops_Concepts.html">DevOps Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/cicd.html">CI/CD</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/devops_tooling.html">Devops Tooling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/Lab8_Openshift.html">Lab 8: CI - Openshift</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/Lab8_IKS.html">Lab 8: CI - IKS</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/Lab9_OpenShift.html">Lab 9: CD - Openshift</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/Lab9_IKS.html">Lab 9: CD - IKS</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Cloudnative Learning 101</span>
+    <span class="version">1.0.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Cloudnative Learning 101</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main role="main">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Cloudnative Learning 101</a></li>
+    <li>Cloud Foundry Migration Module</li>
+    <li><a href="Kubernetes-for-CF.html">Kubernetes for Cloud Foundry users</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="file:///root/project/modules/ROOT/pages/CF_Migrate_Module/Kubernetes-for-CF.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1 class="page">Kubernetes for CloudFoundry users</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_overview">Overview</a></li>
+<li><a href="#_application_execution_environment">Application execution environment</a></li>
+<li><a href="#_application_staging">Application Staging</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Provided that you have been working mainly with CloudFoundry based application and had just learned on what Kubernetes is, this module tries to bridge the concept of what is happening in Kubernetes world that would correspond to the familiar thing in CloudFoundry application. This module assumes that you are very familar with CloudFoundry and have some basic understanding of Kubernetes objects and resources.</p>
+</div>
+<div class="paragraph">
+<p>The discussion in this module comes in two sub-sections:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Application execution environment comparison for CloudFoundry and Kubernetes and OpenShift</p>
+</li>
+<li>
+<p>Application staging process comparison for CloudFoundry</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_application_execution_environment"><a class="anchor" href="#_application_execution_environment"></a>Application execution environment</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The application execution environment diagram for CloudFoundry below demonstrates the components that runs CloudFoundry applications.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/cf.PNG" alt="cf">
+</div>
+</div>
+<div class="paragraph">
+<p>In CloudFoundry, application runs within a Diego cell (used to be a DEA node) which runs a Garden container.
+The cell is constructed from Droplet image that is stored in CloudFoundry BLOB store.
+CloudFoundry provides router (Go router) for accessing the application running in the cell so that external access is enabled for the application.
+For the application to access the backend services, it facilitates an environment variable called VCAP_SERVICES, which contains the credentials and access information for those backend services.</p>
+</div>
+<div class="paragraph">
+<p>In Kubernetes application runs in the Kubernetes cluster as demonstrated below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/kube.PNG" alt="kube">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Kubernetes applications run in Pods, which are similar to Cloud Foundry Diego cells.</p>
+</li>
+<li>
+<p>There is a Kubernetes Service that performs load balancing for all the pod instances.</p>
+</li>
+<li>
+<p>External access to the Service is received from either a NodePort, a LoadBalancer service or an Ingress entry.</p>
+</li>
+<li>
+<p>The combination of Kubernetes Service and Ingress entry serves a similar function to the Go Router in CloudFoundry.</p>
+</li>
+<li>
+<p>Backend services binding in Kubernetes must be defined by the developer, the system does not provide a binding.</p>
+</li>
+<li>
+<p>Typically the information on where the service is located can be found in ConfigMaps and the credentials to access the service is stored in Secrets.</p>
+</li>
+<li>
+<p>So you can ended up with multiple configurations that are provided by the backend environment that you must bind to each of the applications that uses them.</p>
+</li>
+<li>
+<p>These ConfigMaps and Secrets are comparable to CloudFoundry&#8217;s provided VCAP_SERVICES environment variable.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For OpenShift, which is derived from Kubernetes, the architecture is very similar. However, OpenShift has provided some functionality for the cluster that allows a more simple configuration of a cluster.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>One of the example is OpenShift router, which provides a combined way to develop an Ingress entry with a setting of DNS resources, this function is very similar to CloudFoundry Go Router.</p>
+</li>
+<li>
+<p>OpenShift uses a DeploymentConfig, which has more capabilities than a Kubernetes Deployment, it supports the definition of triggers, which allow the pods to be modified when a certain situation (such as image or configuration is updated).</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/oc.PNG" alt="oc">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_application_staging"><a class="anchor" href="#_application_staging"></a>Application Staging</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The staging of application, from the source repository into a runnable image differs greatly from one platform to another.
+The staging is performed after the build artifact is collected, this include performing maven, gradle or other build mechanism.
+Application is then staged into the Cloud platform; this staging process is typically split into: application container image creation and application container deployment.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/staging.PNG" alt="staging">
+</div>
+</div>
+<div class="paragraph">
+<p>In CloudFoundry, Droplet images are built by the CloudFoundry buildpacks.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The buildpack will evaluate the application artifacts and construct a runnable Droplet image by providing the necessary pre-requisites and collect dependent codes.</p>
+</li>
+<li>
+<p>This process is explained further in [CloudFoundry staging](<a href="https://docs.cloudfoundry.org/concepts/how-applications-are-staged.html" class="bare">https://docs.cloudfoundry.org/concepts/how-applications-are-staged.html</a>).</p>
+</li>
+<li>
+<p>The runnable Droplet image is stored in BLOB store and then to be deployed as a Garden container in a Diego cell.</p>
+</li>
+<li>
+<p>The service binding is provided by CloudFoundry as VCAP_SERVICES environment variable in the container.</p>
+</li>
+<li>
+<p>Finally CloudFoundry defines a Router entry for the application.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Although these processes sound complicated, it is actually performed using a single command <code>cf push</code>.</p>
+</div>
+<div class="paragraph">
+<p>In OpenShift the staging of application is perfomed using BuildConfig, DeploymentConfig and bindings are defined in ConfigMaps and Secrets.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>OpenShift is using a <strong>BuildConfig</strong> generates an <strong>ImageStream</strong> in OpenShift.</p>
+</li>
+<li>
+<p>ImageStream represent a container image which can be build using Dockerfile or S2I process.</p>
+</li>
+<li>
+<p>The image building part can be accomplished using the command:</p>
+<div class="literalblock">
+<div class="content">
+<pre>oc start-build &lt;buildconfig_name&gt;</pre>
+</div>
+</div>
+</li>
+<li>
+<p>You or the backend service provider then create ConfigMap and Secrets to access backend services.</p>
+</li>
+<li>
+<p>Finally, you use a Template object that contains at least a <strong>DeploymentConfig</strong> (with <strong>Pod</strong> definition), <strong>Service</strong> and <strong>Route</strong> to deploy the application.</p>
+</li>
+<li>
+<p>You deploy the application using the command:</p>
+<div class="literalblock">
+<div class="content">
+<pre>oc new-app -f &lt;template.yaml&gt;</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In Kubernetes, staging is performed as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You create a <strong>docker image</strong> using a Dockerfile and store the image in a <strong>Docker repository</strong></p>
+<div class="literalblock">
+<div class="content">
+<pre>docker build -t &lt;image&gt;
+docker push &lt;image&gt;</pre>
+</div>
+</div>
+</li>
+<li>
+<p>You create ConfigMap and Secrets to access backend services</p>
+</li>
+<li>
+<p>You use YAML file to deploy Kubernetes resources such as <strong>Kubernetes Pod</strong> in a Deployment, <strong>Kubernetes Service</strong> and maybe an <strong>Ingress</strong></p>
+<div class="literalblock">
+<div class="content">
+<pre>kubectl apply -f &lt;template&gt;</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

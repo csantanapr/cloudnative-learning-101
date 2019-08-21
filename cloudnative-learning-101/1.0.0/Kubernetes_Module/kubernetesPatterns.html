@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Foundational Kubernetes Patterns :: Cloudnative Learning 101</title>
+    <link rel="canonical" href="https://ibm-cloud-architecture.github.io/cloudnative-learning-101/cloudnative-learning-101/1.0.0/Kubernetes_Module/kubernetesPatterns.html">
+    <meta name="generator" content="Antora 2.0.0">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <p>Cloudnative Learning 101</p>
+      </div>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="cloudnative-learning-101" data-version="1.0.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Cloudnative Learning 101</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Cloud Native Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Cloudnative_Overview.html">Cloudnative Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Cloudnative_framework_prog_model.html">Cloudnative Framework &amp; Programming Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Cloudnative_app_development.html">Cloud Native App Development</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Lab1.html">Lab 1: Cloudnative App Development</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Kubernetes Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Docker.html">Containerization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Lab2.html">Lab 2: Docker</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="kubernetesPatterns.html">Kubernetes Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Lab3.html">Lab 3: Kubernetes Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Lab4.html">Lab 4: Deploy the app on Kube</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="operators.html">Helm/Operator Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Lab5.html">Lab 5: Deploy the app on Kube using Helm (TODO)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Cloud Foundry Migration Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../CF_Migrate_Module/Kubernetes-for-CF.html">Kubernetes for Cloud Foundry users</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../CF_Migrate_Module/CF-migration.html">CF Migration Tool</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://github.com/ibm-cloud-architecture/cf-transformation/blob/master/exercise/openshift.md">Lab 7: Migrate your app from CF to Kube (Openshift) - Github Link</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://github.com/ibm-cloud-architecture/cf-transformation/blob/master/exercise/iks.md">Lab 7: Migrate your app from CF to Kube (IKS) - Github link</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">DevOps Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/Devops_Concepts.html">DevOps Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/cicd.html">CI/CD</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/devops_tooling.html">Devops Tooling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/Lab8_Openshift.html">Lab 8: CI - Openshift</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/Lab8_IKS.html">Lab 8: CI - IKS</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/Lab9_OpenShift.html">Lab 9: CD - Openshift</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/Lab9_IKS.html">Lab 9: CD - IKS</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Cloudnative Learning 101</span>
+    <span class="version">1.0.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Cloudnative Learning 101</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main role="main">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Cloudnative Learning 101</a></li>
+    <li>Kubernetes Module</li>
+    <li><a href="kubernetesPatterns.html">Kubernetes Patterns</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="file:///root/project/modules/ROOT/pages/Kubernetes_Module/kubernetesPatterns.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1 class="page">Foundational Kubernetes Patterns</h1>
+<div class="sect1">
+<h2 id="_predictable_demands_pattern"><a class="anchor" href="#_predictable_demands_pattern"></a>Predictable Demands Pattern</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>An application&#8217;s performance, efficiency, and behaviors are reliant upon it&#8217;s ability to have the appropriate allocation of resources.  The Predictable Demands pattern is based on declaring the dependencies and resources needed by a given application.  The scheduler will prioritize an application with a defined set of resources and dependencies since it can better manage the workload across nodes in the cluster.  Each application has a different set of dependencies which we will touch on next.</p>
+</div>
+<div class="sect2">
+<h3 id="_runtime_dependencies"><a class="anchor" href="#_runtime_dependencies"></a>Runtime Dependencies</h3>
+<div class="paragraph">
+<p>One of the most common runtime dependency&#8217;s is the exposure of a container&#8217;s specific port through hostPort.  Different applications can specify the same port through hostPort which reserves the port on each node in the cluster for the specific container.  This declaration restricts multiple continers with the same hostPort to be deployed on the same nodes in the cluster and restricts the scale of pods to the number of nodes you have in the cluster.</p>
+</div>
+<div class="paragraph">
+<p>Another runtime dependency is file storage for saving the application state.  Kubernetes offers Pod-level storage utilities that are capable of surviving container restarts.  Applications needing to read or write to these storage mechanisms will require nodes that is provided the type of volume required by the application.  If there is no nodes available with the required volume type, then the pod will not be scheduled to be deployed at all.</p>
+</div>
+<div class="paragraph">
+<p>A different kind of dependency is configurations.  ConfigMaps are used by Kubernetes to strategically plan out how to consume it&#8217;s settings through either environment variables or the filesystem.  Secrets are consumed the same was as a ConfigMap in Kubernetes.  Secrets are a more secure way to distribute environment-specific configurations to containers within the pod.</p>
+</div>
+<div class="paragraph">
+<p><strong><strong>More INFO on CONFIGMAPS AND SECRETS LINK</strong></strong></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_resource_profiles"><a class="anchor" href="#_resource_profiles"></a>Resource Profiles</h3>
+<div class="paragraph">
+<p>Resource Profiles are definitions for the compute resources required for a container.  Resources are categorized in two ways, compressible and incompressible.  Compressible resources include resources that can be throttled such as CPU or network bandwidth. Incompressible represents resouces that can&#8217;t be throttled such as memory where there is no other way to release the allocated resource other than killing the container.  The difference between compressible and incompressible is very important when it comes to planning the deployment of pods and containers since the resource allocation can be affected by the limits of each.</p>
+</div>
+<div class="paragraph">
+<p>Every application needs to have a specified minimum and maximum amount of resources that are needed.  The minimum amount is called "requests" and the maximum is the "limits".  The scheduler uses the requests to determine the assignment of pods to nodes ensuring that the node will have enough capacity to accommodate the pod and all of it&#8217;s containers required resources.  An example of defined resource limits is below:</p>
+</div>
+<div class="paragraph">
+<p>Different levels of Quality of Service (QoS) are offered based on the specified requests and limits.</p>
+</div>
+<div class="dlist">
+<div class="title">3 Quality of Service Levels</div>
+<dl>
+<dt class="hdlist1">Best Effort</dt>
+<dd>
+<p>Lowest priority pod with no requests or limits set for it&#8217;s containers. These pods will be the first of any pods killed if resources run low.</p>
+</dd>
+<dt class="hdlist1">Burstable</dt>
+<dd>
+<p>Limits and requests are defined but they are not equal.  The pod will use the minimum amount of resources, but will consume more if needed up to the limit.  If the needed resources become scarce then these pods will be killed if no Best Effort pods are left.</p>
+</dd>
+<dt class="hdlist1">Guaranteed</dt>
+<dd>
+<p>Highest priority pods with an equal amount of requests and limits. These pods will be the last to be killed if resources run low and no Best Effort or Burstable pods are left.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_pod_priority"><a class="anchor" href="#_pod_priority"></a>Pod Priority</h3>
+<div class="paragraph">
+<p>The priority of pods can be defined through a PriorityClass object. The PriorityClass object allows developers to indicate the importance of a pod relative to the other pods in the cluster.  The higher the priority number then the higher the priority of the pod. The scheduler looks at a pods priorityClassName to populate the priority of new pods.  As pods are being placed in the scheduling queue for deployment, the scheduler orders them from highest to lowest.</p>
+</div>
+<div class="paragraph">
+<p>Another key feature for pod priority is the Preemption feature.  The Preemption feature occurs when there are no nodes with enough capacity to place a pod.  If this occurs the scheduler can preempt (remove) lower-priority Pods from nodes to free up resources and place Pods with higher priority.  This effectively allows system administrators the ability to control which critical pods get top priority for resources in the cluster as well as controlling which critical workloads are able to be run on the cluster first. If a pod can not be scheduled due to constraints it will continue on with lower-priority nodes.</p>
+</div>
+<div class="paragraph">
+<p>Pod Priority should be used with caution for this gives users the ability to control over the kubernetes scheduler and ability to place or kill pods that may interrupt the cluster&#8217;s critical functions.  New pods with higher priority than others can quickly evict pods with lower priority that may be critical to a container&#8217;s performance.  ResourceQuota and PodDisruptionBudget are two tools that help combat this from happening read more here.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_declarative_deployment_pattern"><a class="anchor" href="#_declarative_deployment_pattern"></a>Declarative Deployment Pattern</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>With a growing number of microservices, reliance on an updating process for the services has become ever more important. Upgrading services is usually accompanied with some downtime for users or an increase in resource usage.  Both of these can lead to an error effecting the performance of the application making the release process a bottleneck.</p>
+</div>
+<div class="paragraph">
+<p>A way to combat this issue in Kubernetes is through the use of Deployments.  There are different approaches to the updating process that we will cover below. Any of these approaches can be put to use in order to save time for developers during their release cycles which can last from a few minutes to a few months.</p>
+</div>
+<div class="sect2">
+<h3 id="_rolling_deployment"><a class="anchor" href="#_rolling_deployment"></a>Rolling Deployment</h3>
+<div class="paragraph">
+<p>A Rolling Deployment ensures that there is no downtime during the update process.  Kubernetes creates a new ReplicaSet for the new version of the service to be rolled out.  From there Kubernetes creates set of pods of the new version while leaving the old pods running.  Once the new pods are all up and running they will replace the old pods and become the primary pods users access.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/rolling-deploy.png" alt="Rolling Deployment">
+</div>
+</div>
+<div class="paragraph">
+<p>The upside to this approach is that there is no downtime and the deployment is handled by kubernetes through a deployment like the one below. The downside is with two sets of pods running at one time there is a higher usage of resources that may lead to performance issues for users.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_fixed_deployment"><a class="anchor" href="#_fixed_deployment"></a>Fixed Deployment</h3>
+<div class="paragraph">
+<p>A Fixed Deployment uses the Recreate strategy which sets the maxUnavailable setting to the number of declared replicas.  This in effect starts the versions of the pods as the old versions are being killed.  The starting and stopping of containers does create a little bit of downtime for customers while the starting and stopping is taking place, but the positive side is the users will only have to handle one version at a time.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/fixed-deploy.png" alt="Fixed Deployment">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_blue_green_release"><a class="anchor" href="#_blue_green_release"></a>Blue-Green Release</h3>
+<div class="paragraph">
+<p>A Blue-Green Release involves a manual process of creating a second deployment of pods with the newest version of the application running as well as keeping the old version of pods running in the cluster.  Once the new pods are up and running properly the administrator shifts the traffic over to the new pods. Below is a diagram showing both versions up and running with the traffic going to the newer (green) pods.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/blue-green.png" alt="Blue-Green">
+</div>
+</div>
+<div class="paragraph">
+<p>The downfall to this approach is the use of resources with two separate groups of pods running at the same time which could cause performance issues or complications. However, the advantage of this approach is users only experience one version at a time and it&#8217;s easy to quickly switch back to the old version with no downtime if an issue arises with the newer version.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_canary_release"><a class="anchor" href="#_canary_release"></a>Canary Release</h3>
+<div class="paragraph">
+<p>A Canary Release involves only standing up one pod of the new application code and shifting only a limited amount of new users traffic to that pod.  This approach reduces the number of people exposed to the new service allowing the administrator to see how the new version is performing.  Once the team feels comfortable with the performance of the new service then more pods can be stood up to replace the old pods.  An advantage to this approach is no downtime with any of the services as the new service is being scaled.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/canary-release.png" alt="Canary Release">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_health_probe_pattern"><a class="anchor" href="#_health_probe_pattern"></a>Health Probe Pattern</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Health Probe pattern revolves the health of applications being communicated to Kubernetes. To be fully-automatable, cloud-applications must be highly observable in order for Kubernetes to know which applications are up and ready to receive traffic and which cannot. Kubernetes can use that information for traffic direction, self-healing, and to achieve the desired state of the application.</p>
+</div>
+<div class="sect2">
+<h3 id="_process_health_checks"><a class="anchor" href="#_process_health_checks"></a>Process Health Checks</h3>
+<div class="paragraph">
+<p>The simplest health check in kubernetes is the Process Health Check.  Kubernetes simply probes the application&#8217;s processes to see if they are running or not. The process check tells kubernetes when a process for an application needs to be restarted or shut down in the case of a failure.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_liveness_probes"><a class="anchor" href="#_liveness_probes"></a>Liveness Probes</h3>
+<div class="paragraph">
+<p>A Liveness Probe is performed by the Kubernetes Kubelet agent and asks the container to confirm it&#8217;s health.  A simple process check can return that the container is healthy, but the container to users may not be performing correctly.  The liveness probe addresses this issue but asking the container for its health from outside of the container itself. If a failure is found it may require that the container be restarted to get back to normal health.  A liveness probe can perform the following actions to check health:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>HTTP GET and expects a success which is code 200-399.</p>
+</li>
+<li>
+<p>A TCP Socket Probe and expects a successful connection.</p>
+</li>
+<li>
+<p>A Exec Probe which executes a command and expects a successful exit code (0).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The action chosen to be performed for testing depends on the nature of the application and which action fits best. Always keep in mind that a failing health check results in a restart of the container from Kubernetes, so make sure the right health check is in place if the underlying issue can&#8217;t be fixed.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_readiness_probes"><a class="anchor" href="#_readiness_probes"></a>Readiness Probes</h3>
+<div class="paragraph">
+<p>A Readiness Probe is very similar to a Liveness probe, but the resulting action to a failed Readiness probe is different.  When a liveness probe fails the container is restarted and, in some scenarios, a simple restart won&#8217;t fix the issue, which is where a readiness probe comes in.  A failed readiness probe won&#8217;t restart the container but will disconnect it from the traffic endpoint.  Removing a container from traffic allows it to get up and running smoothly before being tossed into service unready to handle requests from users.  Readiness probes give an application time to catch up and make itself ready again to handle more traffic versus shutting down completely and simply creating a new pod. In most cases, liveness and readiness probes are run together on the same application to make sure that the container has time to get up and running properly as well as stays healthy enough to handle the traffic.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_managed_lifecycle_pattern"><a class="anchor" href="#_managed_lifecycle_pattern"></a>Managed Lifecycle Pattern</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Managed Lifecycle pattern describes how containers need to adapt their lifecycles based on the events that are communicated from a managing platform such as Kubernetes.  Containers do not have control of their own lifecycles.  It&#8217;s the managing platforms that allow them to live or die, get traffic or have none, etc.  This pattern covers how the different events can affect those lifecycle decisions.</p>
+</div>
+<div class="sect2">
+<h3 id="_sigterm"><a class="anchor" href="#_sigterm"></a>SIGTERM</h3>
+<div class="paragraph">
+<p>The SIGTERM is a signal that is sent from the managing platform to a container or pod that instructs the pod or container to shutdown or restart.  This signal can be sent due to a failed liveness test or a failure inside the container.  SIGKILL allows the container to cleaning and properly shut itself down versus SIGKILL, which we will get to next. Once received, the application will shutdown as quickly as it can, allowing other processes to stop properly and cleaning up other files.  Each application will have a different shutdown time based on the tasks needed to be done.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sigkill"><a class="anchor" href="#_sigkill"></a>SIGKILL</h3>
+<div class="paragraph">
+<p>SIGKILL is a signal sent to a container or pod forcing it to shutdown.  A SIGKILL is normally sent after the SIGTERM signal.  There is a default 30 second grace period between the time that SIGTERM is sent to the application and SIGKILL is sent.  The grace period can be adjusted for each pod using the .spec.terminationGracePeriodSeconds field. The overall goal for containerized applications should be aimed to have designed and implemented quick startup and shutdown operations.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_poststart"><a class="anchor" href="#_poststart"></a>postStart</h3>
+<div class="paragraph">
+<p>The postStart hook is a command that is run after the creation of a container and begins asynchronously with the container&#8217;s primary process. PostStart is put in place in order to give the container time to warm up and check itself during startup.  During the postStart loop the container will be labeled in "pending" mode in kubernetes while running through it&#8217;s initial processes.  If the postStart function errors out it will do so with a nonzero exit code and the container process will be killed by Kubernetes.  Careful planning must be done when deciding what logic goes into the postStart function because if it fails the container will also fail to start.  Both postStart and preStop have two handler types that they run:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>exec: Runs a command directly in the container.</p>
+</li>
+<li>
+<p>httpGet: Executes an HTTP GET request against an opened port on the pod container.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_prestop"><a class="anchor" href="#_prestop"></a>preStop</h3>
+<div class="paragraph">
+<p>The preStop hook is a call that blocks a container from terminating too quickly and makes sure the container has a graceful shutdown.  The preStop call must finish before the container is deleted by the container runtime.  The preStop signal does not stop the container from being deleted completely, it is only an alternative to a SIGTERM signal for a graceful shutdown.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

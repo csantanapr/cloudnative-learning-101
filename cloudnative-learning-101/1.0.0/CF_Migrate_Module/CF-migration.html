@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CloudFoundry Migration tool :: Cloudnative Learning 101</title>
+    <link rel="canonical" href="https://ibm-cloud-architecture.github.io/cloudnative-learning-101/cloudnative-learning-101/1.0.0/CF_Migrate_Module/CF-migration.html">
+    <meta name="generator" content="Antora 2.0.0">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <p>Cloudnative Learning 101</p>
+      </div>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="cloudnative-learning-101" data-version="1.0.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Cloudnative Learning 101</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Cloud Native Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Cloudnative_Overview.html">Cloudnative Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Cloudnative_framework_prog_model.html">Cloudnative Framework &amp; Programming Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Cloudnative_app_development.html">Cloud Native App Development</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Lab1.html">Lab 1: Cloudnative App Development</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Kubernetes Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Docker.html">Containerization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Lab2.html">Lab 2: Docker</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/kubernetesPatterns.html">Kubernetes Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Lab3.html">Lab 3: Kubernetes Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Lab4.html">Lab 4: Deploy the app on Kube</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/operators.html">Helm/Operator Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Lab5.html">Lab 5: Deploy the app on Kube using Helm (TODO)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Cloud Foundry Migration Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Kubernetes-for-CF.html">Kubernetes for Cloud Foundry users</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="CF-migration.html">CF Migration Tool</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://github.com/ibm-cloud-architecture/cf-transformation/blob/master/exercise/openshift.md">Lab 7: Migrate your app from CF to Kube (Openshift) - Github Link</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://github.com/ibm-cloud-architecture/cf-transformation/blob/master/exercise/iks.md">Lab 7: Migrate your app from CF to Kube (IKS) - Github link</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">DevOps Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/Devops_Concepts.html">DevOps Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/cicd.html">CI/CD</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/devops_tooling.html">Devops Tooling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/Lab8_Openshift.html">Lab 8: CI - Openshift</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/Lab8_IKS.html">Lab 8: CI - IKS</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/Lab9_OpenShift.html">Lab 9: CD - Openshift</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/Lab9_IKS.html">Lab 9: CD - IKS</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Cloudnative Learning 101</span>
+    <span class="version">1.0.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Cloudnative Learning 101</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main role="main">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Cloudnative Learning 101</a></li>
+    <li>Cloud Foundry Migration Module</li>
+    <li><a href="CF-migration.html">CF Migration Tool</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="file:///root/project/modules/ROOT/pages/CF_Migrate_Module/CF-migration.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1 class="page">CloudFoundry Migration tool</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_migration_tool_approach">Migration tool approach</a></li>
+<li><a href="#_using_the_migration_tool">Using the migration tool</a></li>
+<li><a href="#_migration_tool_output">Migration tool output</a></li>
+<li><a href="#_migration_tool_limitation">Migration tool limitation</a></li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This tool assists you in migrating CloudFoundry applications to Kubernetes based platforms, such as OpenShift, IBM Kubernetes Service (IKS) and IBM Cloud Private (ICP).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_migration_tool_approach"><a class="anchor" href="#_migration_tool_approach"></a>Migration tool approach</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The migration tool is not designed to provide a fully automated conversion of the application from Cloud Foundry to Kubernetes. It uses the source code and the environment variables from the running Cloud Foundry application to generate all the necessary assets to deploy that application to a  Kubernetes platform. However, the tool does require several commands to be run by the user. It is important for the user of the tool to understand the differences between Cloud Foundry and Kubernetes, and the general tasks required to migrate from one to the other. The manual steps required by the tool are meant to help the user understand this process.</p>
+</div>
+<div class="paragraph">
+<p>The configuration files and other assets generated by  the tool can be used to test and deploy the application to Kubernetes. They can also be used later to help create an automated DevOps pipeline for follow-on application maintenance. The tool is only meant to be run once to migrate a given application. The goal is that once the application is running in Kubernetes, any follow-on maintenance is performed on that platform.</p>
+</div>
+<div class="paragraph">
+<p>The assets generated by the tool vary by application language and type, but are typically:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Binaries and configuration files for the application code</p>
+</li>
+<li>
+<p>A Dockerfile to generate the application container image</p>
+</li>
+<li>
+<p>YAML configuration files to deploy to Kubernetes</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_the_migration_tool"><a class="anchor" href="#_using_the_migration_tool"></a>Using the migration tool</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The tool is packaged in a GitHub repository at [this link](<a href="https://github.com/ibm-cloud-architecture/cf-transformation" class="bare">https://github.com/ibm-cloud-architecture/cf-transformation</a>). A sample Java application is provided in the <code>exemplar</code> sub-directory. This tool requires the following pre-requisite software to be installed on your system:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>bash</p>
+</li>
+<li>
+<p>docker</p>
+</li>
+<li>
+<p>jq</p>
+</li>
+<li>
+<p>Java Development Kit</p>
+</li>
+<li>
+<p>git</p>
+</li>
+<li>
+<p>curl</p>
+</li>
+<li>
+<p>xmlstarlet</p>
+</li>
+<li>
+<p>maven</p>
+</li>
+<li>
+<p>gradle</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can also run the tool using a provided Docker container. This allows you to run the tool without installing the prerequisite software on your system.
+Using a docker container allows you to run the tool without having to install all the prerequisite software on your own machine.
+This docker container will share the host docker environment to run <code>docker</code> command.
+Assuming that you have docker running, do the following steps to run the migration tool from the container:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Get the container image:</p>
+<div class="literalblock">
+<div class="content">
+<pre>docker pull ibmcloudacademy/cfmigrationtool</pre>
+</div>
+</div>
+</li>
+<li>
+<p>In the command to start the container, provide the path to an existing directory on your machine that the tool will use for its conversion and to store the output. The following example assumes that you are using <code>/Users/ibmuser/data</code>:</p>
+<div class="literalblock">
+<div class="content">
+<pre>docker run -p 8000:8000 -v /Users/ibmuser/data:/data -v /var/run/docker.sock:/var/run/docker.sock -it ibmcloudacademy/cfmigrationtool bash</pre>
+</div>
+</div>
+</li>
+<li>
+<p>You will get a bash prompt from inside the container. You can then perform the migration tasks listed in the documentation and exercises. Since the directory you provided in the previous command is mapped to the path <code>/data</code> inside the container, remember to use the path <code>/data</code> as your target path (the <code>-t</code> parameter for the <code>cf-migrate.sh</code> script)</p>
+</li>
+<li>
+<p>You can now clone the migration tool from git:</p>
+<div class="literalblock">
+<div class="content">
+<pre>git clone https://github.com/ibm-cloud-architecture/cf-transformation</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Change the directory to the <code>migrate</code> sub-directory:</p>
+<div class="literalblock">
+<div class="content">
+<pre>cd cf-transformation/migrate</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Get the content of your application&#8217;s VCAP_SERVICES environment variables from Cloud Foundry. Most importantly, these variables contain the names, descriptions, and credentials required to access any backend services used by the application:</p>
+<div class="literalblock">
+<div class="content">
+<pre>cf env &lt;appname&gt; | awk '/VCAP_SERVICES/{flag=1} /^}/{flag=0} flag' | sed 's/"VCAP_SERVICES"://' &gt; vcap.json</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Run the migration tool against your application source code:</p>
+<div class="literalblock">
+<div class="content">
+<pre>./cf-migrate.sh -s &lt;source&gt; -t &lt;tempdir&gt; -b &lt;app type&gt; -e &lt;target type&gt;</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Where:</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>-s</code> Source path or git repository URL</p>
+</li>
+<li>
+<p><code>-t</code> Temporary conversion directory where the work will be performed and output will be generated (default: /tmp/convdir)</p>
+</li>
+<li>
+<p><code>-b</code> Application type (Cloud Foundry buildpack), such as ibm-websphere-liberty, java, or nodejs</p>
+</li>
+<li>
+<p><code>-e</code> Target environment: openshift, iks or icp</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>To be able to successfully perform the migration, you will need:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>docker installed and running</p>
+</li>
+<li>
+<p>Account and Command Line Interface (CLI) access to the kubernetes environment (kubectl for IKS, oc for OpenShift)</p>
+</li>
+<li>
+<p>Account and CLI access to the Cloud Foundry environment</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_migration_tool_output"><a class="anchor" href="#_migration_tool_output"></a>Migration tool output</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The typical user output from a migration tool run is shown below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/toolrun.PNG" alt="toolrun">
+</div>
+</div>
+<div class="paragraph">
+<p>The tool produces an HTML file called <code>result.html</code> in the conversion directory. This provides step-by-step instructions for deploying your application to Kubernetes:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/result.PNG" alt="result">
+</div>
+</div>
+<div class="paragraph">
+<p>For an example of running the migration tool, you can see the following videos for examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://ibm.ent.box.com/s/2am8zymeqpdma5bxy6cbw8znforxced0">Simple Liberty app</a></p>
+</li>
+<li>
+<p><a href="https://ibm.ent.box.com/s/soojmwu85m640fz14p86dc0492ad9s2q">NodeJS app with Cloudant backend</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_migration_tool_limitation"><a class="anchor" href="#_migration_tool_limitation"></a>Migration tool limitation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following limitation existed in this version of the tool:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Only support gradle or maven as the build mechanism</p>
+</li>
+<li>
+<p>Limited logic to manage complex application (ie multiple war files or non npm based nodejs)</p>
+</li>
+<li>
+<p>Liberty apps must already have the DataSource and JDBC definition in server.xml file</p>
+</li>
+<li>
+<p>Will not build a JDBC structure in server.xml</p>
+</li>
+<li>
+<p>Must manually supply a VCAP_SERVICES environment variable value</p>
+</li>
+<li>
+<p>The command is provided in documentation</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

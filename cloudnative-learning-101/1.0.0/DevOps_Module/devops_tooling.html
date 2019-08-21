@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>DevOps Tooling :: Cloudnative Learning 101</title>
+    <link rel="canonical" href="https://ibm-cloud-architecture.github.io/cloudnative-learning-101/cloudnative-learning-101/1.0.0/DevOps_Module/devops_tooling.html">
+    <meta name="generator" content="Antora 2.0.0">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <p>Cloudnative Learning 101</p>
+      </div>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="cloudnative-learning-101" data-version="1.0.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Cloudnative Learning 101</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Cloud Native Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Cloudnative_Overview.html">Cloudnative Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Cloudnative_framework_prog_model.html">Cloudnative Framework &amp; Programming Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Cloudnative_app_development.html">Cloud Native App Development</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Lab1.html">Lab 1: Cloudnative App Development</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Kubernetes Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Docker.html">Containerization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Lab2.html">Lab 2: Docker</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/kubernetesPatterns.html">Kubernetes Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Lab3.html">Lab 3: Kubernetes Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Lab4.html">Lab 4: Deploy the app on Kube</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/operators.html">Helm/Operator Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Lab5.html">Lab 5: Deploy the app on Kube using Helm (TODO)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Cloud Foundry Migration Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../CF_Migrate_Module/Kubernetes-for-CF.html">Kubernetes for Cloud Foundry users</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../CF_Migrate_Module/CF-migration.html">CF Migration Tool</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://github.com/ibm-cloud-architecture/cf-transformation/blob/master/exercise/openshift.md">Lab 7: Migrate your app from CF to Kube (Openshift) - Github Link</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://github.com/ibm-cloud-architecture/cf-transformation/blob/master/exercise/iks.md">Lab 7: Migrate your app from CF to Kube (IKS) - Github link</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">DevOps Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Devops_Concepts.html">DevOps Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cicd.html">CI/CD</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="devops_tooling.html">Devops Tooling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Lab8_Openshift.html">Lab 8: CI - Openshift</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Lab8_IKS.html">Lab 8: CI - IKS</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Lab9_OpenShift.html">Lab 9: CD - Openshift</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Lab9_IKS.html">Lab 9: CD - IKS</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Cloudnative Learning 101</span>
+    <span class="version">1.0.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Cloudnative Learning 101</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main role="main">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Cloudnative Learning 101</a></li>
+    <li>DevOps Module</li>
+    <li><a href="devops_tooling.html">Devops Tooling</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="file:///root/project/modules/ROOT/pages/DevOps_Module/devops_tooling.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1 class="page">DevOps Tooling</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">Introduction</a></li>
+<li><a href="#_source_code_management_tools">Source Code Management Tools</a></li>
+<li><a href="#_code_quality_tools">Code Quality Tools</a></li>
+<li><a href="#_configuration_management_tools">Configuration Management Tools</a></li>
+<li><a href="#_build_management_tools">Build Management Tools</a></li>
+<li><a href="#_container_management_tools">Container Management Tools</a></li>
+<li><a href="#_artifact_repository_management_tools">Artifact Repository Management Tools</a></li>
+<li><a href="#_release_management_tools">Release Management Tools</a></li>
+<li><a href="#_test_automation_tools">Test Automation Tools</a></li>
+<li><a href="#_continuous_integration_tools">Continuous Integration Tools</a></li>
+<li><a href="#_continuous_deliverydeployment_tools">Continuous Delivery/Deployment Tools</a></li>
+<li><a href="#_infrastructure_as_code_iac_tools">Infrastructure As Code (IaC) Tools</a></li>
+<li><a href="#_monitoring_tools">Monitoring Tools</a></li>
+<li><a href="#_alerting_tools">Alerting tools</a></li>
+<li><a href="#_logging_tools">Logging tools</a></li>
+<li><a href="#_references">References</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>DevOps is a software development and delivery process. It provides frameworks using several open source tools available to manage different phases of the application life cycle. It also ensures that all of them work together as a single cohesive unit.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/cicd_process.png" alt="cicd process">
+</div>
+</div>
+<div class="paragraph">
+<p>Today across the industry, there are some best practices for DevOps. They include Source Code Management, Code Review, Configuration Management, Build Management, Artifact Repository Management, Release Management, Test Automation, Continuous Integration, Continuous Delivery, Continuous Deployment, Infrastructure As Code, Automation, Key Application Performance Monitoring/Indicators.</p>
+</div>
+<div class="paragraph">
+<p>In order to implement all of them, we need appropriate tools. In this section, let us explore what are the different tools available and how these tools can be used to maintain and improve the aspects of DevOps.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_source_code_management_tools"><a class="anchor" href="#_source_code_management_tools"></a>Source Code Management Tools</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong class="maroon">Git</strong></p>
+</div>
+<div class="paragraph">
+<p>Git is a distributed version control system. It is capable of efficiently handling small to very large projects with speed. In the current market, this is one of the best free open source version control tools.</p>
+</div>
+<div class="paragraph">
+<p>To know more about Git, check out <a href="https://git-scm.com/doc">Git SCM</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_quality_tools"><a class="anchor" href="#_code_quality_tools"></a>Code Quality Tools</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong class="maroon">SonarQube</strong></p>
+</div>
+<div class="paragraph">
+<p>SonarQube is an open source code quality tool. It performs continuous inspection of code making sure that it is of good quality. It helps to detect bugs, code smells and vulnerabilities in the code with static analysis of code. It helps to identify the duplicate code. It evaluates the code to see if it meets the coding standards. It also tracks the code coverage and checks the code complexity.</p>
+</div>
+<div class="paragraph">
+<p>To know more about SonarQube, check out <a href="https://docs.sonarqube.org/latest/">SonarQube Docs</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuration_management_tools"><a class="anchor" href="#_configuration_management_tools"></a>Configuration Management Tools</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong class="maroon">Ansible</strong></p>
+</div>
+<div class="paragraph">
+<p>Ansible is an open source tool. It includes configuration management, deployment, and orchestration. It is also an automation engine which helps to automate the complete IT infrastructure.</p>
+</div>
+<div class="paragraph">
+<p>It is a push-based configuration tool and the simplest solution available out there. Also, the learning curve is extremely low.</p>
+</div>
+<div class="paragraph">
+<p>To know more about Ansible Configuration Management, check out <a href="https://www.ansible.com/use-cases/configuration-management">RedHat Ansible - Use case Configuration Management</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_management_tools"><a class="anchor" href="#_build_management_tools"></a>Build Management Tools</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong class="maroon">Maven</strong></p>
+</div>
+<div class="paragraph">
+<p>Maven is a build management tool which is open source. It is based on the project object model (POM). It helps in managing the project build. It also manages reporting and documentation from the central repository. It is used for Java projects.</p>
+</div>
+<div class="paragraph">
+<p>To know more about Maven, check out <a href="https://maven.apache.org/guides/index.html">Maven Documentation</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong class="maroon">Gradle</strong></p>
+</div>
+<div class="paragraph">
+<p>Gradle is a build management tool which is also open source. It helps teams build, automate and deliver software faster for applications ranging from mobile to microservices. It is designed for multiple projects and provides rich API.</p>
+</div>
+<div class="paragraph">
+<p>To know more about Gradle, check out <a href="https://docs.gradle.org/current/userguide/userguide.html">Gradle User Manual</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_container_management_tools"><a class="anchor" href="#_container_management_tools"></a>Container Management Tools</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong class="maroon">Kubernetes</strong></p>
+</div>
+<div class="paragraph">
+<p>In todays industry, kubernetes is the most popular container management tool. It allows to automate, deploy, scale and manage the containerized applications. Basically, it is an open source platform for container orchestration.</p>
+</div>
+<div class="paragraph">
+<p>To know more about Kubernetes, check out <a href="https://kubernetes.io/docs/home/">Kubernetes Documentation</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong class="maroon">OpenShift</strong></p>
+</div>
+<div class="paragraph">
+<p>OpenShift is a container platform offered by RedHat. It depends on the docker containers which are orchestrated by kubernetes that runs on the red hat&#8217;s linux operating system. It is easy to manage and secure.</p>
+</div>
+<div class="paragraph">
+<p>To know more about OpenShift, check out <a href="https://docs.openshift.com/">Openshift Documentation</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_artifact_repository_management_tools"><a class="anchor" href="#_artifact_repository_management_tools"></a>Artifact Repository Management Tools</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong class="maroon">JFrog Artifactory</strong></p>
+</div>
+<div class="paragraph">
+<p>JFrog is an enterprise ready repository manager which provides secure, clustered, and docker registries that are highly available. Software packages created in any language are supported by this universal artifact repository manager. It helps to track the artifacts from development to production. Also, integration with other CI/CD and DevOps tools is easy.</p>
+</div>
+<div class="paragraph">
+<p>To know more about JFrog Artifactory, check out <a href="https://www.jfrog.com/confluence/display/RTF/Welcome+to+Artifactory">JFrog Artifactory User Guide</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong class="maroon">Docker Hub</strong></p>
+</div>
+<div class="paragraph">
+<p>Docker Hub allows docker users to manage docker container images. User can store both public and private images. It allows the user to easily access the image repositories that are public and open source where as on the other side user can also use it for creating private repositories. It is more of a cloud repository which allows the users to create, test, store and distribute container images.</p>
+</div>
+<div class="paragraph">
+<p>To know more about Docker Hub, check out <a href="https://docs.docker.com/docker-hub/">Docker Hub Docs</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_release_management_tools"><a class="anchor" href="#_release_management_tools"></a>Release Management Tools</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong class="maroon">IBM UrbanCode Release</strong></p>
+</div>
+<div class="paragraph">
+<p>IBM UrbanCode Release is a release automation tool which has the ability to deploy the applications to various environments. It provides capabilities like visibility, traceability, and auditing. It helps to automate the deployments, saves time and reduces the chances of error during full deployments. At the same time, it also allows the user to rollback to previous configurations if required. It easily integrates with other platforms like GIT and makes the process easier.</p>
+</div>
+<div class="paragraph">
+<p>To know more about IBM UrbanCode Release, check out <a href="https://www.ibm.com/support/knowledgecenter/en/SS4GCC_6.2.1/com.ibm.urelease.doc/ucr_version_welcome.html">IBM UrbanCode Release Documentation</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_test_automation_tools"><a class="anchor" href="#_test_automation_tools"></a>Test Automation Tools</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong class="maroon">PACT</strong></p>
+</div>
+<div class="paragraph">
+<p>PACT is a contract testing tool. It allows the developers or testers to know if the communication across different services in an application is all good. It does this by making sure that the API provider and client can communicate properly without any interruption. It allows you to safely confirm that the applications will work together before deploying them to external world. Using this, there is no need of defining any more integration tests which are expensive.</p>
+</div>
+<div class="paragraph">
+<p>To know more about PACT, check out <a href="https://docs.pact.io/">PACT Docs</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong class="maroon">Cypress</strong></p>
+</div>
+<div class="paragraph">
+<p>Cypress is an open source UI testing (end to end) tool built for the modern web applications. Any developer or QA tester who uses javascript can make use of this tool. It helps in performing unit testing, integration testing, and end to end testing. It allow to write tests easily and quickly. These tests can be watched in real time when the application is built. It makes debugging tests easier and also allows to capture the CI test data which can be used in the dashboards.</p>
+</div>
+<div class="paragraph">
+<p>To know more about Cypress, check out <a href="https://docs.cypress.io/guides/overview/why-cypress.html#In-a-nutshell">Cypress Guides</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_continuous_integration_tools"><a class="anchor" href="#_continuous_integration_tools"></a>Continuous Integration Tools</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong class="maroon">Jenkins</strong></p>
+</div>
+<div class="paragraph">
+<p>Jenkins is a popular open source Continuous Integration tool. It is built in Java. It allows the developers to perform continuous integration and build automation. It allows you to define steps and executes them based on the instructions like building the application using build tools like Ant, Gradle, Maven etc, executing shell scripts, running tests etc. All the steps can be executed based on the timing or event. It depends on the setup. It helps to monitor all these steps and sends notifications to the team members in case of failures. Also, it is very flexible and has a large plugin list which one easily add based on their requirements.</p>
+</div>
+<div class="paragraph">
+<p>To know more about Jenkins, check out <a href="https://jenkins.io/doc/">Jenkins, Leading open source automation server</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong class="maroon">Kabanero</strong></p>
+</div>
+<div class="paragraph">
+<p>Kabanero is an open source project from IBM. It helps to build the cloud native applications quickly by providing an end to end solution which helps to architect, build, deploy and manage the life cycle of the kubernetes based applications. It brings together the open source projects like Knative, Istio, and Tekton. It also includes other open projects like Codewind, Appsody and Razee.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://knative.dev/">Knative</a> - Knative is built on top of Kubernetes and Istio. It enables the developers to focus more on development rather than worrying about things like build, deploy, autoscaling, monitoring and observability. This allows the developers to build serverless solutions on top of it.</p>
+</li>
+<li>
+<p><a href="https://istio.io/">Istio</a> - It is service mesh which provides a way for developers to seamlessly connect, manage and secure networks of different microservices regardless of platform, source or vendor.</p>
+</li>
+<li>
+<p><a href="https://cloud.google.com/tekton/">Tekton</a> - It is a kubernetes native open source framework. It helps to create continuous integration and delivery by letting you to build, test, and deploy the applications op-premise or on multiple cloud providers.</p>
+</li>
+<li>
+<p><a href="https://www.eclipse.org/codewind/">Codewind</a> - It offers Integrated Development Environments (IDEs) extensions like Eclipse, VSCode, etc so that the developers can make use of them to build applications in containers. By extending these IDEs, it helps to code, debug, and deploy cloud native applications.</p>
+</li>
+<li>
+<p><a href="https://appsody.dev/">Appsody</a> - Helps to build cloud native application which are ready to be deployed on cloud with out being an expert in the container technology. It offers pre configured templates and stacks which allows to build applications for Kubernetes and knative deployments. It supports a growing set of popular frameworks and open source runtimes.</p>
+</li>
+<li>
+<p><a href="https://razee.io/">Razee</a> - It is a continuous delivery multi cluster tools which helps in automating the roll out process of kubernetes resources across multiple clusters, environments, and cloud providers.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To know more about Kabanero, check out <a href="https://kabanero.io/">Kabanero - Create more, faster</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_continuous_deliverydeployment_tools"><a class="anchor" href="#_continuous_deliverydeployment_tools"></a>Continuous Delivery/Deployment Tools</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong class="maroon">Argo</strong></p>
+</div>
+<div class="paragraph">
+<p>Argo is a declarative open source continuous delivery system. Also, this is one of the most compatible CI/CD for cloud native applications. It is developed to work on kubernetes and so it make use of the kubernetes apis making it more feasible to use it with cloud native applications.</p>
+</div>
+<div class="paragraph">
+<p>To know more about Argo, check out <a href="https://argoproj.github.io/argo-cd/">Argo CD - Declarative GitOps CD for Kubernetes</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong class="maroon">Jenkins</strong></p>
+</div>
+<div class="paragraph">
+<p>Jenkins is an open source platform. It is a popular automation server that allows developers to deploy software. It offers a simple way to set continuous delivery.</p>
+</div>
+<div class="paragraph">
+<p>To know more about Jenkins, check out <a href="https://jenkins.io/doc/">Jenkins, Leading open source automation server</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_infrastructure_as_code_iac_tools"><a class="anchor" href="#_infrastructure_as_code_iac_tools"></a>Infrastructure As Code (IaC) Tools</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong class="maroon">Terraform</strong></p>
+</div>
+<div class="paragraph">
+<p>Terraform is an open source IaC tool which enables the developers to improve their software infrastructure by allowing them to create and change the infrastructure based on their requirements. It is cloud agnostic. It allows to automate the infrastructure from multiple cloud providers.</p>
+</div>
+<div class="paragraph">
+<p>To know more about Terraform, check out <a href="https://www.terraform.io/docs/index.html">Terraform Documentation</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong class="maroon">Ansible</strong></p>
+</div>
+<div class="paragraph">
+<p>Ansible is an IaC tool created by Red Hat and is one of the most flexible tools in market now. Instead of managing the systems independently, it describes the relations between the components and system to model the infrastructure. It is easy to understand and uses yaml to define the playbooks.</p>
+</div>
+<div class="paragraph">
+<p>To know more about Ansible, check out <a href="https://docs.ansible.com/">Ansible Docs</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_monitoring_tools"><a class="anchor" href="#_monitoring_tools"></a>Monitoring Tools</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong class="maroon">Nagios</strong></p>
+</div>
+<div class="paragraph">
+<p>Nagios is an open source infrastructure monitoring tool. It provides monitoring and alerting services for applications, servers, switches, and services. It covers network resources such as FTP, HTTP, POP2, SSH etc. It also keep checking the host resources like disk usage, processor load, and system logs.</p>
+</div>
+<div class="paragraph">
+<p>To know more about Nagios, check out <a href="https://www.nagios.org/documentation/">Nagios - The Industry Standard In IT Infrastructure Monitoring</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong class="maroon">Prometheus</strong></p>
+</div>
+<div class="paragraph">
+<p>Prometheus is an open source monitoring and alerting tool. It monitors the containers and microservices. It provides metrics related to them. This tools has a great range of service discovery options. It communicates with the application services and collects the metrics from them. This data will be stored and provided to the user on its dashboard.</p>
+</div>
+<div class="paragraph">
+<p>To know more about Prometheus, check out <a href="https://prometheus.io/docs/introduction/overview/">Prometheus - From metrics to insight</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong class="maroon">Sysdig</strong></p>
+</div>
+<div class="paragraph">
+<p>Sysdig is a microservice and container monitoring tool. It uses cloud native intelligence to monitor and secure the applications. It also performs troubleshooting and forensics. It has in built prometheus monitoring capabilities. It provide applications metrics and also monitors your entire infrastructure. Along with this, this also provides dasboarding.</p>
+</div>
+<div class="paragraph">
+<p>To know more about Sysdig monitoring, check out <a href="https://sysdigdocs.atlassian.net/wiki/spaces/Monitor/overview">Sysdig Monitor Documentation</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_alerting_tools"><a class="anchor" href="#_alerting_tools"></a>Alerting tools</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong class="maroon">PagerDuty</strong></p>
+</div>
+<div class="paragraph">
+<p>PagerDuty is an alerting tool which includes alarm aggregation and dispatching. It provides full incident response management. This also includes artificial intelligence based automated response. It helps to configure support team members, schedule calls, escalations and other things related to incident response streamlining it.</p>
+</div>
+<div class="paragraph">
+<p>To know more about PagerDuty, check out <a href="https://support.pagerduty.com/">PagerDuty - Real-Time Operations Made Simple</a> Knowledge base.</p>
+</div>
+<div class="paragraph">
+<p><strong class="maroon">Prometheus</strong></p>
+</div>
+<div class="paragraph">
+<p>Prometheus is an open source monitoring and alerting tool. It allows you to define some conditions for alerting. It creates alerts based on those conditions and generates notifications. Then these notifications or alerts will be in turn delivered across multiple channels like emails, SMS, slack etc.</p>
+</div>
+<div class="paragraph">
+<p>To know more about Prometheus, check out <a href="https://prometheus.io/docs/alerting/overview/">Prometheus - Alerting</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong class="maroon">Sysdig</strong></p>
+</div>
+<div class="paragraph">
+<p>Sysdig is a microservice and container monitoring tool. It uses cloud native intelligence to monitor and secure the applications. It also performs troubleshooting and forensics. It accommodates adaptive alerting by using anomaly detection to identify problems. It builds alerts across the system and deliver them to other alerting tools like PagerDuty, Slack etc.</p>
+</div>
+<div class="paragraph">
+<p>To know more about Sysdig alerting, check out <a href="https://sysdigdocs.atlassian.net/wiki/spaces/Monitor/pages/369950741/Alerts">Sysdig Alerts Documentation</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_logging_tools"><a class="anchor" href="#_logging_tools"></a>Logging tools</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong class="maroon">LogDNA</strong></p>
+</div>
+<div class="paragraph">
+<p>LogDNA is a cloud based log management tool. It helps in managing the logs by aggregating all the different logs like system logs, application logs etc into one centralized logging system. It helps to analyze the logs with nice visuals and good alerting.</p>
+</div>
+<div class="paragraph">
+<p>To know more about LogDNA, check out <a href="https://docs.logdna.com/docs">LogDNA Docs</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong class="maroon">ELK</strong></p>
+</div>
+<div class="paragraph">
+<p>ELK is one of the most popular log management systems and it is open source. It is a combination of logstash, elasticsearch and kibana. It provides centralized infrastructure logs, traces and metrics. It performs log management and data analysis. This analysis can help to resolve several business issues.</p>
+</div>
+<div class="paragraph">
+<p>To know more about ELK, check out <a href="https://www.elastic.co/guide/index.html">Elastic Stack and Product Documentation</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_references"><a class="anchor" href="#_references"></a>References</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://learning.oreilly.com/library/view/devops-continuous-delivery/9781789132991/">Sricharan Vadapalli (2018). DevOps: Continuous Delivery, Integration, and Deployment with DevOps. Publisher: Packt Publishing</a></p>
+</li>
+<li>
+<p><a href="https://devops.com/wp-content/uploads/2018/03/StateOfDevOpsTools_v13.pdf?_hsenc=p2ANqtz-_X-1sZIJtMUfZ0&#8212;&#8203;6uKUF8KS9-HY3ECaTpFFpSy7VIIAPyWB1nu0m6wKyCY7SUbT3k4vmgngCfqQaMObuQJAuwG36x9p8OsD0Ml7ERTR8GtWnRohw&amp;_hsmi=61625581">Don McVittie and Alan Shimel. The State of DevOps Tools. DevOps.com</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

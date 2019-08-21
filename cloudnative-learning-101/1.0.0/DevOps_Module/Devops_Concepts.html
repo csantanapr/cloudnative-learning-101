@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>DevOps Concepts :: Cloudnative Learning 101</title>
+    <link rel="canonical" href="https://ibm-cloud-architecture.github.io/cloudnative-learning-101/cloudnative-learning-101/1.0.0/DevOps_Module/Devops_Concepts.html">
+    <meta name="generator" content="Antora 2.0.0">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <p>Cloudnative Learning 101</p>
+      </div>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="cloudnative-learning-101" data-version="1.0.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Cloudnative Learning 101</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Cloud Native Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Cloudnative_Overview.html">Cloudnative Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Cloudnative_framework_prog_model.html">Cloudnative Framework &amp; Programming Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Cloudnative_app_development.html">Cloud Native App Development</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Lab1.html">Lab 1: Cloudnative App Development</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Kubernetes Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Docker.html">Containerization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Lab2.html">Lab 2: Docker</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/kubernetesPatterns.html">Kubernetes Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Lab3.html">Lab 3: Kubernetes Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Lab4.html">Lab 4: Deploy the app on Kube</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/operators.html">Helm/Operator Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Lab5.html">Lab 5: Deploy the app on Kube using Helm (TODO)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Cloud Foundry Migration Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../CF_Migrate_Module/Kubernetes-for-CF.html">Kubernetes for Cloud Foundry users</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../CF_Migrate_Module/CF-migration.html">CF Migration Tool</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://github.com/ibm-cloud-architecture/cf-transformation/blob/master/exercise/openshift.md">Lab 7: Migrate your app from CF to Kube (Openshift) - Github Link</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://github.com/ibm-cloud-architecture/cf-transformation/blob/master/exercise/iks.md">Lab 7: Migrate your app from CF to Kube (IKS) - Github link</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">DevOps Module</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="Devops_Concepts.html">DevOps Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cicd.html">CI/CD</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="devops_tooling.html">Devops Tooling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Lab8_Openshift.html">Lab 8: CI - Openshift</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Lab8_IKS.html">Lab 8: CI - IKS</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Lab9_OpenShift.html">Lab 9: CD - Openshift</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Lab9_IKS.html">Lab 9: CD - IKS</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Cloudnative Learning 101</span>
+    <span class="version">1.0.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Cloudnative Learning 101</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main role="main">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Cloudnative Learning 101</a></li>
+    <li>DevOps Module</li>
+    <li><a href="Devops_Concepts.html">DevOps Concepts</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="file:///root/project/modules/ROOT/pages/DevOps_Module/Devops_Concepts.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1 class="page">DevOps Concepts</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">Introduction</a></li>
+<li><a href="#_what_is_devops">What is DevOps ?</a></li>
+<li><a href="#_benefits_of_devops">Benefits of DevOps</a></li>
+<li><a href="#_understanding_devops">Understanding DevOps</a></li>
+<li><a href="#_where_to_start">Where to start ?</a></li>
+<li><a href="#_devops_best_practices">DevOps Best Practices</a></li>
+<li><a href="#_devops_in_twelve_factor_apps">Devops in Twelve factor apps</a></li>
+<li><a href="#_devops_reference_architecture">DevOps Reference Architecture</a></li>
+<li><a href="#_references">References</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>These days DevOps became a popular buzzword. It varies from business to business and it means a lot different things to different people.</p>
+</div>
+<div class="paragraph">
+<p>In traditional IT, organizations have separate teams for Development and Operations. The development team is responsible for coding and operations team is responsible for releasing it to production. When it comes to this two different teams, there will always be some sort of differences. It may be due to the usage of different system environments, software libraries etc. In order to level this up, DevOps came into play.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_is_devops"><a class="anchor" href="#_what_is_devops"></a>What is DevOps ?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>“DevOps is a philosophy, a cultural shift that merges operations with development and demands a linked toolchain of technologies to facilitate collaborative change. DevOps toolchains … can include dozens of non-collaborative tools, making the task of automation a technically complex and arduous one.”
+- Gartner</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/DevOps.png" alt="DevOps">
+</div>
+</div>
+<div class="paragraph">
+<p>These days every business has critical applications which can never go down. Some of the examples are as follows.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/Business_devops.png" alt="Business devops">
+</div>
+</div>
+<div class="paragraph">
+<p>In order to make sure that these applications are up and running smoothly, we need DevOps.</p>
+</div>
+<div class="paragraph">
+<p>Adopting DevOps allows enterprises to create, maintain and improve their applications at a faster pace than the traditional methods. Today, most of the global organizations adopted DevOps.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_benefits_of_devops"><a class="anchor" href="#_benefits_of_devops"></a>Benefits of DevOps</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Continuous software delivery</p>
+</li>
+<li>
+<p>High quality software</p>
+</li>
+<li>
+<p>Increased speed and faster problem resolution</p>
+</li>
+<li>
+<p>Increased reliability</p>
+</li>
+<li>
+<p>Easier to manage the software</p>
+</li>
+<li>
+<p>Collaboration and enhanced team communication</p>
+</li>
+<li>
+<p>Customer satisfaction etc.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_understanding_devops"><a class="anchor" href="#_understanding_devops"></a>Understanding DevOps</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Like we mentioned before, often development teams and operation teams are in conflict with each other. Developers keeping changing the software to include new features where as operation engineers wants to keep the system stable.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Their goals are different.</p>
+</li>
+<li>
+<p>They use different processes.</p>
+</li>
+<li>
+<p>They use different tools.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>All these may be different reasons for the gap between these two teams.</p>
+</div>
+<div class="paragraph">
+<p>To solve this gap between the two teams, we need DevOps. It closes the gap by aligning incentives and sharing approaches for tools and processes. It helps us to streamline the software delivery process. From the time we begin the project till its delivery, it helps us to improve the cycle time by emphasizing the
+learning by gathering feedback from production to development.</p>
+</div>
+<div class="paragraph">
+<p>It includes several aspects like the below.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Automation - It is quite essential for DevOps. It helps us to gather quick feedback.</p>
+</li>
+<li>
+<p>Culture - Processes and tools are important. But, people are always more important.</p>
+</li>
+<li>
+<p>Measurement - Shared incentives are important. Quality is critical.</p>
+</li>
+<li>
+<p>Sharing - Need a Culture where people can share ideas, processes and tools.</p>
+</li>
+</ul>
+</div>
+<div class="videoblock text-center">
+<div class="content">
+<iframe width="640" height="480" src="https://www.youtube.com/embed/2MwOjn4x638?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_where_to_start"><a class="anchor" href="#_where_to_start"></a>Where to start ?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Understanding the eco system of your software is important. Identify all the environments like dev, test, prod etc. you have in your system and how the delivery happens from end to end.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Define continuous delivery</p>
+</li>
+<li>
+<p>Establish proper collaboration between teams</p>
+</li>
+<li>
+<p>Make sure the teams are on same pace</p>
+</li>
+<li>
+<p>Identify the pain points in your system and start working on them.</p>
+</li>
+</ul>
+</div>
+<div class="videoblock text-center">
+<div class="content">
+<iframe width="640" height="480" src="https://www.youtube.com/embed/s9g4hnv52lw?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_devops_best_practices"><a class="anchor" href="#_devops_best_practices"></a>DevOps Best Practices</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>These are some of the standard practices adopted in DevOps.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Source Code Management</p>
+</li>
+<li>
+<p>Code Review</p>
+</li>
+<li>
+<p>Configuration Management</p>
+</li>
+<li>
+<p>Build Management</p>
+</li>
+<li>
+<p>Artifact Repository Management</p>
+</li>
+<li>
+<p>Release Management</p>
+</li>
+<li>
+<p>Test Automation</p>
+</li>
+<li>
+<p>Continuous Integration</p>
+</li>
+<li>
+<p>Continuous Delivery</p>
+</li>
+<li>
+<p>Continuous Deployment</p>
+</li>
+<li>
+<p>Infrastructure As Code</p>
+</li>
+<li>
+<p>Automation</p>
+</li>
+<li>
+<p>Key Application Performance Monitoring/Indicators</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong class="big maroon">Source Code Management</strong></p>
+</div>
+<div class="paragraph">
+<p>Source Code Management (SCM) systems helps to maintain the code base. It allows multiple developers to work on the code concurrently. It prevents them from overwriting the code and helps them to work in parallel from different locations.</p>
+</div>
+<div class="paragraph">
+<p>Collaboration is an important concept in devOps and SCM helps us to achieve it by coordination of services across the development team. It also tracks co-authoring, collaboration, and individual contributions. It helps the developers to audit the code changes. It also allows rollbacks if required. It also enables backup and allows recovery when required.</p>
+</div>
+<div class="paragraph">
+<p><strong class="big maroon">Code Review</strong></p>
+</div>
+<div class="paragraph">
+<p>Code reviews allows the developer to improve the quality of code. They help us to identify the problems in advance. By reviewing the code, we can fix some of the problems like memory leaks, buffer overflow, formatting errors etc.</p>
+</div>
+<div class="paragraph">
+<p>This process improves the collaboration across the team. Also, code defects are identified and removed before merging them with the main stream there by improving the quality of the code.</p>
+</div>
+<div class="paragraph">
+<p><strong class="big maroon">Configuration Management</strong></p>
+</div>
+<div class="paragraph">
+<p>Configuration Management is managing the configurations by identifying, verifying, and maintaining them. This is done for both software and hardware. The configuration management tools make sure that configurations are properly configured across different systems as per the requirements.</p>
+</div>
+<div class="paragraph">
+<p>This helps to analyze the impact on the systems due to configurations. It makes sure the provisioning is done correctly on different systems like dev, QA, prod etc. It simplifies the coordination between development and operations teams.</p>
+</div>
+<div class="paragraph">
+<p><strong class="big maroon">Build Management</strong></p>
+</div>
+<div class="paragraph">
+<p>Build Management helps to assmble the build environment by packaging all the required components such as the source code, dependencies, etc of the software application together in to a workable unit. Builds can be done manually, on-demand or automated.</p>
+</div>
+<div class="paragraph">
+<p>It ensures that the software is stable and it is reusable. It improves the quality of the software and makes sure it is reliable. It also increases the efficiency.</p>
+</div>
+<div class="paragraph">
+<p><strong class="big maroon">Artifact Repository Management</strong></p>
+</div>
+<div class="paragraph">
+<p>Artifact Repository Management system is used to manage the builds. It is dedicated server which is used to store all the binaries which were outputs of the successful builds.</p>
+</div>
+<div class="paragraph">
+<p>It manages the life cycles of different artifacts. It helps you to easily share the builds across the team. It controls access to the build artifacts by access control.</p>
+</div>
+<div class="paragraph">
+<p><strong class="big maroon">Release Management</strong></p>
+</div>
+<div class="paragraph">
+<p>Release management is a part of software development lifecycle which manages the release from development till deployment to support. Requests keep coming for the addition of the new features. Also, sometimes there may be need to change the existing functionality. This is when the cycle begins for the release management. Once, the new feature or change is approved, it is designed, built, tested, reviewed, and after acceptance, deployed to production. After this, it goes to maintainence and even at this point, there may be need for enhancement. If that is the case, it will be a new cycle again.</p>
+</div>
+<div class="paragraph">
+<p>It helps us to track all the phases and status of deployments in different environments.</p>
+</div>
+<div class="paragraph">
+<p><strong class="big maroon">Test Automation</strong></p>
+</div>
+<div class="paragraph">
+<p>Manual testing takes lots of time. We can automate some of the manual tests which are repetitive, time consuming, and have defined input by test automation.</p>
+</div>
+<div class="paragraph">
+<p>Automatic tests helps to improve the code quality, reduces the amount of time spent on testing, and improves the effectiveness of the overall testing life cycle.</p>
+</div>
+<div class="paragraph">
+<p><strong class="big maroon">Continuous Integration</strong></p>
+</div>
+<div class="paragraph">
+<p>Continuous integration allows the developers to continuously integrate the code they developed. Whenever a latest code change is made and committed to the source control system, the source code is rebuilt and this is then forwarded to testing.</p>
+</div>
+<div class="paragraph">
+<p>With this, the latest code is always available, the builds are faster and the tests are quick.</p>
+</div>
+<div class="paragraph">
+<p><strong class="big maroon">Continuous Delivery</strong></p>
+</div>
+<div class="paragraph">
+<p>Continuous Delivery is the next step to Continuous Integration. In the integration, the code is built and tested. Now in the delivery, this is taken to staging environment. This is done in small frequencies and it makes sure the functionality of the software is stable.</p>
+</div>
+<div class="paragraph">
+<p>It reduces the manual overhead. The code is continuously delivered and constantly reviewed.</p>
+</div>
+<div class="paragraph">
+<p><strong class="big maroon">Continuous Deployment</strong></p>
+</div>
+<div class="paragraph">
+<p>Continuous Deployment comes after Continuous Delivery. In the deployment stage, the code is deployed to the production environment. The entire process is automated in this stage.</p>
+</div>
+<div class="paragraph">
+<p>This allows faster software releases. Improves the collaboration across the teams. Enhances the code quality.</p>
+</div>
+<div class="paragraph">
+<p><strong class="big maroon">Infrastructure As Code</strong></p>
+</div>
+<div class="paragraph">
+<p>Infrastructure as Code is defining the infrastructure services as a software code. they are defines as configuration files. Traditionally, in on-premise application, these are run by system administrators but in cloud, the infrastructure is maintained like any other software code.</p>
+</div>
+<div class="paragraph">
+<p>Helps us to change the system configuration quickly. Tracking is easy and end to end testing is possible. Infrastructure availability is high.</p>
+</div>
+<div class="paragraph">
+<p><strong class="big maroon">Automation</strong></p>
+</div>
+<div class="paragraph">
+<p>Automation is key part to DevOps. Without automation, DevOps is not efficient.</p>
+</div>
+<div class="paragraph">
+<p>Automation comes into play whenever there is a repetitive task. Developers can automate infrastructure, applications, load balancers, etc.</p>
+</div>
+<div class="paragraph">
+<p><strong class="big maroon">Key Application Performance Monitoring/Indicators</strong></p>
+</div>
+<div class="paragraph">
+<p>DevOps is all about measuring the metrics and feedback, with continuous improvement processes. Collecting metrics and monitoring the software plays an important role. Different measures like uptime versus downtime, resolutions time lines etc. helps us to understand the performance of the system.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_devops_in_twelve_factor_apps"><a class="anchor" href="#_devops_in_twelve_factor_apps"></a>Devops in Twelve factor apps</h2>
+<div class="sectionbody">
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/devops_twelvefactor.png" alt="devops twelvefactor">
+</div>
+</div>
+<div class="paragraph">
+<p>If you are new to Twelve factor methodology, have a look <a href="https://12factor.net/">here</a>. For more details, checkout <a href="https://github.ibm.com/CASE/cloudnative-bootcamp/tree/master/Cloud_Native_Module">Cloud-Native module</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_devops_reference_architecture"><a class="anchor" href="#_devops_reference_architecture"></a>DevOps Reference Architecture</h2>
+<div class="sectionbody">
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/devops_architecture.png" alt="devops architecture">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Collaboration tools enable a culture of innovation. Developers, designers, operations teams, and managers must communicate constantly. Development and operations tools must be integrated to post updates and alerts as new builds are completed and deployed and as performance is monitored. The team can discuss the alerts as a group in the context of the tool.</p>
+</li>
+<li>
+<p>As the team brainstorms ideas, responds to feedback and metrics, and fixes defects, team members create work items and rank them in the backlog. The team work on items from the top of the backlog, delivering to production as they complete work.</p>
+</li>
+<li>
+<p>Developers write source code in a code editor to implement the architecture. They construct, change, and correct applications by using various coding models and tools.</p>
+</li>
+<li>
+<p>Developers manage the versions and configuration of assets, merge changes, and manage the integration of changes. The source control tool that a team uses should support social coding.</p>
+</li>
+<li>
+<p>Developers compile, package, and prepare software assets. They need tools that can assess the quality of the code that is being delivered to source control. Those assessments are done before delivery, are associated with automated build systems, and include practices such as code reviews, unit tests, code quality scans, and security scans.</p>
+</li>
+<li>
+<p>Binary files and other output from the build are sent to and managed in a build artifact repository.</p>
+</li>
+<li>
+<p>The release is scheduled. The team needs tools that support release communication and managing, preparing, and deploying releases.</p>
+</li>
+<li>
+<p>The team coordinates the manual and automated processes that are required for the solution to operate effectively. The team must strive towards continuous delivery with zero downtime. A/B deployments can help to gauge the effectiveness of new changes.</p>
+</li>
+<li>
+<p>The team must understand the application and the options for the application&#8217;s runtime environment, security, management, and release requirements.</p>
+</li>
+<li>
+<p>Depending on the application requirements, some or all of the application stack must be considered, including middleware, the operating system, and virtual machines.</p>
+</li>
+<li>
+<p>The team must ensure that all aspects of the application and its supporting infrastructure are secured.</p>
+</li>
+<li>
+<p>The team plans, configures, monitors, defines criteria, and reports on application availability and performance. Predictive analytics can indicate problems before they occur.</p>
+</li>
+<li>
+<p>The right people on the team or systems are notified when issues occur.</p>
+</li>
+<li>
+<p>The team manages the process for responding to operations incidents, and delivers the changes to fix any incidents.</p>
+</li>
+<li>
+<p>The team uses analytics to learn how users interact with the application and measure success through metrics.</p>
+</li>
+<li>
+<p>When users interact with the application, they can provide feedback on their requirements and how the application is meeting them, which is captured by analytics as well.</p>
+</li>
+<li>
+<p>DevOps engineers manage the entire application lifecycle while they respond to feedback and analytics from the running application.</p>
+</li>
+<li>
+<p>The enterprise network is protected by a firewall and must be accessed through transformation and connectivity services and secure messaging services.</p>
+</li>
+<li>
+<p>The security team uses the user directory throughout the flow. The directory contains information about the user accounts for the enterprise.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>For a cloud native implementation, the reference architecture will be as follows.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/devops_architecture_cn.png" alt="devops architecture cn">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_references"><a class="anchor" href="#_references"></a>References</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://learning.oreilly.com/library/view/devops-for-developers/9781430245698/">Michael Hüttermann (2012). DevOps for Developers. Publisher: Apress</a></p>
+</li>
+<li>
+<p><a href="https://learning.oreilly.com/library/view/devops-continuous-delivery/9781789132991/">Sricharan Vadapalli (2018). DevOps: Continuous Delivery, Integration, and Deployment with DevOps. Publisher: Packt Publishing</a></p>
+</li>
+<li>
+<p><a href="https://www.ibm.com/cloud/garage/architectures/devOpsArchitecture/0_1">DevOps Architecture</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

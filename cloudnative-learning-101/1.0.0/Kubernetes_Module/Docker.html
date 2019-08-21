@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Containerization - Docker :: Cloudnative Learning 101</title>
+    <link rel="canonical" href="https://ibm-cloud-architecture.github.io/cloudnative-learning-101/cloudnative-learning-101/1.0.0/Kubernetes_Module/Docker.html">
+    <meta name="generator" content="Antora 2.0.0">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <p>Cloudnative Learning 101</p>
+      </div>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="cloudnative-learning-101" data-version="1.0.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Cloudnative Learning 101</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Cloud Native Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Cloudnative_Overview.html">Cloudnative Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Cloudnative_framework_prog_model.html">Cloudnative Framework &amp; Programming Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Cloudnative_app_development.html">Cloud Native App Development</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Cloud_Native_Module/Lab1.html">Lab 1: Cloudnative App Development</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Kubernetes Module</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="Docker.html">Containerization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Lab2.html">Lab 2: Docker</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="kubernetesPatterns.html">Kubernetes Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Lab3.html">Lab 3: Kubernetes Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Lab4.html">Lab 4: Deploy the app on Kube</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="operators.html">Helm/Operator Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Lab5.html">Lab 5: Deploy the app on Kube using Helm (TODO)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Cloud Foundry Migration Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../CF_Migrate_Module/Kubernetes-for-CF.html">Kubernetes for Cloud Foundry users</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../CF_Migrate_Module/CF-migration.html">CF Migration Tool</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://github.com/ibm-cloud-architecture/cf-transformation/blob/master/exercise/openshift.md">Lab 7: Migrate your app from CF to Kube (Openshift) - Github Link</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://github.com/ibm-cloud-architecture/cf-transformation/blob/master/exercise/iks.md">Lab 7: Migrate your app from CF to Kube (IKS) - Github link</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">DevOps Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/Devops_Concepts.html">DevOps Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/cicd.html">CI/CD</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/devops_tooling.html">Devops Tooling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/Lab8_Openshift.html">Lab 8: CI - Openshift</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/Lab8_IKS.html">Lab 8: CI - IKS</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/Lab9_OpenShift.html">Lab 9: CD - Openshift</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/Lab9_IKS.html">Lab 9: CD - IKS</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Cloudnative Learning 101</span>
+    <span class="version">1.0.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Cloudnative Learning 101</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main role="main">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Cloudnative Learning 101</a></li>
+    <li>Kubernetes Module</li>
+    <li><a href="Docker.html">Containerization</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="file:///root/project/modules/ROOT/pages/Kubernetes_Module/Docker.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1 class="page">Containerization - Docker</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">Introduction</a></li>
+<li><a href="#_containers">Containers</a></li>
+<li><a href="#_why_containers">Why containers ?</a></li>
+<li><a href="#_different_container_standards">Different Container Standards</a></li>
+<li><a href="#_benefits">Benefits</a></li>
+<li><a href="#_docker">Docker</a>
+<ul class="sectlevel2">
+<li><a href="#_docker_image">Docker Image</a></li>
+<li><a href="#_docker_container">Docker Container</a></li>
+<li><a href="#_docker_engine">Docker Engine</a></li>
+<li><a href="#_docker_registry">Docker Registry</a></li>
+<li><a href="#_docker_commands">Docker Commands</a></li>
+</ul>
+</li>
+<li><a href="#_references">References</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You wanted to run your application on different computing environments. It may be your laptop, test environment, staging environment or production environment.</p>
+</div>
+<div class="paragraph">
+<p>So, when you run it on these different environments, will your application work reliably ?</p>
+</div>
+<div class="paragraph">
+<p>What if some underlying software changes ? What if the security policies are different ? or something else changes ?</p>
+</div>
+<div class="paragraph">
+<p>To solve this problems, we need Containers.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_containers"><a class="anchor" href="#_containers"></a>Containers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Containers are a standard way to package an application and all its dependencies so that it can be moved between environments and run without change. They work by hiding the differences between applications inside the container so that everything outside the container can be standardized.</p>
+</div>
+<div class="paragraph">
+<p>For example, Docker created standard way to create images for Linux Containers.</p>
+</div>
+<div class="videoblock text-center">
+<div class="content">
+<iframe width="640" height="480" src="https://www.youtube.com/embed/0qotVMX-J5s?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_why_containers"><a class="anchor" href="#_why_containers"></a>Why containers ?</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>We can run them anywhere.</p>
+</li>
+<li>
+<p>They are lightweight .</p>
+</li>
+<li>
+<p>Isolate your application from others.</p>
+</li>
+</ul>
+</div>
+<div class="videoblock text-center">
+<div class="content">
+<iframe width="640" height="480" src="https://www.youtube.com/embed/muTkqVewJMI?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_different_container_standards"><a class="anchor" href="#_different_container_standards"></a>Different Container Standards</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There are many different container standards available today. Some of them are as follows.</p>
+</div>
+<div class="paragraph">
+<p><strong>Docker</strong> - The most common standard, made Linux containers usable by the masses.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rocket (rkt)</strong> - An emerging container standard from CoreOS, the company that developed etcd.</p>
+</div>
+<div class="paragraph">
+<p><strong>Garden</strong> - The format Cloud Foundry builds using buildpacks.</p>
+</div>
+<div class="paragraph">
+<p>Among them, Docker was one of the most popular mainstream container software tools.</p>
+</div>
+<div class="paragraph">
+<p><strong class="maroon">Open Container Initiative (OCI)</strong></p>
+</div>
+<div class="paragraph">
+<p>A Linux Foundation project developing a governed container standard. Docker and Rocket are OCI-compliant. But, Garden is not.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_benefits"><a class="anchor" href="#_benefits"></a>Benefits</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Lightweight</p>
+</li>
+<li>
+<p>Scalable</p>
+</li>
+<li>
+<p>Efficient</p>
+</li>
+<li>
+<p>Portable</p>
+</li>
+<li>
+<p>Supports agile development</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To know more about Containerization, we have couple of guides. Feel free to check them out.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.ibm.com/cloud/learn/containerization">Containerization: A Complete Guide</a>.</p>
+</li>
+<li>
+<p><a href="https://www.ibm.com/cloud/learn/containers">Containers: A Complete Guide</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_docker"><a class="anchor" href="#_docker"></a>Docker</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Docker is one of the most popular Containerization platforms which allows you to develop, deploy, and run application inside containers.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>It is an open source project.</p>
+</li>
+<li>
+<p>Can run it anywhere.</p>
+</li>
+</ul>
+</div>
+<div class="videoblock text-center">
+<div class="content">
+<iframe width="640" height="480" src="https://www.youtube.com/embed/wFNWl-QwPfc?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+<div class="paragraph">
+<p>An installation of Docker includes an engine. This comes with a daemon, REST APIs, and CLI. Users can use CLI to interact with the docker using commands. These commands are sent to the daemon which listens for the Docker Rest APIs which in turn manages images and containers. The engine runs a container by retrieving its image from the local system or registry. A running container starts one or more processes in the Linux kernel.</p>
+</div>
+<div class="sect2">
+<h3 id="_docker_image"><a class="anchor" href="#_docker_image"></a>Docker Image</h3>
+<div class="paragraph">
+<p>A read-only snapshot of a container that is stored in Docker Hub or in private repository. You use an image as a template for building containers.</p>
+</div>
+<div class="paragraph">
+<p>These images are build from the <code>Dockerfile</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Dockerfile</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>It is a text document that contains all the instructions that are necessary to build a docker image.</p>
+</li>
+<li>
+<p>It is written in an easy-to-understand syntax.</p>
+</li>
+<li>
+<p>It specifies the operating system.</p>
+</li>
+<li>
+<p>It also includes things like environmental variables, ports, file locations etc.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If you want to try building docker images, try this course on <a href="https://www.katacoda.com/">Katacoda</a> (Interactive Learning Platform).</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.katacoda.com/courses/docker/2">Building Container Images</a> -  Estimated Time: 10 minutes.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_docker_container"><a class="anchor" href="#_docker_container"></a>Docker Container</h3>
+<div class="paragraph">
+<p>The standard unit where the application service is located or transported. It packages up all code and its dependencies so that the application runs quickly and reliably from one computing environment to another.</p>
+</div>
+<div class="paragraph">
+<p>If you want to try deploying a docker container, try this course on <a href="https://www.katacoda.com/">Katacoda</a> (Interactive Learning Platform).</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.katacoda.com/courses/docker/deploying-first-container">Deploying Your First Docker Container</a> -  Estimated Time: 10 minutes.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_docker_engine"><a class="anchor" href="#_docker_engine"></a>Docker Engine</h3>
+<div class="paragraph">
+<p>Docker Engine is a program that creates, ships, and runs application containers. The engine runs on any physical or virtual machine or server locally, in private or public cloud. The client communicates with the engine to run commands.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_docker_registry"><a class="anchor" href="#_docker_registry"></a>Docker Registry</h3>
+<div class="paragraph">
+<p>The registry stores, distributes, and shares container images. It is available in software as a service (SaaS) or in an enterprise to deploy anywhere you that you choose.</p>
+</div>
+<div class="paragraph">
+<p><strong>Docker Hub</strong> is a popular registry. It is a registry which allows you to download docker images which are built by different communities. You can also store your own images there. You can check out various images available on docker hub <a href="https://hub.docker.com/search?q=&amp;type=image">here</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_docker_commands"><a class="anchor" href="#_docker_commands"></a>Docker Commands</h3>
+<div class="paragraph">
+<p>Below are some command we use often on Docker.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre># Know docker version
+docker -version
+
+# Run a container
+docker run &lt;image&gt;
+
+# List containers running
+docker ps
+
+# Stop a container
+docker stop &lt;container-name|container-id&gt;
+
+# Remove a container
+docker rm &lt;container-name|container-id&gt;
+
+# Login into registry
+docker login
+
+# Build an image
+docker build &lt;image_name&gt;:&lt;tag&gt; .
+
+# Pull the image
+docker pull &lt;image_name&gt;:&lt;tag&gt;
+
+# Push an image
+docker push &lt;image_name&gt;:&lt;tag&gt;
+
+# List images
+docker images</pre>
+</div>
+</div>
+<div class="videoblock text-center">
+<div class="content">
+<iframe width="640" height="480" src="https://www.youtube.com/embed/CPJLKqvR8II?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+<div class="paragraph">
+<p>If you are interested, check this <a href="https://www.ibm.com/cloud/garage/content/course/containers-and-docker/0">course</a> out on Containers and Docker.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_references"><a class="anchor" href="#_references"></a>References</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.docker.com/resources">Docker resources</a></p>
+</li>
+<li>
+<p><a href="https://docs.docker.com/get-started/">Docker tutorial</a></p>
+</li>
+<li>
+<p><a href="https://dzone.com/articles/evolution-of-linux-containers-future">The Evolution of Linux Containers and Their Future</a></p>
+</li>
+<li>
+<p><a href="https://coreos.com/rkt">rkt</a></p>
+</li>
+<li>
+<p><a href="https://docs.cloudfoundry.org/concepts/architecture/garden.html">Cloud Foundry Garden container</a></p>
+</li>
+<li>
+<p><a href="https://www.opencontainers.org">Open Container Initiative (OCI)</a></p>
+</li>
+<li>
+<p><a href="https://www.cncf.io">Cloud Native Computing Foundation (CNCF)</a></p>
+</li>
+<li>
+<p><a href="https://blog.docker.com/2017/07/demystifying-open-container-initiative-oci-specifications">Demystifying the Open Container Initiative (OCI) Specifications</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

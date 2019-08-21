@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Cloud Native Application Development :: Cloudnative Learning 101</title>
+    <link rel="canonical" href="https://ibm-cloud-architecture.github.io/cloudnative-learning-101/cloudnative-learning-101/1.0.0/Cloud_Native_Module/Cloudnative_app_development.html">
+    <meta name="generator" content="Antora 2.0.0">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <p>Cloudnative Learning 101</p>
+      </div>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="cloudnative-learning-101" data-version="1.0.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Cloudnative Learning 101</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Cloud Native Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Cloudnative_Overview.html">Cloudnative Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Cloudnative_framework_prog_model.html">Cloudnative Framework &amp; Programming Model</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="Cloudnative_app_development.html">Cloud Native App Development</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="Lab1.html">Lab 1: Cloudnative App Development</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Kubernetes Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Docker.html">Containerization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Lab2.html">Lab 2: Docker</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/kubernetesPatterns.html">Kubernetes Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Lab3.html">Lab 3: Kubernetes Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Lab4.html">Lab 4: Deploy the app on Kube</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/operators.html">Helm/Operator Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Kubernetes_Module/Lab5.html">Lab 5: Deploy the app on Kube using Helm (TODO)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Cloud Foundry Migration Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../CF_Migrate_Module/Kubernetes-for-CF.html">Kubernetes for Cloud Foundry users</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../CF_Migrate_Module/CF-migration.html">CF Migration Tool</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://github.com/ibm-cloud-architecture/cf-transformation/blob/master/exercise/openshift.md">Lab 7: Migrate your app from CF to Kube (Openshift) - Github Link</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://github.com/ibm-cloud-architecture/cf-transformation/blob/master/exercise/iks.md">Lab 7: Migrate your app from CF to Kube (IKS) - Github link</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">DevOps Module</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/Devops_Concepts.html">DevOps Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/cicd.html">CI/CD</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/devops_tooling.html">Devops Tooling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/Lab8_Openshift.html">Lab 8: CI - Openshift</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/Lab8_IKS.html">Lab 8: CI - IKS</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/Lab9_OpenShift.html">Lab 9: CD - Openshift</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../DevOps_Module/Lab9_IKS.html">Lab 9: CD - IKS</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Cloudnative Learning 101</span>
+    <span class="version">1.0.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Cloudnative Learning 101</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main role="main">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Cloudnative Learning 101</a></li>
+    <li>Cloud Native Module</li>
+    <li><a href="Cloudnative_app_development.html">Cloud Native App Development</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="file:///root/project/modules/ROOT/pages/Cloud_Native_Module/Cloudnative_app_development.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1 class="page">Cloud Native Application Development</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">Introduction</a></li>
+<li><a href="#_application_design">Application Design</a></li>
+<li><a href="#_cloud_native_capabilities">Cloud native Capabilities</a></li>
+<li><a href="#_application_lifecycle">Application Lifecycle</a></li>
+<li><a href="#_twelve_factor_design_methodology">Twelve factor design methodology</a></li>
+<li><a href="#_application_requirements">Application Requirements</a></li>
+<li><a href="#_conclusion">Conclusion</a></li>
+<li><a href="#_references">References</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud native is all about the concepts that are used for building and deploying your applications on any cloud platform. It involves many things like adopting microservices architecture, containerization, orchestration etc.</p>
+</div>
+<div class="paragraph">
+<p>Cloud native applications will be managed by the infrastructure which in turn is managed by applications. In this installment, let us see what you need to include in your cloud native applications and how to run them on the cloud infrastructure.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_application_design"><a class="anchor" href="#_application_design"></a>Application Design</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>An application is called cloud native if it is designed in a way such that it takes advantage of most of the benefits of the cloud. So, these applications are all managed by software like mentioned before.</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s say we have an application packaged in a container and running on Kubernetes. This application does not accept any runtime configuration. There is no logging defined. Some of the configurations like database IP, credentials etc are hardcoded.</p>
+</div>
+<div class="paragraph">
+<p>What happens if the application stops working ? How are you going to debug it ?</p>
+</div>
+<div class="paragraph">
+<p>Will you call such an application cloud-native ? Definitely not.</p>
+</div>
+<div class="paragraph">
+<p>Containers and Kubernetes help you to run the applications smoothly on cloud infrastructure. Along with this, you also need to know how to effectively build and manage these applications.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_cloud_native_capabilities"><a class="anchor" href="#_cloud_native_capabilities"></a>Cloud native Capabilities</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>While developing cloud native applications, some of the capabilities that we include in the applications are as follows.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Configuration</p>
+</li>
+<li>
+<p>Health Checks</p>
+</li>
+<li>
+<p>Logging</p>
+</li>
+<li>
+<p>Metrics</p>
+</li>
+<li>
+<p>Resiliency</p>
+</li>
+<li>
+<p>Service discovery</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Usually, you can implement them in your applications in two ways.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Using the language libraries</p>
+</li>
+<li>
+<p>Using sidecar</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To implement these capabilities, you can import the language libraries into your application which will automatically get you most of these capabilities with out defining any extra code. This is easy to do and is well suitable if you have few languages in your applications.</p>
+</div>
+<div class="paragraph">
+<p>But if your application is a polyglot with many different languages, it is difficult to manage all the libraries. In such cases, you can use sidecar which is implemented as separate service including things like Health end point monitoring health of the application, configuration watching changes in the configs and reloading the application when required, registrator for service discovery, envoy proxy to handle resiliency and metrics etc.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_application_lifecycle"><a class="anchor" href="#_application_lifecycle"></a>Application Lifecycle</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong class="big maroon">Deploy</strong></p>
+</div>
+<div class="paragraph">
+<p>Deploying your cloud native application is not just taking the existing code and running it on cloud. Cloud native applications are defined in a way such the software manage them. For this, make sure you have the below embedded in your application.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Continuous integration</p>
+</li>
+<li>
+<p>Continuous deployment</p>
+</li>
+<li>
+<p>Health checks</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Deployments for your application should be automated, tested and verified. If you are introducing new features to your applications, you should be able to deploy them dynamically without restarting your applications. Also, when you are planning on a new feature or a new version to be deployed, make sure you have traffic control mechanisms in place which allows you to route the traffic towards or away from the application as per your requirements to reduce the outage impact.</p>
+</div>
+<div class="paragraph">
+<p><strong class="big maroon">Run</strong></p>
+</div>
+<div class="paragraph">
+<p>Running your application is one of the most important phases in the application lifecycle. While running the application, two most important aspects to keep in mind are</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Observability</p>
+</li>
+<li>
+<p>Operability</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>While running your application, you need to understand the what the application is doing which is observability and also you you should be able to change the application as needed which is operability.</p>
+</div>
+<div class="paragraph">
+<p>When your application is not meeting the SLO or is broken, what do you do ? In a cloud native application, we follow the below steps to see where the problem resides.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Verify infrastructure tests</p>
+</li>
+<li>
+<p>Application debugging - This can be done by using application performance monitoring (APM), distributed tracing etc.</p>
+</li>
+<li>
+<p>More verbose Logging</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>In today&#8217;s world, as the business keeps increasing, the application grows and you need to make sure that you defined a proper debugging strategy for your application which makes it easy to dynamically debug the applications similar to how we dynamically deploy them.</p>
+</div>
+<div class="paragraph">
+<p>One more important things to remember is that it is always easy to push new applications but the converse is not true. Though that is the case, it is still very important to retire the old applications that are not in use.</p>
+</div>
+<div class="paragraph">
+<p><strong class="big maroon">Retire</strong></p>
+</div>
+<div class="paragraph">
+<p>In cloud-native applications, all the new services are deployed automatically. Also, the services are monitored automatically using the monitoring mechanisms in place.</p>
+</div>
+<div class="paragraph">
+<p>Don&#8217;t you think the services should be retired in the same way too ?</p>
+</div>
+<div class="paragraph">
+<p>If you keep deploying new services without cleaning up the old ones which are in no longer use accrues a lot of technical debt. So, make sure your application includes a telemetry mechanism which helps you to identify if a service is being used. If not, the decision should be made by the business to keep it or retire it.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_twelve_factor_design_methodology"><a class="anchor" href="#_twelve_factor_design_methodology"></a>Twelve factor design methodology</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Code base</strong> - One code base tracked in revision control, many deploys.</p>
+</li>
+<li>
+<p><strong>Dependencies</strong> - Explicitly declare and isolate dependencies.</p>
+</li>
+<li>
+<p><strong>Config</strong> - Store config in the environment.</p>
+</li>
+<li>
+<p><strong>Backing services</strong> - Treat backing services as attached resources.</p>
+</li>
+<li>
+<p><strong>Build, release, run</strong> - Strictly separate build and run stages.</p>
+</li>
+<li>
+<p><strong>Processes</strong> - Execute the app as one (or more) stateless process(es).</p>
+</li>
+<li>
+<p><strong>Port binding</strong> - Export services through port binding.</p>
+</li>
+<li>
+<p><strong>Concurrency</strong> - Scale-out through the process model.</p>
+</li>
+<li>
+<p><strong>Disposability</strong> - Maximize robustness with fast startup and graceful shutdown.</p>
+</li>
+<li>
+<p><strong>Dev/prod parity</strong> - Keep development, staging, and production as similar as possible.</p>
+</li>
+<li>
+<p><strong>Logs</strong> - Treat logs as event streams.</p>
+</li>
+<li>
+<p><strong>Admin processes</strong> - Run admin/management tasks as one-off processes.</p>
+</li>
+</ul>
+</div>
+<div class="videoblock text-center">
+<div class="content">
+<iframe width="640" height="480" src="https://www.youtube.com/embed/jufe_sHejXc?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_application_requirements"><a class="anchor" href="#_application_requirements"></a>Application Requirements</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong class="big maroon">Runtime and Isolation</strong></p>
+</div>
+<div class="paragraph">
+<p>Your applications must be isolated from the operating system. You should be able to run them any where. This allows you to run multiple applications on same server and also allows to control their dependencies and resources.</p>
+</div>
+<div class="paragraph">
+<p>One way to achieve this is containerization. Among the different container options, Docker is popular. Container is nothing but a way to package your application and run it in an isolated environment. While developing the applications, also make sure all the dependencies are declared in your application before packaging it.</p>
+</div>
+<div class="paragraph">
+<p><strong class="big maroon">Resource Allocation and Scheduling</strong></p>
+</div>
+<div class="paragraph">
+<p>Your applications must include dynamic scheduling. This helps you to figure out where the application must run and this decisions are automatically taken for you by the scheduler. This scheduler collects all the informations of resources for different system and chooses the right place to run the application. Operator can override the decisions of the scheduler if he wants to.</p>
+</div>
+<div class="paragraph">
+<p><strong class="big maroon">Environment isolation</strong></p>
+</div>
+<div class="paragraph">
+<p>You need a proper environment isolation to differentiate dev, test, stage, production etc. based on your requirements. With out the complete duplication of your cluster, the infrastructure should be able to separate the dependencies through different application environments.</p>
+</div>
+<div class="paragraph">
+<p>These environments should include all of the resources like databases, network resources etc. needed by the application. Cloud native infrastructure can create environments with very low overhead.</p>
+</div>
+<div class="paragraph">
+<p><strong class="big maroon">Service discovery</strong></p>
+</div>
+<div class="paragraph">
+<p>In your application, there may be multiple services. These services may depend on one another. How will they find each other if one service needs to communicate with other ? For this, the infrastructure should provide a way for services to find each other.</p>
+</div>
+<div class="paragraph">
+<p>This may be in different ways. It can be using API calls or using DNS or with network proxies. There should be a service discovery mechanism in place and how you do this does not matter.</p>
+</div>
+<div class="paragraph">
+<p>Usually cloud native applications make use their infrastructure for service discovery to identify the dependent services. Some of them are cloud metadata services, DNS, etcd and consul etc.</p>
+</div>
+<div class="paragraph">
+<p><strong class="big maroon">State Management</strong></p>
+</div>
+<div class="paragraph">
+<p>While defining your cloud native application, you should provide a mechanism to check the status of the application. This can be done by an API or hook that checks the current state of the application like if it is submitted, Scheduled, ready, healthy, unhealthy, terminating etc.</p>
+</div>
+<div class="paragraph">
+<p>We usually have such capabilities in any of the orchestration platform we use. For example, if you consider Kubernetes, you can do this using events, probes and hooks. When the application is submitted, scheduled, or scaled, the event is triggered. Readiness probe checks if the application is ready and liveness probes checks if the application is healthy. Hooks are used for events that need to happen before or after processes start.</p>
+</div>
+<div class="paragraph">
+<p><strong class="big maroon">Monitoring and logging</strong></p>
+</div>
+<div class="paragraph">
+<p>Monitoring and logging should be a part of the cloud-native application. Dynamically monitoring all the services of the application is important. It keeps checking the entire application and is used for debugging purposes when required. Also, make sure your logging system should be able to collect all the logs and consolidate them together based on application, environments, tags etc.</p>
+</div>
+<div class="paragraph">
+<p><strong class="big maroon">Metrics</strong></p>
+</div>
+<div class="paragraph">
+<p>Cloud-native applications must include metrics as a part of their code. All the telemetry data needed will be provided by the metrics. This helps you to know whether your application is meeting the service-level objectives.</p>
+</div>
+<div class="paragraph">
+<p>Metrics are collected at instance level and later aggregated together to provide the complete view of the application. Once the application provides metrics, underlying infrastructure will scrape them out and use them for analysis.</p>
+</div>
+<div class="paragraph">
+<p><strong class="big maroon">Debugging and tracing</strong></p>
+</div>
+<div class="paragraph">
+<p>When an application is deployed and problem occurs, we refer to logging system. But if that does not resolve the issue, we need distributed tracing. Distributed tracing helps us to understand what is happening in the application. They will us to debug problems by providing us an interface to visualize which is different from the details we get from logging. Also, it provides shorter feedback loops which helps you to debug distributed systems easily.</p>
+</div>
+<div class="paragraph">
+<p>Application tracing is always important and make sure it is a part of your cloud-native application. If in case you cannot include it in the application, you can also enable it at infrastructure level using proxies or traffic analysis.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conclusion"><a class="anchor" href="#_conclusion"></a>Conclusion</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We discussed the cloud-native application design, implementations of cloud native patterns, and application life cycle. We also saw how we can design our cloud native applications using the twelve factor methodology. Along with this, we also explored what we need to include in our cloud naive application while building it.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_references"><a class="anchor" href="#_references"></a>References</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://learning.oreilly.com/library/view/managing-cloud-native/9781492037071/">Justin Garrison, Kris Nova, (2018). Managing cloud native applications. Publisher: O&#8217;Reilly Media, Inc.</a></p>
+</li>
+<li>
+<p><a href="https://learning.oreilly.com/library/view/cloud-native-architectures/9781787280540/">Piyum Zonooz, Erik Farr, Kamal Arora, Tom Laszewski, (2018). Cloud Native Architectures. Publisher: Packt Publishing</a></p>
+</li>
+<li>
+<p><a href="https://12factor.net/codebase">12factor.net</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
