@@ -226,9 +226,9 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ kubectl get secrets
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ kubectl get secrets
 NAME                  TYPE                                  DATA      AGE
-test-us-icr-io        kubernetes.io/dockerconfigjson        1         16m</pre>
+test-us-icr-io        kubernetes.io/dockerconfigjson        1         16m</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -236,7 +236,7 @@ test-us-icr-io        kubernetes.io/dockerconfigjson        1         16m</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ kubectl -n default create secret docker-registry test-us-icr-io --docker-server=us.icr.io --docker-username=iamapikey --docker-password=&lt;Your api key&gt; --docker-email=&lt;Your docker email&gt;</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ kubectl -n default create secret docker-registry test-us-icr-io --docker-server=us.icr.io --docker-username=iamapikey --docker-password=&lt;Your api key&gt; --docker-email=&lt;Your docker email&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -261,7 +261,7 @@ test-us-icr-io        kubernetes.io/dockerconfigjson        1         16m</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ kubectl create namespace argocd</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ kubectl create namespace argocd</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -269,7 +269,7 @@ test-us-icr-io        kubernetes.io/dockerconfigjson        1         16m</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>namespace/argocd created</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">namespace/argocd created</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -284,7 +284,7 @@ test-us-icr-io        kubernetes.io/dockerconfigjson        1         16m</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -295,9 +295,9 @@ test-us-icr-io        kubernetes.io/dockerconfigjson        1         16m</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>deployment.apps/argocd-redis created
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">deployment.apps/argocd-redis created
 deployment.apps/argocd-repo-server created
-deployment.apps/argocd-server created</pre>
+deployment.apps/argocd-server created</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -312,8 +312,8 @@ deployment.apps/argocd-server created</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ brew tap argoproj/tap
-$ brew install argoproj/tap/argocd</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ brew tap argoproj/tap
+$ brew install argoproj/tap/argocd</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -331,7 +331,7 @@ $ brew install argoproj/tap/argocd</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -342,8 +342,8 @@ $ brew install argoproj/tap/argocd</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
-service/argocd-server patched</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
+service/argocd-server patched</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -354,14 +354,14 @@ service/argocd-server patched</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ kubectl get svc -n argocd
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ kubectl get svc -n argocd
 NAME                    TYPE           CLUSTER-IP       EXTERNAL-IP      PORT(S)                      AGE
 argocd-dex-server       ClusterIP      172.21.204.98    &lt;none&gt;           5556/TCP,5557/TCP            13m
 argocd-metrics          ClusterIP      172.21.149.189   &lt;none&gt;           8082/TCP                     13m
 argocd-redis            ClusterIP      172.21.177.101   &lt;none&gt;           6379/TCP                     13m
 argocd-repo-server      ClusterIP      172.21.45.103    &lt;none&gt;           8081/TCP,8084/TCP            13m
 argocd-server           LoadBalancer   172.21.60.81     169.63.132.123   80:30123/TCP,443:31752/TCP   13m
-argocd-server-metrics   ClusterIP      172.21.171.206   &lt;none&gt;           8083/TCP                     13m</pre>
+argocd-server-metrics   ClusterIP      172.21.171.206   &lt;none&gt;           8083/TCP                     13m</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -378,7 +378,7 @@ argocd-server-metrics   ClusterIP      172.21.171.206   &lt;none&gt;           8
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ kubectl port-forward svc/argocd-server -n argocd 8080:443</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ kubectl port-forward svc/argocd-server -n argocd 8080:443</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -397,7 +397,7 @@ The initial password is autogenerated to be the pod name of the Argo CD API serv
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ kubectl get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | cut -d'/' -f 2</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ kubectl get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | cut -d'/' -f 2</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -405,7 +405,7 @@ The initial password is autogenerated to be the pod name of the Argo CD API serv
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ argocd login &lt;ARGOCD_SERVER&gt;</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ argocd login &lt;ARGOCD_SERVER&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -413,12 +413,12 @@ The initial password is autogenerated to be the pod name of the Argo CD API serv
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ argocd login 169.63.132.123:30123
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ argocd login 169.63.132.123:30123
 WARNING: server certificate had error: x509: cannot validate certificate for 169.63.132.123 because it doesn't contain any IP SANs. Proceed insecurely (y/n)? y
 Username: admin
 Password:
 'admin' logged in successfully
-Context '169.63.132.123:30123' updated</pre>
+Context '169.63.132.123:30123' updated</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -426,12 +426,12 @@ Context '169.63.132.123:30123' updated</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ argocd account update-password
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ argocd account update-password
 *** Enter current password:
 *** Enter new password:
 *** Confirm new password:
 Password updated
-Context '169.63.132.123:30123' updated</pre>
+Context '169.63.132.123:30123' updated</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -439,12 +439,12 @@ Context '169.63.132.123:30123' updated</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ argocd login localhost:8080
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ argocd login localhost:8080
 WARNING: server certificate had error: x509: certificate signed by unknown authority. Proceed insecurely (y/n)? y
 Username: admin
 Password:
 'admin' logged in successfully
-Context 'localhost:8080' updated</pre>
+Context 'localhost:8080' updated</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -452,12 +452,12 @@ Context 'localhost:8080' updated</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ argocd account update-password
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ argocd account update-password
 *** Enter current password:
 *** Enter new password:
 *** Confirm new password:
 Password updated
-Context 'localhost:8080' updated</pre>
+Context 'localhost:8080' updated</code></pre>
 </div>
 </div>
 </div>
@@ -478,7 +478,7 @@ Context 'localhost:8080' updated</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ argocd repo add https://github.com/ibm-cloud-architecture/cloudnative_sample_app_deploy --username &lt;username&gt; --password &lt;password&gt;</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ argocd repo add https://github.com/ibm-cloud-architecture/cloudnative_sample_app_deploy --username &lt;username&gt; --password &lt;password&gt;</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -490,11 +490,11 @@ Context 'localhost:8080' updated</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ argocd app create sampleapp \
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ argocd app create sampleapp \
    --repo https://github.com/ibm-cloud-architecture/cloudnative_sample_app_deploy.git \
    --path chart/cloudnativesampleapp \
    --dest-server https://kubernetes.default.svc \
-   --dest-namespace default</pre>
+   --dest-namespace default</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -502,12 +502,12 @@ Context 'localhost:8080' updated</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ argocd app create sampleapp \
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ argocd app create sampleapp \
 &gt;    --repo https://github.com/Hemankita/cloudnative_sample_app_deploy.git \
 &gt;    --path chart/cloudnativesampleapp \
 &gt;    --dest-server https://kubernetes.default.svc \
 &gt;    --dest-namespace default
-application 'sampleapp' created</pre>
+application 'sampleapp' created</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -554,7 +554,7 @@ application 'sampleapp' created</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ argocd app sync sampleapp</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ argocd app sync sampleapp</code></pre>
 </div>
 </div>
 <div class="imageblock text-center">
@@ -609,7 +609,7 @@ application 'sampleapp' created</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ kubectl get svc</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ kubectl get svc</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -617,9 +617,9 @@ application 'sampleapp' created</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ kubectl get svc
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ kubectl get svc
 NAME                              TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
-cloudnativesampleapp-service      NodePort    172.21.6.157     &lt;none&gt;        8080:30807/TCP   9m48s</pre>
+cloudnativesampleapp-service      NodePort    172.21.6.157     &lt;none&gt;        8080:30807/TCP   9m48s</code></pre>
 </div>
 </div>
 <div class="paragraph">

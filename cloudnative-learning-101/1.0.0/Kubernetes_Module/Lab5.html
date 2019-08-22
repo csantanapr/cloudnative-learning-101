@@ -406,7 +406,7 @@ Once logged in to either the <strong>OpenShift Console</strong> or <strong>CLI</
 <div class="listingblock">
 <div class="title">Create A Project</div>
 <div class="content">
-<pre>oc new-project deploy-sample</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ oc new-project deploy-sample</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -421,7 +421,7 @@ Once logged in to either the <strong>OpenShift Console</strong> or <strong>CLI</
 <div class="listingblock">
 <div class="title">Create A Deployment</div>
 <div class="content">
-<pre>oc create -f deployment.yaml</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ oc create -f deployment.yaml</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -430,7 +430,7 @@ Once logged in to either the <strong>OpenShift Console</strong> or <strong>CLI</
 <div class="listingblock">
 <div class="title">Verify Deployment</div>
 <div class="content">
-<pre>oc get deployment</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ oc get deployment</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -439,7 +439,7 @@ Once logged in to either the <strong>OpenShift Console</strong> or <strong>CLI</
 <div class="listingblock">
 <div class="title">Create A Service</div>
 <div class="content">
-<pre>oc create -f service.yaml</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ oc create -f service.yaml</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -448,7 +448,7 @@ Once logged in to either the <strong>OpenShift Console</strong> or <strong>CLI</
 <div class="listingblock">
 <div class="title">Verify Service</div>
 <div class="content">
-<pre>oc get svc</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ oc get svc</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -457,7 +457,7 @@ Once logged in to either the <strong>OpenShift Console</strong> or <strong>CLI</
 <div class="listingblock">
 <div class="title">Create a Route</div>
 <div class="content">
-<pre>oc expose svc greeting-service</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ oc expose svc greeting-service</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -469,7 +469,7 @@ Once logged in to either the <strong>OpenShift Console</strong> or <strong>CLI</
 <div class="listingblock">
 <div class="title">Retrieve the Route</div>
 <div class="content">
-<pre>oc get route</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ oc get route</code></pre>
 </div>
 </div>
 <div class="paragraph">

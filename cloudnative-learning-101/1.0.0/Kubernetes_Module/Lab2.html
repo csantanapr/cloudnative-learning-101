@@ -222,7 +222,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>docker -v</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker -v</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -230,7 +230,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>Docker version 19.03.0-beta3, build c55e026</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">Docker version 19.03.0-beta3, build c55e026</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -241,7 +241,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>docker run hello-world</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker run hello-world</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -249,7 +249,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ docker run hello-world
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker run hello-world
 Unable to find image 'hello-world:latest' locally
 latest: Pulling from library/hello-world
 1b930d010525: Pull complete
@@ -275,7 +275,7 @@ Share images, automate workflows, and more with a free Docker ID:
  https://hub.docker.com/
 
 For more examples and ideas, visit:
- https://docs.docker.com/get-started/</pre>
+ https://docs.docker.com/get-started/</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -292,7 +292,7 @@ For more examples and ideas, visit:
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>docker images</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker images</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -300,9 +300,9 @@ For more examples and ideas, visit:
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ docker images
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker images
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-hello-world         latest              fce289e99eb9        5 months ago        1.84kB</pre>
+hello-world         latest              fce289e99eb9        5 months ago        1.84kB</code></pre>
 </div>
 </div>
 </div>
@@ -315,11 +315,11 @@ hello-world         latest              fce289e99eb9        5 months ago        
 </div>
 <div class="listingblock">
 <div class="content">
-<pre># Clone the sample app
-git clone https://github.com/ibm-cloud-architecture/cloudnative_sample_app.git
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># Clone the sample app
+$ git clone https://github.com/ibm-cloud-architecture/cloudnative_sample_app.git
 
 # Go to the project's root folder
-cd cloudnative_sample_app/</pre>
+$ cd cloudnative_sample_app/</code></pre>
 </div>
 </div>
 </div>
@@ -334,7 +334,7 @@ cd cloudnative_sample_app/</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>./mvnw install</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ ./mvnw install</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -342,7 +342,7 @@ cd cloudnative_sample_app/</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ cloudnativesampleapp ---
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ cloudnativesampleapp ---
 [INFO] Installing /Users/user@ibm.com/cloudnative_sample_app/target/cloudnativesampleapp-1.0-SNAPSHOT.jar to /Users/user@ibm.com/.m2/repository/projects/cloudnativesampleapp/1.0-SNAPSHOT/cloudnativesampleapp-1.0-SNAPSHOT.jar
 [INFO] Installing /Users/user@ibm.com/cloudnative_sample_app/pom.xml to /Users/user@ibm.com/.m2/repository/projects/cloudnativesampleapp/1.0-SNAPSHOT/cloudnativesampleapp-1.0-SNAPSHOT.pom
 [INFO] ------------------------------------------------------------------------
@@ -350,7 +350,7 @@ cd cloudnative_sample_app/</pre>
 [INFO] ------------------------------------------------------------------------
 [INFO] Total time:  34.714 s
 [INFO] Finished at: 2019-06-28T11:11:06-05:00
-[INFO] ------------------------------------------------------------------------</pre>
+[INFO] ------------------------------------------------------------------------</code></pre>
 </div>
 </div>
 </div>
@@ -397,7 +397,7 @@ ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urando
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ docker build -t &lt;image_name&gt;:&lt;image_tag&gt; .</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker build -t &lt;image_name&gt;:&lt;image_tag&gt; .</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -408,7 +408,7 @@ ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urando
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>docker build -t greeting:v1.0.0 .</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker build -t greeting:v1.0.0 .</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -416,7 +416,7 @@ ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urando
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ docker build -t greeting:v1.0.0 .
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker build -t greeting:v1.0.0 .
 Sending build context to Docker daemon  28.99MB
 Step 1/5 : FROM ibmjava:8-sfj
 8-sfj: Pulling from library/ibmjava
@@ -444,7 +444,7 @@ Step 5/5 : ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/d
 Removing intermediate container 55bdf582dbb6
  ---&gt; 3ae7dfc4b794
 Successfully built 3ae7dfc4b794
-Successfully tagged greeting:v1.0.0</pre>
+Successfully tagged greeting:v1.0.0</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -452,7 +452,7 @@ Successfully tagged greeting:v1.0.0</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>docker images</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker images</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -463,11 +463,11 @@ Successfully tagged greeting:v1.0.0</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ docker images
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker images
 REPOSITORY          TAG                 IMAGE ID            CREATED              SIZE
 greeting            v1.0.0              3ae7dfc4b794        About a minute ago   251MB
 ibmjava             8-sfj               ab418b419902        9 days ago           222MB
-hello-world         latest              fce289e99eb9        5 months ago         1.84kB</pre>
+hello-world         latest              fce289e99eb9        5 months ago         1.84kB</code></pre>
 </div>
 </div>
 </div>
@@ -482,7 +482,7 @@ hello-world         latest              fce289e99eb9        5 months ago        
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>docker run -p &lt;port_to_expose&gt;:&lt;port&gt; -d --name &lt;container_name&gt; &lt;image_name&gt;:&lt;tag&gt;</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker run -p &lt;port_to_expose&gt;:&lt;port&gt; -d --name &lt;container_name&gt; &lt;image_name&gt;:&lt;tag&gt;</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -503,7 +503,7 @@ hello-world         latest              fce289e99eb9        5 months ago        
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>docker run -p 8080:8080 -d --name greeting greeting:v1.0.0</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker run -p 8080:8080 -d --name greeting greeting:v1.0.0</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -511,8 +511,8 @@ hello-world         latest              fce289e99eb9        5 months ago        
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ docker run -p 8080:8080 -d --name greeting greeting:v1.0.0
-a74b91789b29af6e7be92b30d0e68eef852bfb24336a44ef1485bb58becbd664</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker run -p 8080:8080 -d --name greeting greeting:v1.0.0
+a74b91789b29af6e7be92b30d0e68eef852bfb24336a44ef1485bb58becbd664</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -520,9 +520,9 @@ a74b91789b29af6e7be92b30d0e68eef852bfb24336a44ef1485bb58becbd664</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ docker run -p 8080:8080 -d --name greeting greeting:v1.0.0
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker run -p 8080:8080 -d --name greeting greeting:v1.0.0
 docker: Error response from daemon: Conflict. The container name "/greeting" is already in use by container "a74b91789b29af6e7be92b30d0e68eef852bfb24336a44ef1485bb58becbd664". You have to remove (or rename) that container to be able to reuse that name.
-See 'docker run --help'.</pre>
+See 'docker run --help'.</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -537,7 +537,7 @@ See 'docker run --help'.</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>docker ps</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker ps</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -545,9 +545,9 @@ See 'docker run --help'.</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ docker ps
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
-a74b91789b29        greeting:v1.0.0     "sh -c 'java $JAVA_O…"   2 minutes ago       Up 2 minutes        0.0.0.0:8080-&gt;8080/tcp   greeting</pre>
+a74b91789b29        greeting:v1.0.0     "sh -c 'java $JAVA_O…"   2 minutes ago       Up 2 minutes        0.0.0.0:8080-&gt;8080/tcp   greeting</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -562,7 +562,7 @@ a74b91789b29        greeting:v1.0.0     "sh -c 'java $JAVA_O…"   2 minutes ago
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>docker inspect &lt;container-name|container-id&gt;</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker inspect &lt;container-name|container-id&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -573,7 +573,7 @@ a74b91789b29        greeting:v1.0.0     "sh -c 'java $JAVA_O…"   2 minutes ago
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ docker inspect greeting
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker inspect greeting
 [
     {
         "Id": "992723e38ecbdcd50a08d2acc0848e3fb93f182d6e14141e892de5a3f02e14be",
@@ -600,7 +600,7 @@ a74b91789b29        greeting:v1.0.0     "sh -c 'java $JAVA_O…"   2 minutes ago
         ..........
         ..........
     }
-]</pre>
+]</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -612,7 +612,7 @@ a74b91789b29        greeting:v1.0.0     "sh -c 'java $JAVA_O…"   2 minutes ago
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>docker logs &lt;container-name|container-id&gt;</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker logs &lt;container-name|container-id&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -623,7 +623,7 @@ a74b91789b29        greeting:v1.0.0     "sh -c 'java $JAVA_O…"   2 minutes ago
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ docker logs greeting</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker logs greeting</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -631,7 +631,7 @@ a74b91789b29        greeting:v1.0.0     "sh -c 'java $JAVA_O…"   2 minutes ago
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>mework.cloud.context.properties:name=configurationPropertiesRebinder,context=86174590,type=ConfigurationPropertiesRebinder]
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">mework.cloud.context.properties:name=configurationPropertiesRebinder,context=86174590,type=ConfigurationPropertiesRebinder]
 2019-07-15 21:35:31.136  INFO 6 --- [           main] o.s.j.e.a.AnnotationMBeanExporter        : Located managed bean 'refreshEndpoint': registering with JMX server as MBean [org.springframework.cloud.endpoint:name=refreshEndpoint,type=RefreshEndpoint]
 2019-07-15 21:35:31.312  INFO 6 --- [           main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 0
 2019-07-15 21:35:31.398  INFO 6 --- [           main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 2147483647
@@ -639,7 +639,7 @@ a74b91789b29        greeting:v1.0.0     "sh -c 'java $JAVA_O…"   2 minutes ago
 2019-07-15 21:35:31.435  INFO 6 --- [           main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
 2019-07-15 21:35:31.468  INFO 6 --- [           main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
 2019-07-15 21:35:31.779  INFO 6 --- [           main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
-2019-07-15 21:35:31.788  INFO 6 --- [           main] application.SBApplication                : Started SBApplication in 11.532 seconds (JVM running for 12.725)</pre>
+2019-07-15 21:35:31.788  INFO 6 --- [           main] application.SBApplication                : Started SBApplication in 11.532 seconds (JVM running for 12.725)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -660,7 +660,7 @@ a74b91789b29        greeting:v1.0.0     "sh -c 'java $JAVA_O…"   2 minutes ago
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{"id":2,"content":"Welcome to Cloudnative bootcamp !!! Hello, John :)"}</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">{"id":2,"content":"Welcome to Cloudnative bootcamp !!! Hello, John :)"}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -684,7 +684,7 @@ a74b91789b29        greeting:v1.0.0     "sh -c 'java $JAVA_O…"   2 minutes ago
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ docker login</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker login</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -692,11 +692,11 @@ a74b91789b29        greeting:v1.0.0     "sh -c 'java $JAVA_O…"   2 minutes ago
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ docker login
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker login
 Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
 Username: &lt;user_name&gt;
 Password:
-Login Succeeded</pre>
+Login Succeeded</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -708,7 +708,7 @@ Login Succeeded</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ docker tag &lt;src_image_name&gt;:&lt;tag&gt; &lt;repository_name&gt;/&lt;target_image&gt;:&lt;tag&gt;</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker tag &lt;src_image_name&gt;:&lt;tag&gt; &lt;repository_name&gt;/&lt;target_image&gt;:&lt;tag&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -716,7 +716,7 @@ Login Succeeded</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ docker tag greeting:v1.0.0 &lt;repository_name&gt;/greeting:v1.0.0</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker tag greeting:v1.0.0 &lt;repository_name&gt;/greeting:v1.0.0</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -728,7 +728,7 @@ Login Succeeded</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>docker push &lt;repository_name&gt;/&lt;image_name&gt;:&lt;tag&gt;</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker push &lt;repository_name&gt;/&lt;image_name&gt;:&lt;tag&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -736,7 +736,7 @@ Login Succeeded</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>docker push &lt;repository_name&gt;/greeting:v1.0.0</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker push &lt;repository_name&gt;/greeting:v1.0.0</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -744,7 +744,7 @@ Login Succeeded</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ docker push &lt;repository_name&gt;/greeting:v1.0.0
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker push &lt;repository_name&gt;/greeting:v1.0.0
 The push refers to repository [docker.io/&lt;repository_name&gt;/greeting]
 2e4d09cd03a2: Pushed
 d862b7819235: Pushed
@@ -756,7 +756,7 @@ e936f9f1df3e: Mounted from library/ibmjava
 10e46f329a25: Mounted from library/ibmjava
 24ab7de5faec: Mounted from library/ibmjava
 1ea5a27b0484: Mounted from library/ibmjava
-v1.0.0: digest: sha256:21c2034646a31a18b053546df00d9ce2e0871bafcdf764f872a318a54562e6b4 size: 2415</pre>
+v1.0.0: digest: sha256:21c2034646a31a18b053546df00d9ce2e0871bafcdf764f872a318a54562e6b4 size: 2415</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -774,7 +774,7 @@ v1.0.0: digest: sha256:21c2034646a31a18b053546df00d9ce2e0871bafcdf764f872a318a54
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>docker stop &lt;container-name|container-id&gt;</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker stop &lt;container-name|container-id&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -782,8 +782,8 @@ v1.0.0: digest: sha256:21c2034646a31a18b053546df00d9ce2e0871bafcdf764f872a318a54
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ docker stop greeting
-greeting</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker stop greeting
+greeting</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -795,7 +795,7 @@ greeting</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>docker rm &lt;container-name|container-id&gt;</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker rm &lt;container-name|container-id&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -803,8 +803,8 @@ greeting</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ docker rm greeting
-greeting</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker rm greeting
+greeting</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -816,7 +816,7 @@ greeting</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>docker rmi &lt;image_id&gt;</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker rmi &lt;image_id&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -824,7 +824,7 @@ greeting</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ docker images
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker images
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 greeting            v1.0.0              3ae7dfc4b794        About an hour ago   251MB
 ibmjava             8-sfj               ab418b419902        9 days ago          222MB
@@ -844,7 +844,7 @@ Deleted: sha256:c896bc720df99ee1a6ce305d17edfda42b043a47223ff2ac3e4f94199e6d595b
 Deleted: sha256:03952d61b1fc131f23629c02f7ffb93708ae77108a32e4eedd83d4ec987ba51c
 Deleted: sha256:a48e1b8909b41276ed1666d5262d981258163c6f0998b58e61efa4188944652e
 Deleted: sha256:872ef8aee8632246e43a346a70274030c3613fe81af162a2fb6d14e1fcba980d
-Deleted: sha256:1ea5a27b0484f2a227275fbb913d281461d9f356134a56002574904c3cfdea04</pre>
+Deleted: sha256:1ea5a27b0484f2a227275fbb913d281461d9f356134a56002574904c3cfdea04</code></pre>
 </div>
 </div>
 </div>
@@ -858,7 +858,7 @@ Deleted: sha256:1ea5a27b0484f2a227275fbb913d281461d9f356134a56002574904c3cfdea04
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ docker pull &lt;repository_name&gt;/&lt;image_name&gt;:&lt;tag&gt;</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker pull &lt;repository_name&gt;/&lt;image_name&gt;:&lt;tag&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -866,7 +866,7 @@ Deleted: sha256:1ea5a27b0484f2a227275fbb913d281461d9f356134a56002574904c3cfdea04
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ docker pull &lt;repository_name&gt;/greeting:v1.0.0</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker pull &lt;repository_name&gt;/greeting:v1.0.0</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -874,12 +874,12 @@ Deleted: sha256:1ea5a27b0484f2a227275fbb913d281461d9f356134a56002574904c3cfdea04
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>ddcb5f219ce2: Pull complete
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">ddcb5f219ce2: Pull complete
 e3371bbd24a0: Pull complete
 49d2efb3c01b: Pull complete
 Digest: sha256:21c2034646a31a18b053546df00d9ce2e0871bafcdf764f872a318a54562e6b4
 Status: Downloaded newer image for &lt;repository_name&gt;/greeting:v1.0.0
-docker.io/&lt;repository_name&gt;/greeting:v1.0.0</pre>
+docker.io/&lt;repository_name&gt;/greeting:v1.0.0</code></pre>
 </div>
 </div>
 </div>
@@ -959,7 +959,7 @@ ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urando
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>docker build -f Dockerfile.multistage -t greeting:v2.0.0 .</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker build -f Dockerfile.multistage -t greeting:v2.0.0 .</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -967,7 +967,7 @@ ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urando
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ docker build -f Dockerfile.multistage -t greeting:v2.0.0 .
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker build -f Dockerfile.multistage -t greeting:v2.0.0 .
 Sending build context to Docker daemon  28.99MB
 Step 1/15 : FROM maven:3.3-jdk-8 as builder
 3.3-jdk-8: Pulling from library/maven
@@ -1018,7 +1018,7 @@ Step 15/15 : ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:
 Removing intermediate container 743a0dfaace5
  ---&gt; f79f112b85de
 Successfully built f79f112b85de
-Successfully tagged greeting:v2.0.0</pre>
+Successfully tagged greeting:v2.0.0</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1026,7 +1026,7 @@ Successfully tagged greeting:v2.0.0</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>docker images</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker images</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1034,11 +1034,11 @@ Successfully tagged greeting:v2.0.0</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ docker images
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker images
 REPOSITORY          TAG                 IMAGE ID            CREATED              SIZE
 greeting            v2.0.0              f79f112b85de        43 seconds ago       317MB
 ibmjava             8-sfj               ab418b419902        9 days ago           222MB
-maven               3.3-jdk-8           9997d8483b2f        2 years ago          653MB</pre>
+maven               3.3-jdk-8           9997d8483b2f        2 years ago          653MB</code></pre>
 </div>
 </div>
 </div>
@@ -1053,7 +1053,7 @@ maven               3.3-jdk-8           9997d8483b2f        2 years ago         
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>docker run -p 8080:8080 -d --name greeting_multistage greeting:v2.0.0</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker run -p 8080:8080 -d --name greeting_multistage greeting:v2.0.0</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1061,8 +1061,8 @@ maven               3.3-jdk-8           9997d8483b2f        2 years ago         
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ docker run -p 8080:8080 -d --name greeting_multistage greeting:v2.0.0
-fe8dc2ebfc7db2173806dc736ce47c80c2ebad4f5b70a236dcb17bd8c6d09aba</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker run -p 8080:8080 -d --name greeting_multistage greeting:v2.0.0
+fe8dc2ebfc7db2173806dc736ce47c80c2ebad4f5b70a236dcb17bd8c6d09aba</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -1074,7 +1074,7 @@ fe8dc2ebfc7db2173806dc736ce47c80c2ebad4f5b70a236dcb17bd8c6d09aba</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>docker ps</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker ps</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1082,9 +1082,9 @@ fe8dc2ebfc7db2173806dc736ce47c80c2ebad4f5b70a236dcb17bd8c6d09aba</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ docker ps
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
-fe8dc2ebfc7d        greeting:v2.0.0     "sh -c 'java $JAVA_O…"   17 seconds ago      Up 16 seconds       0.0.0.0:8080-&gt;8080/tcp   greeting_multistage</pre>
+fe8dc2ebfc7d        greeting:v2.0.0     "sh -c 'java $JAVA_O…"   17 seconds ago      Up 16 seconds       0.0.0.0:8080-&gt;8080/tcp   greeting_multistage</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -1099,7 +1099,7 @@ fe8dc2ebfc7d        greeting:v2.0.0     "sh -c 'java $JAVA_O…"   17 seconds ag
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>docker inspect &lt;container-name|container-id&gt;</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker inspect &lt;container-name|container-id&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1107,7 +1107,7 @@ fe8dc2ebfc7d        greeting:v2.0.0     "sh -c 'java $JAVA_O…"   17 seconds ag
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ docker inspect greeting_multistage</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker inspect greeting_multistage</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -1119,7 +1119,7 @@ fe8dc2ebfc7d        greeting:v2.0.0     "sh -c 'java $JAVA_O…"   17 seconds ag
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>docker logs &lt;container-name|container-id&gt;</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker logs &lt;container-name|container-id&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1127,7 +1127,7 @@ fe8dc2ebfc7d        greeting:v2.0.0     "sh -c 'java $JAVA_O…"   17 seconds ag
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ docker logs greeting_multistage</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker logs greeting_multistage</code></pre>
 </div>
 </div>
 </div>
@@ -1145,7 +1145,7 @@ fe8dc2ebfc7d        greeting:v2.0.0     "sh -c 'java $JAVA_O…"   17 seconds ag
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{"id":2,"content":"Welcome to Cloudnative bootcamp !!! Hello, John :)"}</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">{"id":2,"content":"Welcome to Cloudnative bootcamp !!! Hello, John :)"}</code></pre>
 </div>
 </div>
 </div>
@@ -1160,7 +1160,7 @@ fe8dc2ebfc7d        greeting:v2.0.0     "sh -c 'java $JAVA_O…"   17 seconds ag
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>docker stop &lt;container-name|container-id&gt;</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker stop &lt;container-name|container-id&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1168,8 +1168,8 @@ fe8dc2ebfc7d        greeting:v2.0.0     "sh -c 'java $JAVA_O…"   17 seconds ag
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ docker stop greeting_multistage
-greeting_multistage</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker stop greeting_multistage
+greeting_multistage</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -1181,7 +1181,7 @@ greeting_multistage</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>docker rm &lt;container-name|container-id&gt;</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker rm &lt;container-name|container-id&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1189,8 +1189,8 @@ greeting_multistage</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ docker rm greeting_multistage
-greeting_multistage</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker rm greeting_multistage
+greeting_multistage</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -1202,7 +1202,7 @@ greeting_multistage</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>docker rmi &lt;image_id&gt;</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker rmi &lt;image_id&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1210,7 +1210,7 @@ greeting_multistage</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ docker images
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ docker images
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 greeting            v2.0.0              f79f112b85de        5 minutes ago       317MB
 ibmjava             8-sfj               ab418b419902        9 days ago          222MB
@@ -1251,7 +1251,7 @@ Deleted: sha256:dcd168f76c182f075b2dcdafe6a80dcb6fa4180588214df23322b706dc2b9536
 Deleted: sha256:33690a5a483b7684bc809f4c4d8992d946f063b23fc99f68e661383953d910a8
 Deleted: sha256:2ecb867048da2f6e2740814c177ca71c959ab2c91acaefbe827149302b20076f
 Deleted: sha256:763ac6a64f068afd061160ff77b7ab41f61aba49b554bfe39ca033fcbf4f2d3c
-Deleted: sha256:5d6cbe0dbcf9a675e86aa0fbedf7ed8756d557c7468d6a7c64bde7fa9e029636</pre>
+Deleted: sha256:5d6cbe0dbcf9a675e86aa0fbedf7ed8756d557c7468d6a7c64bde7fa9e029636</code></pre>
 </div>
 </div>
 </div>

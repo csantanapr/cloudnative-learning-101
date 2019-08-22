@@ -227,7 +227,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ ibmcloud login -a cloud.ibm.com -r &lt;region&gt; -g &lt;cluster_name&gt;</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ ibmcloud login -a cloud.ibm.com -r &lt;region&gt; -g &lt;cluster_name&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -235,7 +235,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ ibmcloud ks cluster-config --cluster &lt;cluster_name&gt;</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ ibmcloud ks cluster-config --cluster &lt;cluster_name&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -250,7 +250,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ helm install --name cloudnative-jenkins --set persistence.enabled=false stable/jenkins</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ helm install --name cloudnative-jenkins --set persistence.enabled=false stable/jenkins</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -258,7 +258,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ helm install --name cloudnative-jenkins --set persistence.enabled=false stable/jenkins
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ helm install --name cloudnative-jenkins --set persistence.enabled=false stable/jenkins
 NAME:   cloudnative
 LAST DEPLOYED: Wed Aug  7 16:22:55 2019
 NAMESPACE: default
@@ -317,7 +317,7 @@ https://cloud.google.com/solutions/jenkins-on-container-engine
 #################################################################################
 ######   WARNING: Persistence is disabled!!! You will lose your data when   #####
 ######            the Jenkins pod is terminated.                            #####
-#################################################################################</pre>
+#################################################################################</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -332,8 +332,8 @@ https://cloud.google.com/solutions/jenkins-on-container-engine
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ export SERVICE_IP=$(kubectl get svc --namespace default cloudnative-jenkins --template "{{ range (index .status.loadBalancer.ingress 0) }}{{ . }}{{ end }}")
-$ echo http://$SERVICE_IP:8080/login</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ export SERVICE_IP=$(kubectl get svc --namespace default cloudnative-jenkins --template "{{ range (index .status.loadBalancer.ingress 0) }}{{ . }}{{ end }}")
+$ echo http://$SERVICE_IP:8080/login</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -341,8 +341,8 @@ $ echo http://$SERVICE_IP:8080/login</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ echo http://$SERVICE_IP:8080/login
-http://169.63.132.124:8080/login</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ echo http://$SERVICE_IP:8080/login
+http://169.63.132.124:8080/login</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -362,7 +362,7 @@ http://169.63.132.124:8080/login</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ printf $(kubectl get secret --namespace default cloudnative-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ printf $(kubectl get secret --namespace default cloudnative-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -370,8 +370,8 @@ http://169.63.132.124:8080/login</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ printf $(kubectl get secret --namespace default cloudnative-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
-password</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ printf $(kubectl get secret --namespace default cloudnative-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
+password</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -410,7 +410,7 @@ password</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ git clone https://github.com/&lt;user&gt;/cloudnative_sample_app.git</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ git clone https://github.com/&lt;user&gt;/cloudnative_sample_app.git</code></pre>
 </div>
 </div>
 </div>
