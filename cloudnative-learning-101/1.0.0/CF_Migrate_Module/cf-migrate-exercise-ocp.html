@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Migrating Cloud Foundry applications to IBM Kubernetes Service :: Cloudnative Learning 101</title>
-    <link rel="canonical" href="https://ibm-cloud-architecture.github.io/cloudnative-learning-101/cloudnative-learning-101/1.0.0/CF_Migrate_Module/cf-migrate-exercise-iks.html">
+    <title>Migrating Cloud Foundry applications to OpenShift :: Cloudnative Learning 101</title>
+    <link rel="canonical" href="https://ibm-cloud-architecture.github.io/cloudnative-learning-101/cloudnative-learning-101/1.0.0/CF_Migrate_Module/cf-migrate-exercise-ocp.html">
     <meta name="generator" content="Antora 2.0.1">
     <link rel="stylesheet" href="../../../_/css/site.css">
   </head>
@@ -85,10 +85,10 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="CF-migration.html">CF Migration Tool</a>
   </li>
-  <li class="nav-item" data-depth="2">
+  <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="cf-migrate-exercise-ocp.html">Lab 7: Migrate CloudFoundry (Openshift)</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="cf-migrate-exercise-iks.html">Lab 7: Migrate CloudFoundry (IKS)</a>
   </li>
 </ul>
@@ -152,21 +152,21 @@
   <ul>
     <li><a href="../index.html">Cloudnative Learning 101</a></li>
     <li>Cloud Foundry Migration Module</li>
-    <li><a href="cf-migrate-exercise-iks.html">Lab 7: Migrate CloudFoundry (IKS)</a></li>
+    <li><a href="cf-migrate-exercise-ocp.html">Lab 7: Migrate CloudFoundry (Openshift)</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="file:///root/project/modules/ROOT/pages/CF_Migrate_Module/cf-migrate-exercise-iks.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="file:///root/project/modules/ROOT/pages/CF_Migrate_Module/cf-migrate-exercise-ocp.adoc">Edit this Page</a></div>
 </div>
 <article class="doc">
-<h1 class="page">Migrating Cloud Foundry applications to IBM Kubernetes Service</h1>
+<h1 class="page">Migrating Cloud Foundry applications to OpenShift</h1>
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#_liberty_hello_world_application_accessed_from_downloaded_exemplar_sub_directory">Liberty hello-world application accessed from downloaded <code>exemplar</code> sub-directory</a>
 <ul class="sectlevel2">
 <li><a href="#_preparing_the_migration_environment">Preparing the migration environment</a></li>
-<li><a href="#_testing_the_application_on_the_cloud_foundry_environment">Testing the application on the Cloud Foundry environment</a></li>
-<li><a href="#_running_the_migration_tool_and_deploying_the_application_to_ibm_kubernetes_service">Running the migration tool and deploying the application to IBM Kubernetes Service</a></li>
+<li><a href="#_testing_the_application_on_cloud_foundry">Testing the application on Cloud Foundry</a></li>
+<li><a href="#_running_the_migration_tool_and_deploying_the_application_to_openshift">Running the migration tool and deploying the application to OpenShift</a></li>
 </ul>
 </li>
 <li><a href="#_liberty_hello_world_application_accessed_from_a_git_repository">Liberty hello-world application accessed from a Git repository</a></li>
@@ -178,7 +178,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>This exercise describes using the migration tool to migrate each of the following example applications to IBM Kubernetes Service:</p>
+<p>This exercise describes using the migration tool to migrate each of the following example applications to OpenShift:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -238,7 +238,7 @@
 <p>Testing the application on Cloud Foundry</p>
 </li>
 <li>
-<p>Running the migration tool and deploying the application to IBM Kubernetes Service</p>
+<p>Running the migration tool and deploying the application to OpenShift</p>
 </li>
 </ul>
 </div>
@@ -272,7 +272,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_testing_the_application_on_the_cloud_foundry_environment"><a class="anchor" href="#_testing_the_application_on_the_cloud_foundry_environment"></a>Testing the application on the Cloud Foundry environment</h3>
+<h3 id="_testing_the_application_on_cloud_foundry"><a class="anchor" href="#_testing_the_application_on_cloud_foundry"></a>Testing the application on Cloud Foundry</h3>
 <div class="paragraph">
 <p>As mentioned at the beginning of the exercise, you deploy the application to Cloud Foundry. This stage verifies that the application actually runs and allows you to collect the VCAP_SERVICES environment variable contents for the application&#8217;s backend services.</p>
 </div>
@@ -305,7 +305,7 @@ ibmcloud target --cf</pre>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../_images/002-cflogin.png" alt="002 cflogin">
+<img src="../_images/002a-cflogin.png" alt="002a cflogin">
 </div>
 </div>
 </li>
@@ -344,12 +344,12 @@ cf push jc-hello-world -n jc-hello-world</pre>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../_images/003-cups.png" alt="003 cups">
+<img src="../_images/003a-cups.png" alt="003a cups">
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../_images/003-cfpush.png" alt="003 cfpush">
+<img src="../_images/003a-cfpush.png" alt="003a cfpush">
 </div>
 </div>
 </li>
@@ -357,7 +357,7 @@ cf push jc-hello-world -n jc-hello-world</pre>
 <p>Test your application to see whether it is running on Cloud Foundry. Go to the URL <code><a href="http://jc-hello-world.mybluemix.net" class="bare">http://jc-hello-world.mybluemix.net</a></code>, substituting your initials for <code>jc</code>. You should see the following screen, with your name displayed:</p>
 <div class="imageblock">
 <div class="content">
-<img src="../_images/004-sampleapp.png" alt="004 sampleapp">
+<img src="../_images/004a-sampleapp.png" alt="004a sampleapp">
 </div>
 </div>
 </li>
@@ -393,7 +393,7 @@ cat vcap.json</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_running_the_migration_tool_and_deploying_the_application_to_ibm_kubernetes_service"><a class="anchor" href="#_running_the_migration_tool_and_deploying_the_application_to_ibm_kubernetes_service"></a>Running the migration tool and deploying the application to IBM Kubernetes Service</h3>
+<h3 id="_running_the_migration_tool_and_deploying_the_application_to_openshift"><a class="anchor" href="#_running_the_migration_tool_and_deploying_the_application_to_openshift"></a>Running the migration tool and deploying the application to OpenShift</h3>
 <div class="paragraph">
 <p>The last stage of the migration is performed for the specific target environment.</p>
 </div>
@@ -403,7 +403,7 @@ cat vcap.json</pre>
 <p>Run the migration command:</p>
 <div class="literalblock">
 <div class="content">
-<pre>./cf-migrate.sh -s /cf-transformation/exemplar/hello-world -t /data/cfliberty1 -e iks -b ibm-websphere-liberty</pre>
+<pre>./cf-migrate.sh -s /cf-transformation/exemplar/hello-world -t /data/cfliberty1 -e openshift -b ibm-websphere-liberty</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -411,7 +411,7 @@ cat vcap.json</pre>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../_images/006a-convert-iks.png" alt="006a convert iks">
+<img src="../_images/006a-convert.png" alt="006a convert">
 </div>
 </div>
 </li>
@@ -419,25 +419,25 @@ cat vcap.json</pre>
 <p>Open the generated <code>result.html</code> file using a Web browser (remember the path mapping that you did in the first step of preparing the environment). The <code>result.html</code> file will be in the subdirectory <code>cfliberty1/hello-world/defaultServer</code>.</p>
 <div class="imageblock">
 <div class="content">
-<img src="../_images/007a-result-iks.png" alt="007a result iks">
+<img src="../_images/007a-result.png" alt="007a result">
 </div>
 </div>
 </li>
 <li>
-<p>Go directly to the section <strong>Deploying application to iks</strong> and perform the step-by-step instructions there. Note that you must specify the following values:</p>
+<p>Go directly to the section <strong>Deploying application to openshift</strong> and perform the step-by-step instructions there. Note that you must specify the following values:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Repository host (REPOHOST). You can use <code>docker.io</code> to use DockerHub or use <code>icr.io</code> for IBM Cloud registry.</p>
+<p>Repository host (REPOHOST). You can use <code>docker.io</code> to use DockerHub</p>
 </li>
 <li>
-<p>Namespace (REPOSPACE). Your namespace (in DockerHub, it is similar to your userID) that you define in the repository.</p>
+<p>Namespace (REPOSPACE). Your own namespace in DockerHub (similar to your userID)</p>
 </li>
 <li>
-<p>Kubernetes cluster name (CLUSTER)</p>
+<p>Openshift cluster host URL (SERVER)</p>
 <div class="literalblock">
 <div class="content">
-<pre>Note that for login to the IBM Kubernetes Services cluster using the `ibmcloud login` command, you may be asked to get an SSO login token. The commands that are listed in steps 2 and later are using the environment variables that are set above. If you have defined these environment variables, you should be able to run the commands as-is, directly cut-and-pasted from the `result.html` browser page to the bash prompt of the cfmigrationtool container.</pre>
+<pre>Note that for login to the OpenShift cluster using the `oc login` command, you may be asked to get a login token from the server. You can easily get this token from a login session to the OpenShift Web Console GUI. The commands that are listed in steps 2 and later are using the environment variables that are set above. If you have defined these environment variables, you should be able to run the commands as-is, directly cut-and-pasted from the `result.html` browser page to the bash prompt of the cfmigrationtool container.</pre>
 </div>
 </div>
 </li>
@@ -445,39 +445,26 @@ cat vcap.json</pre>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../_images/007-1-output-iks.png" alt="007 1 output iks">
+<img src="../_images/007-1-output.png" alt="007 1 output">
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../_images/007-2-output-iks.png" alt="007 2 output iks">
+<img src="../_images/007-2-output.png" alt="007 2 output">
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../_images/007-3-output-iks.png" alt="007 3 output iks">
+<img src="../_images/007-3-output.png" alt="007 3 output">
 </div>
 </div>
 </li>
 <li>
-<p>Once the migration is completed, depending on the Kubernetes cluster type (Free or Paid cluster), collect the target route as follows (you must do the same thing for each of the other scenarios below):</p>
-<div class="ulist">
-<ul>
-<li>
-<p>For free cluster, use the Worker Node public IP and NodePort, run <code>ibmcloud ks workers --cluster $CLUSTER</code> and <code>kubectl get service</code></p>
-</li>
-<li>
-<p>For a paid cluster, the target route should be: <code>&lt;APPLNAME&gt;.&lt;CLUSTER&gt;.&lt;REGION&gt;.containers.appdomain.cloud</code></p>
-<div class="paragraph">
-<p>Open a browser window to <code><a href="http://&lt;routehost&gt;/JavaHelloWorldApp" class="bare">http://&lt;routehost&gt;/JavaHelloWorldApp</a></code>. The result should be similar to the one you had for the application on Cloud Foundry.</p>
-</div>
+<p>Once the migration is completed, check the route that is created and open a browser window to <code><a href="https://&lt;routehost&gt;/JavaHelloWorldApp" class="bare">https://&lt;routehost&gt;/JavaHelloWorldApp</a></code>. The result should be similar to the one you had for the application on Cloud Foundry.</p>
 <div class="imageblock">
 <div class="content">
-<img src="../_images/008a-sampleapp-iks.png" alt="008a sampleapp iks">
+<img src="../_images/008a-sampleapp.png" alt="008a sampleapp">
 </div>
-</div>
-</li>
-</ul>
 </div>
 </li>
 </ol>
@@ -498,12 +485,12 @@ cat vcap.json</pre>
 <div class="literalblock">
 <div class="content">
 <pre>cd /cf-transformation/migrate
-./cf-migrate.sh -s https://github.com/IBM-Cloud/java-helloworld -t /data/cfliberty2 -e iks -b ibm-websphere-liberty</pre>
+./cf-migrate.sh -s https://github.com/IBM-Cloud/java-helloworld -t /data/cfliberty2 -e openshift -b ibm-websphere-liberty</pre>
 </div>
 </div>
 </li>
 <li>
-<p>Open the <code>result.html</code> file in subdirectory <code>cfliberty2/hello-world/defaultServer</code> in a Web browser and follow the instructions similar to the first test case. Check whether the application has launched and can be accessed on IBM Kubernetes Services. Check the URL <code><a href="https://&lt;routehost&gt;/JavaHelloWorldApp" class="bare">https://&lt;routehost&gt;/JavaHelloWorldApp</a></code>.</p>
+<p>Open the <code>result.html</code> file in subdirectory <code>cfliberty2/target</code> in a Web browser and follow the instructions similar to the first test case. Check whether the application has launched and can be accessed on OpenShift. Check the URL <code><a href="https://&lt;routehost&gt;/JavaHelloWorldApp" class="bare">https://&lt;routehost&gt;/JavaHelloWorldApp</a></code>.</p>
 <div class="imageblock">
 <div class="content">
 <img src="../_images/liberty2.png" alt="liberty2">
@@ -527,12 +514,12 @@ cat vcap.json</pre>
 <div class="literalblock">
 <div class="content">
 <pre>cd /cf-transformation/migrate
-./cf-migrate.sh -s https://github.com/ibm-cloud-academy/lightblue-customer -t /data/cfjava -e iks -b java</pre>
+./cf-migrate.sh -s https://github.com/ibm-cloud-academy/lightblue-customer -t /data/cfjava -e openshift -b java</pre>
 </div>
 </div>
 </li>
 <li>
-<p>Open the <code>result.html</code> file in subdirectory <code>cfjava/target</code> in a Web browser and follow the instructions similar to the first test case. Check whether the application has launched and can be accessed on IBM Kubernetes Services. Check the URL <code><a href="https://&lt;routehost&gt;/customer" class="bare">https://&lt;routehost&gt;/customer</a></code>.</p>
+<p>Open the <code>result.html</code> file in subdirectory <code>cfjava/target</code> in a Web browser and follow the instructions similar to the first test case. Check whether the application has launched and can be accessed on OpenShift. Check the URL <code><a href="https://&lt;routehost&gt;/customer" class="bare">https://&lt;routehost&gt;/customer</a></code>.</p>
 <div class="imageblock">
 <div class="content">
 <img src="../_images/customer.png" alt="customer">
@@ -556,12 +543,12 @@ cat vcap.json</pre>
 <div class="literalblock">
 <div class="content">
 <pre>cd /cf-transformation/migrate
-./cf-migrate.sh -s https://github.com/IBM-Cloud/node-helloworld -t /data/cfnodejs -e iks -b nodejs</pre>
+./cf-migrate.sh -s https://github.com/IBM-Cloud/node-helloworld -t /data/cfnodejs -e openshift -b nodejs</pre>
 </div>
 </div>
 </li>
 <li>
-<p>Open the <code>result.html</code> file in subdirectory <code>cfnodejs/node-helloworld</code> in a Web browser and follow the instructions similar to the first test case. Check whether the application has launched and can be accessed on IBM Kubernetes Services. Check the URL <code><a href="https://&lt;routehost&gt;/" class="bare">https://&lt;routehost&gt;/</a></code>.</p>
+<p>Open the <code>result.html</code> file in subdirectory <code>cfnodejs/node-helloworld</code> in a Web browser and follow the instructions similar to the first test case. Check whether the application has launched and can be accessed on OpenShift. Check the URL <code><a href="https://&lt;routehost&gt;/" class="bare">https://&lt;routehost&gt;/</a></code>.</p>
 <div class="imageblock">
 <div class="content">
 <img src="../_images/nodehello.png" alt="nodehello">
@@ -584,7 +571,7 @@ cat vcap.json</pre>
 <p>Clone the application, and deploy the Cloudant database backend service and the application. Assuming you are still logged into IBM Cloud Public, the following commands are used.</p>
 <div class="literalblock">
 <div class="content">
-<pre>git clone https://github.com/IBM-Cloud/nodejs-cloudant.git
+<pre>git clone https://github.com/IBM-Cloud/nodejs-cloudant
 cd nodejs-cloudant
 cf create-service cloudantNoSQLDB Lite sample-nodejs-cloudant-cloudantNoSQLDB
 cf services</pre>
@@ -609,7 +596,7 @@ cf services</pre>
 </div>
 </li>
 <li>
-<p>Open the application and try uploading any file from your local system to the organizer application. Use <strong>Choose file</strong> and then <strong>Upload</strong>. This action is needed to demonstrate that the migrated application is using the same Cloudant backend service from IBM Kubernetes Services.</p>
+<p>Open the application and try uploading any file from your local system to the organizer application. Use <strong>Choose file</strong> and then <strong>Upload</strong>. This action is needed to demonstrate that the migrated application is using the same Cloudant backend service from OpenShift.</p>
 </li>
 </ul>
 </div>
@@ -633,12 +620,12 @@ cat vcap.json</pre>
 <p>Run the migration tool:</p>
 <div class="literalblock">
 <div class="content">
-<pre>./cf-migrate.sh -s https://github.com/IBM-Cloud/nodejs-cloudant -t /data/cfnodecloudant -e iks -b nodejs</pre>
+<pre>./cf-migrate.sh -s https://github.com/IBM-Cloud/nodejs-cloudant -t /data/cfnodecloudant -e openshift -b nodejs</pre>
 </div>
 </div>
 </li>
 <li>
-<p>Open the <code>result.html</code> file in subdirectory <code>cfnodecloudant/nodejs-cloudant</code> in a Web browser and follow the instructions similar to the first test case. Check whether the application has launched and can be accessed on IBM Kubernetes Services. Check the URL <code><a href="http://&lt;routehost&gt;/" class="bare">http://&lt;routehost&gt;/</a></code>. Make sure that the file that you uploaded from Cloud Foundry exists and is displayed from the database.</p>
+<p>Open the <code>result.html</code> file in subdirectory <code>cfnodecloudant/nodejs-cloudant`in a Web browser and follow the instructions similar to the first test case. Check whether the application has launched and can be accessed on OpenShift. Check the URL `https://&lt;routehost&gt;/</code>. Make sure that the file that you uploaded from Cloud Foundry exists and is displayed from the database.</p>
 </li>
 </ol>
 </div>
